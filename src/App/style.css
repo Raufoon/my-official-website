@@ -1,0 +1,45 @@
+.App {
+}
+
+.App .content {
+  display: flex;
+  flex-direction: row;
+}
+
+.App .navDesktop {
+  width: 300px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App .navDesktop a {
+  cursor: pointer;
+  width: 150px;
+  margin: 5px;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.App .navDesktop a:hover {
+  background-color: lightgray;
+}
+
+.App .navDesktop .active {
+  background: teal;
+  color: white;
+}
+
+.App .contentDesktop {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.App .notices {
+  width: 400px;
+}

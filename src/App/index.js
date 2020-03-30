@@ -2,6 +2,7 @@ import React, {lazy, Suspense} from 'react';
 import {NavLink, Switch, Route} from 'react-router-dom';
 import AppHeader from './components/AppHeader';
 import Responsive from './components/Responsive';
+import Loader from './components/Loader'
 import './style.css';
 
 const AboutMe = lazy(() => import('./routes/AboutMe'));
@@ -22,7 +23,7 @@ function App() {
           </nav>
 
           <main className="contentDesktop">
-            <Suspense fallback={<div>LOADING...</div>}>
+            <Suspense fallback={<Loader/>}>
               <Switch>
                 <Route exact path='/' component={AboutMe}></Route>
                 <Route exact path='/resume' component={ResumePage}></Route>
@@ -31,9 +32,28 @@ function App() {
             </Suspense>
           </main>
 
-          <Suspense fallback={<div>LOADING...</div>}>
+          <Suspense fallback={<Loader/>}>
             <NoticeBoard className="notices"/>
           </Suspense>
+        </Responsive>
+
+        <Responsive screens={[Responsive.MOBILE_SCREEN]}>
+          <div className="mobile">
+            <nav>
+              <NavLink exact to={'/'} active="active">Me</NavLink>
+              <NavLink to={'/projects'} active="active">Projects</NavLink>
+              <NavLink to={'/resume'} active="active">Resume</NavLink>
+            </nav>
+            <main>
+              <Suspense fallback={<Loader/>}>
+                <Switch>
+                  <Route exact path='/' component={AboutMe}></Route>
+                  <Route exact path='/resume' component={ResumePage}></Route>
+                  <Route exact path='/projects/:id?' component={Projects}></Route>
+                </Switch>
+              </Suspense>
+            </main>
+          </div>
         </Responsive>
       </div>
     </div>

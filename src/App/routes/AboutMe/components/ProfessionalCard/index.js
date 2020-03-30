@@ -2,22 +2,22 @@ import React from 'react';
 import './style.css';
 
 const ProfessionalCard = (props) => {
-  const {name, photoUrl, titles, info} = props;
+  const {className, name, photoUrl, titles, info} = props;
 
   return (
-    <div className='ProfessionalCard'>
+    <div className={`ProfessionalCard ${className}`}>
       <img src={photoUrl} className='photo'/>
       <div className="data">
         <h1>{name}</h1>
         {
-          titles.map(title => <h4 key={title}>{title}</h4>)
+          titles.map(title => <div key={title}>{title}</div>)
         }
-        <br/>
+        <div>&nbsp;</div>
         {
           info.map(({key, value}) => (
-            <h4 key={key}>
+            <div key={key}>
               <b>{key}</b>: {value}
-            </h4>
+            </div>
           ))
         }
       </div>

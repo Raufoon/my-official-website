@@ -1,3 +1,8 @@
 .AboutMe {
   line-height: 25px;
 }
+
+.AboutMe .cardMobile{
+  font-size: small;
+  font-weight: bold;
+}

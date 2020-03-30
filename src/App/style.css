@@ -5,6 +5,7 @@
 .App .content {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .App .navDesktop {
@@ -47,4 +48,39 @@
 
 .App .notices {
   width: 400px;
+}
+
+.App .mobile{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App .mobile nav{
+  display: flex;
+  flex-direction: row;
+  background-color: #fafafa;
+  width: 100%;
+  box-shadow: 0 2px 1px lightgray;
+  justify-content: center;
+}
+
+.App .mobile a{
+  margin: 10px;
+  color: gray;
+  font-size: small;
+  text-transform: uppercase;
+  overflow: auto;
+}
+
+.App .mobile main{
+  width: 100%;
+  padding: 15px;
+}
+
+.App .mobile .active {
+  font-weight: bold;
+  color: teal;
 }

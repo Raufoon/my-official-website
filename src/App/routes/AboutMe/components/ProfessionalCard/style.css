@@ -1,6 +1,8 @@
 .ProfessionalCard{
   display: flex;
-  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .ProfessionalCard:hover {
@@ -9,12 +11,16 @@
 
 .ProfessionalCard .photo{
   border: 1px solid gray;
-  height: 100%;
+  width: 100%;
 }
 
 .ProfessionalCard .data {
+  position: absolute;
   display: flex;
-  margin: 30px 20px 30px 20px;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 30px;
+  bottom: 0;
   flex-direction: column;
 }
 

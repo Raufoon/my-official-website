@@ -7,6 +7,7 @@ import './style.css';
 const AboutMe = lazy(() => import('./routes/AboutMe'));
 const NoticeBoard = lazy(() => import('./routes/NoticeBoard'));
 const ResumePage = lazy(() => import('./routes/ResumePage'));
+const Projects = lazy(() => import('./routes/Projects'));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Switch>
                 <Route exact path='/' component={AboutMe}></Route>
                 <Route exact path='/resume' component={ResumePage}></Route>
+                <Route exact path='/projects/:id?' component={Projects}></Route>
               </Switch>
             </Suspense>
           </main>

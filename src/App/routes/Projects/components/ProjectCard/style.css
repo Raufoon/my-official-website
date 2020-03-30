@@ -1,0 +1,46 @@
+.ProjectCard {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.ProjectCard .imageSlider {
+  width: 100%;
+  height: 100%;
+}
+
+.ProjectCard .projectInfo{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  color: white;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.ProjectCard .projectTool{
+  display: inline;
+  text-transform: uppercase;
+  margin-right: 10px;
+  color: yellow;
+}
+
+.ProjectCard a{
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.ProjectCard a:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.ProjectCard .linkArea{
+  display: flex;
+  flex-direction: row;
+}

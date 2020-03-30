@@ -7,7 +7,7 @@ class ImageSlider extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.sliderInterval = requestAnimationFrame(this.slide);
+    setTimeout(() => this.sliderInterval = requestAnimationFrame(this.slide), 5000)
   }
   componentWillUnmount() {
     cancelAnimationFrame(this.sliderInterval);

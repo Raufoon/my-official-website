@@ -11,7 +11,7 @@ const LocalStorageManager = {
 	},
 
 	save: (key, data) => {
-		if (process.env.NODE_ENV === 'development') return;
+		//if (process.env.NODE_ENV === 'development') return;
 
 		let dataToWrite = data;
 
@@ -23,7 +23,7 @@ const LocalStorageManager = {
 		localStorage.setItem(key, dataToWrite);
 	},
 
-	has: (key, maxAge=7200000) => {
+	has: (key, maxAge=3600000) => {
 		let age = new Date(parseInt(localStorage.getItem(`age-${key}`), 10));
 
 		if (Date.now() - age > maxAge) {

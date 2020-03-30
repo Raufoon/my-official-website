@@ -1,4 +1,5 @@
 .App {
+  overflow: hidden;
 }
 
 .App .content {
@@ -11,8 +12,8 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
+  margin-top: 30vh;
   align-items: center;
-  justify-content: center;
 }
 
 .App .navDesktop a {
@@ -40,6 +41,8 @@
   padding: 10px;
   padding-top: 30px;
   font-family: monospace;
+  overflow: auto;
+  height: 90vh;
 }
 
 .App .notices {

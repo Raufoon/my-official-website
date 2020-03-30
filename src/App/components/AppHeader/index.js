@@ -4,7 +4,7 @@ import './style.css';
 const AppHeader = () => {
   return (
     <header className='AppHeader'>
-      <div>Minhaz Raufoon</div>
+      <div className="myName">Minhaz Raufoon</div>
     </header>
   )
 }

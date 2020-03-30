@@ -9,5 +9,5 @@ export const fetchNotices = async () => {
     ['datetime', 'm'],
     ['datetime', 'd'],
   ]));
-  return sortedNotices;
+  return {notices: sortedNotices};
 }

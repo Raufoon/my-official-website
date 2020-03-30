@@ -1,0 +1,10 @@
+.ResumePage {
+
+}
+
+.ResumePage .cvSelector {
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+}

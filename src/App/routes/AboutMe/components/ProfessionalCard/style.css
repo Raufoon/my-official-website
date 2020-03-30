@@ -1,15 +1,20 @@
 .ProfessionalCard{
   display: flex;
+  height: 300px;
+}
+
+.ProfessionalCard:hover {
+  box-shadow: 0 0 10px lightgray;
 }
 
 .ProfessionalCard .photo{
-  height: 280px;
   border: 1px solid gray;
+  height: 100%;
 }
 
 .ProfessionalCard .data {
   display: flex;
-  margin: 15px;
+  margin: 30px 20px 30px 20px;
   flex-direction: column;
 }
 

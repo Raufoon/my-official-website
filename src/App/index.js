@@ -6,6 +6,7 @@ import './style.css';
 
 const AboutMe = lazy(() => import('./routes/AboutMe'));
 const NoticeBoard = lazy(() => import('./routes/NoticeBoard'));
+const ResumePage = lazy(() => import('./routes/ResumePage'));
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Suspense fallback={<div>LOADING...</div>}>
               <Switch>
                 <Route exact path='/' component={AboutMe}></Route>
+                <Route exact path='/resume' component={ResumePage}></Route>
               </Switch>
             </Suspense>
           </main>

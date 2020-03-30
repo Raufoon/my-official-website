@@ -1,3 +1,3 @@
 import firebaseService from '../../../../services/firebase-service';
 
-export const fetchBio = () => firebaseService.database.read('/about-me/bio');
+export const fetchAbout = () => firebaseService.database.read('/about-me');

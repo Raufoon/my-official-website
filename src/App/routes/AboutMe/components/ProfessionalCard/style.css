@@ -1,0 +1,26 @@
+.ProfessionalCard{
+  display: flex;
+}
+
+.ProfessionalCard .photo{
+  height: 280px;
+  border: 1px solid gray;
+}
+
+.ProfessionalCard .data {
+  display: flex;
+  margin: 15px;
+  flex-direction: column;
+}
+
+.ProfessionalCard .data h1{
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: "Comfortaa"
+}
+
+.ProfessionalCard .data h4{
+  margin: 0;
+  font-weight: normal;
+  margin-top: 10px;
+}

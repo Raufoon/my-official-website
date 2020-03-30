@@ -5,6 +5,7 @@ import Responsive from './components/Responsive';
 import './style.css';
 
 const AboutMe = lazy(() => import('./routes/AboutMe'));
+const NoticeBoard = lazy(() => import('./routes/NoticeBoard'));
 
 function App() {
   return (
@@ -19,16 +20,16 @@ function App() {
           </nav>
 
           <main className="contentDesktop">
-            <Suspense fallback={<div>loading...</div>}>
+            <Suspense fallback={<div>LOADING...</div>}>
               <Switch>
                 <Route exact path='/' component={AboutMe}></Route>
               </Switch>
             </Suspense>
           </main>
 
-          <div className="notices">
-            NNNNNN
-          </div>
+          <Suspense fallback={<div>LOADING...</div>}>
+            <NoticeBoard className="notices"/>
+          </Suspense>
         </Responsive>
       </div>
     </div>

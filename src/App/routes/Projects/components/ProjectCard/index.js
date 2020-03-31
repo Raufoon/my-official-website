@@ -13,7 +13,9 @@ const ProjectCard = ({project, className}) => {
     >
       <ImageSlider className='imageSlider' images={photos}/>
 
-      <div className="projectInfo" style={{left: isInfoVisible ? '0':'100%'}} onMouseOut={() => setVisibility(false)}>
+      <div className="projectInfo"
+        style={{left: isInfoVisible ? '0':'100%'}}
+        onMouseOut={() => setVisibility(false)}>
         <h1>{title}</h1>
         <h3>{summary}</h3>
         {

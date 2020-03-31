@@ -13,7 +13,7 @@ const Projects = lazy(() => import('./routes/Projects'));
 function App() {
   return (
     <div className="App">
-      <AppHeader/>
+      <AppHeader myName="Minhaz Raufoon"/>
       <div className="content">
         <Responsive screens={[Responsive.MEDIUM_SCREEN, Responsive.LARGE_SCREEN]}>
           <nav className="navDesktop">

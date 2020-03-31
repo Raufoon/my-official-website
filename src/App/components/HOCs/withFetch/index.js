@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from '../../Loader'
 
 function withFetch(WrappedComponent, fetchFunc) {
   return class extends React.Component {
@@ -18,7 +19,7 @@ function withFetch(WrappedComponent, fetchFunc) {
       const {isLoading, hasLoaded, hasError, ...rest} = this.state;
       const {className} = this.props;
 
-      if (isLoading) return <div className={className}>LOADING...</div>
+      if (isLoading) return <Loader/>
 
       if (hasError) return <div className={className}>couldn't load data, please refresh</div>
 

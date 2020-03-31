@@ -1,5 +1,4 @@
 .ProfessionalCard{
-  display: flex;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -22,6 +21,10 @@
   padding: 30px;
   bottom: 0;
   flex-direction: column;
+}
+
+.ProfessionalCard .data-mobile {
+  font-size: small;
 }
 
 .ProfessionalCard .data h1{

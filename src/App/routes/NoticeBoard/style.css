@@ -1,4 +1,5 @@
 .NoticeBoard {
+  height: 90vh;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -6,9 +7,6 @@
 }
 
 .NoticeBoard .notice {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 10px;
   text-align: center;
   position: relative;

@@ -14,8 +14,8 @@ const NoticeBoard = props => {
           const {color, content} = notice;
 
           return (
-            <div key={index} className="notice">
-              <div className="noticeContent" dangerouslySetInnerHTML={{__html: content}}  style={{background: color}}/>
+            <div key={index} className="notice" dangerouslySetInnerHTML={{__html: content}}  style={{background: color}}>
+
             </div>
           )
         })

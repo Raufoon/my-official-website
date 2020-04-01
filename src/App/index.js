@@ -41,6 +41,7 @@ function App() {
           <div className="mobile">
             <nav>
               <NavLink exact to={'/'} active="active">Me</NavLink>
+              <NavLink to={'/notices'} active="active">Notices</NavLink>
               <NavLink to={'/projects'} active="active">Projects</NavLink>
               <NavLink to={'/resume'} active="active">Resume</NavLink>
             </nav>
@@ -49,6 +50,7 @@ function App() {
                 <Switch>
                   <Route exact path='/' component={AboutMe}></Route>
                   <Route exact path='/resume' component={ResumePage}></Route>
+                  <Route exact path='/notices' component={NoticeBoard}></Route>
                   <Route exact path='/projects/:id?' component={Projects}></Route>
                 </Switch>
               </Suspense>

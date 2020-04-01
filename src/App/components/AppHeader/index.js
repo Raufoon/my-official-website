@@ -12,8 +12,8 @@ const AppHeader = (props) => {
       <div className="myName">{myName}</div>
       {
         links.map(({icon, url}) => (
-          <a className="socialLink" key={url} href={url} target="_blank">
-            <img src={icon}/>
+          <a className="socialLink" rel="noopener noreferrer" key={url} href={url} target="_blank">
+            <img src={icon} alt={`A social link icon`}/>
           </a>
         ))
       }

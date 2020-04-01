@@ -11,8 +11,7 @@ const NoticeBoard = props => {
       <h3>Notices</h3>
       {
         notices.map((notice, index) => {
-          const {color, content, datetime} = notice;
-          const {d, m, y} = datetime;
+          const {color, content} = notice;
 
           return (
             <div key={index} className="notice">

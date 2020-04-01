@@ -24,7 +24,7 @@ const ProjectCard = ({project, className}) => {
         <br/>
         <div className="linkArea">
           {
-            links.map(({title, url}) => <a key={title} href={url} target="_blank">{title}</a>)
+            links.map(({title, url}) => <a key={title} href={url} target="_blank" rel="noopener noreferrer">{title}</a>)
           }
         </div>
       </div>

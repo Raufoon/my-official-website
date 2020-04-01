@@ -19,7 +19,7 @@ const ResumePage = props => {
         <option value={CV_GEN_DE}>General Resume (German)</option>
       </select>
 
-      <iframe width={'100%'} scrolling="no" height={600} src={resumeUrl}/>
+      <iframe title="Resume View" width={'100%'} scrolling="no" height={600} src={resumeUrl}/>
     </div>
   )
 }

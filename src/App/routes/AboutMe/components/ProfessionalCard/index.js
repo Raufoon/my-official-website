@@ -24,7 +24,7 @@ const ProfessionalCard = (props) => {
 
   return (
     <div className={`ProfessionalCard ${className}`}>
-      <img src={photoUrl} className='photo'/>
+      <img src={photoUrl} className='photo' alt='Me'/>
       <Responsive screens={[Responsive.MEDIUM_SCREEN, Responsive.LARGE_SCREEN]}>
         <div className="data">{data}</div>
       </Responsive>

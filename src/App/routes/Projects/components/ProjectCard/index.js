@@ -8,9 +8,9 @@ const ProjectCard = ({project, className}) => {
   const [isInfoVisible, setVisibility] = useState(false);
 
   return (
-    <div className={`ProjectCard ${className}`}
-      onMouseOver={() => setVisibility(true)}
-    >
+    <div className={`ProjectCard ${className}`} onMouseOver={() => setVisibility(true)}>
+      <div className="title">{title}</div>
+
       <ImageSlider className='imageSlider' images={photos}/>
 
       <div className="projectInfo"

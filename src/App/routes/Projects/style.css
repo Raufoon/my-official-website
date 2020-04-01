@@ -6,5 +6,6 @@
 .Projects .project {
   height: 450px;
   margin: 10px;
-  border: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 50px;
 }

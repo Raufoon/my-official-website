@@ -2,6 +2,17 @@
   display: flex;
   overflow: hidden;
   position: relative;
+  flex-direction: column;
+}
+
+.ProjectCard .title {
+  margin: 0;
+  font-size: large;
+  font-weight: bold;
+  font-family: 'Comfortaa';
+  padding: 10px;
+  background: #333333;
+  color: white;
 }
 
 .ProjectCard .imageSlider {

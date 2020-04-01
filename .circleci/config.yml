@@ -1,9 +1,6 @@
 version: 2.1
 jobs:
     build:
-        branches:
-          only:
-            - circleci-project-setup
         docker:
             - image: circleci/node:10.16.0
         working_directory: ~/repo
@@ -30,3 +27,11 @@ jobs:
             - run:
                   name: Firebase Deploy
                   command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: circleci-project-setup

@@ -2,7 +2,8 @@ version: 2.1
 jobs:
     build:
         branches:
-          only: circleci-project-setup
+          only:
+            - circleci-project-setup
         docker:
             - image: circleci/node:10.16.0
         working_directory: ~/repo

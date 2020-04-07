@@ -1,22 +1,25 @@
 import React from 'react';
 import {fetchNotices} from './services/api.js';
-import withFetch from '../../components/HOCs/withFetch';
+import useFetch from '../../hooks/useFetch';
+import Loader from '../../components/Loader';
 import './style.css';
 
 const NoticeBoard = props => {
-  const {className, notices} = props;
+  const [{notices}, isLoading, hasError] = useFetch(fetchNotices);
 
   return (
-    <div className={`NoticeBoard ${className}`}>
+    <div className={`NoticeBoard ${props.className}`}>
       <h3>Notices</h3>
+
+      {isLoading && <Loader/>}
+
+      {hasError && <b>Failed to load notices...</b>}
+
       {
-        notices.map((notice, index) => {
+        notices && notices.map((notice, index) => {
           const {color, content} = notice;
-
           return (
-            <div key={index} className="notice" dangerouslySetInnerHTML={{__html: content}}  style={{background: color}}>
-
-            </div>
+            <div key={index} className="notice" dangerouslySetInnerHTML={{__html: content}}  style={{background: color}}/>
           )
         })
       }
@@ -24,4 +27,4 @@ const NoticeBoard = props => {
   )
 }
 
-export default withFetch(NoticeBoard, fetchNotices)
+export default NoticeBoard

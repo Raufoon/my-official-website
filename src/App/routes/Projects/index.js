@@ -1,14 +1,21 @@
 import React from 'react'
-import withFetch from '../../components/HOCs/withFetch'
+import useFetch from '../../hooks/useFetch'
 import {fetchProjects} from './services/api.js'
 import ProjectCard from './components/ProjectCard'
+import Loader from '../../components/Loader'
 import './style.css'
 
-const Projects = ({projects}) => {
+const Projects = () => {
+  const [{projects}, isLoading, hasError] = useFetch(fetchProjects);
+
+  if (isLoading) return <Loader className="Projects"/>
+
   return (
     <div className="Projects">
+      {hasError && <b>Failed to load projects</b>}
+
       {
-        projects.map(project => {
+        projects && projects.map(project => {
           const {id} = project;
           return (
             <ProjectCard key={id} className="project" project={project}/>
@@ -19,4 +26,4 @@ const Projects = ({projects}) => {
   )
 }
 
-export default withFetch(Projects, fetchProjects)
+export default Projects

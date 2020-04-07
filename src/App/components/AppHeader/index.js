@@ -1,11 +1,12 @@
 import React from 'react';
-import withFetch from '../HOCs/withFetch'
+import useFetch from '../../hooks/useFetch'
 import {fetchSocialLinks} from '../../services/api.js';
 import './style.css';
 
 const AppHeader = (props) => {
-  const {socialLinks, myName} = props;
-  const links = Object.values(socialLinks);
+  const [{socialLinks}] = useFetch(fetchSocialLinks);
+  const {myName} = props;
+  const links = Object.values(socialLinks || {});
 
   return (
     <header className='AppHeader'>
@@ -21,4 +22,4 @@ const AppHeader = (props) => {
   )
 }
 
-export default withFetch(AppHeader, fetchSocialLinks);
+export default AppHeader

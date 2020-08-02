@@ -7,7 +7,7 @@ const CV_GEN_DE = 'https://firebasestorage.googleapis.com/v0/b/minhaz-raufoon.ap
 
 
 const ResumePage = props => {
-  const [resumeUrl, setResumeUrl] = useState(CV_EN);
+  const [resumeUrl, setResumeUrl] = useState(CV_DE);
 
   return (
     <div className='ResumePage'>

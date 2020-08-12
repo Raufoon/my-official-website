@@ -7,19 +7,23 @@ const CV_GEN_DE = 'https://firebasestorage.googleapis.com/v0/b/minhaz-raufoon.ap
 
 
 const ResumePage = props => {
-  const [resumeUrl, setResumeUrl] = useState(CV_DE);
+  //const [resumeUrl, setResumeUrl] = useState(CV_DE);
 
   return (
     <div className='ResumePage'>
-      <select className={'cvSelector'}
-        onChange={e => setResumeUrl(e.target.value)}
-        value={resumeUrl}>
-        <option value={CV_EN}>Technical CV (English)</option>
-        <option value={CV_DE}>Technical CV (German)</option>
-        <option value={CV_GEN_DE}>General Resume (German)</option>
-      </select>
+      {
+        /*
+        <select className={'cvSelector'}
+          onChange={e => setResumeUrl(e.target.value)}
+          value={resumeUrl}>
+          <option value={CV_EN}>Technical CV (English)</option>
+          <option value={CV_DE}>Technical CV (German)</option>
+          <option value={CV_GEN_DE}>General Resume (German)</option>
+        </select>
+        */
+      }
 
-      <iframe title="Resume View" width={'100%'} scrolling="no" height={600} src={resumeUrl}/>
+      <iframe title="Resume View" width={'100%'} scrolling="no" height={600} src={CV_DE}/>
     </div>
   )
 }

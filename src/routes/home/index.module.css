@@ -5,7 +5,7 @@
 @media screen and (min-width: 1001px) {
   .Home {
     flex-direction: row-reverse;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
@@ -16,7 +16,6 @@
 
 .poster {
   height: 50vh;
-  border-radius: 2px;
   background-position: 0 0;
 }
 @media screen and (min-width: 501px) {

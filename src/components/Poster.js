@@ -1,7 +1,7 @@
 import styles from "./Poster.module.css"
 
 export default function Poster(props) {
-  const { className, src, style } = props
+  const { className, src, style, children } = props
   return (
     <div
       className={`${styles.Poster} ${className}`}
@@ -10,7 +10,7 @@ export default function Poster(props) {
         ...(style || {}),
       }}
     >
-      &nbsp;
+      {children || <>&nbsp;</>}
     </div>
   )
 }

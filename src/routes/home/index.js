@@ -5,6 +5,7 @@ import useFetchListFromDB from "../../useFetchListFromDB"
 import { ReactComponent as GithubIcon } from "../../assets/icons/github.svg"
 import { ReactComponent as LinkedinIcon } from "../../assets/icons/linkedin2.svg"
 import { ReactComponent as XingIcon } from "../../assets/icons/xing2.svg"
+import PosterQuote from "./PosterQuote"
 
 export default function Home() {
   const aboutMe = useFetchFromDB(`en/me`)
@@ -44,6 +45,8 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutMe}>
+        <PosterQuote />
+
         <h2>{subtitle}</h2>
 
         {about.map((para, index) => (

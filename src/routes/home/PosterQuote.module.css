@@ -1,0 +1,18 @@
+.PosterQuote {
+  min-height: 200px;
+  height: 30vh;
+  background-position: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-shadow: 1px 1px 5px var(--color-bg);
+}
+
+.PosterQuote > * {
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.PosterQuote p {
+}

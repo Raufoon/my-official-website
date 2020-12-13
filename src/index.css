@@ -29,9 +29,10 @@ body {
 }
 
 #root {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
 }
@@ -42,8 +43,11 @@ code {
 }
 
 header {
-  height: var(--header-height);
+  position: -webkit-sticky;
   position: sticky;
+  top: 0;
+  left: 0;
+  height: var(--header-height);
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
 }

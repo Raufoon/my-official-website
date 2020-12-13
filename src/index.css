@@ -12,9 +12,9 @@ body {
 
   --color-bg: #0e1111;
   --color-text: #f1f1f1;
+  --color-icon: #f1f1f1;
   --color-highlight: yellow;
   --color-2: #232b2b;
-  --color-3: #3b444b;
 
   --header-height: 5rem;
   --footer-height: 10rem;
@@ -47,7 +47,7 @@ header {
   position: sticky;
   top: 0;
   left: 0;
-  height: var(--header-height);
+  min-height: var(--header-height);
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
 }
@@ -73,4 +73,15 @@ a {
   color: var(--color-text);
   text-transform: uppercase;
   font-weight: bold;
+}
+
+button {
+  border: unset;
+  background-color: unset;
+}
+
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--color-icon);
 }

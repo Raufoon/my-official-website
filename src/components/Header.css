@@ -16,6 +16,7 @@
   .Header nav {
     width: 100%;
     flex-direction: column;
+    display: none;
   }
 }
 
@@ -27,10 +28,21 @@
   .Header nav a {
     margin: 0;
     margin-top: var(--gap-1);
-    display: none;
+    margin-bottom: var(--gap-1);
   }
 }
 
 .Header nav .active {
   color: var(--color-highlight);
+}
+
+.navCollapseButton {
+  display: none;
+}
+
+@media screen and (max-width: 860px) {
+  .navCollapseButton {
+    display: inline-block;
+    margin-left: auto;
+  }
 }

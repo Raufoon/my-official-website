@@ -22,6 +22,12 @@ body {
   --gap-1: 2rem;
 }
 
+* {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
 #root {
   min-height: 100vh;
   display: flex;
@@ -46,6 +52,10 @@ main {
   flex: 1;
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
+}
+
+section {
+  min-height: calc(100vh - var(--header-height));
 }
 
 footer {

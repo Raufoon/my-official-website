@@ -12,7 +12,7 @@ export default function Home() {
   const socialLinksData = useFetchListFromDB(`contact/socialLinks`)
 
   if (aboutMe.isFetching || photosData.isFetching || socialLinksData.isFetching)
-    return "Loading"
+    return "Loading..."
 
   const { subtitle, about } = aboutMe
 

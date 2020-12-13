@@ -2,11 +2,32 @@
   display: flex;
   flex-direction: column;
 }
+@media screen and (min-width: 1001px) {
+  .Home {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+}
+
+.photoContainer {
+  display: flex;
+  flex-direction: column;
+}
 
 .poster {
   height: 50vh;
   border-radius: 2px;
   background-position: 0 0;
+}
+@media screen and (min-width: 501px) {
+  .poster {
+    height: 70vh;
+  }
+}
+@media screen and (min-width: 1001px) {
+  .poster {
+    width: 70vh;
+  }
 }
 
 .socialLinks {
@@ -23,4 +44,12 @@
 .socialLinks svg {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.aboutMe {
+}
+@media screen and (min-width: 1001px) {
+  .aboutMe {
+    margin-right: 2rem;
+  }
 }

@@ -8,3 +8,19 @@
   border-radius: 2px;
   background-position: 0 0;
 }
+
+.socialLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.socialLinks a {
+  margin: 1rem;
+}
+
+.socialLinks svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}

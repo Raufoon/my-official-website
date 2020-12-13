@@ -3,6 +3,16 @@ import ReactDOM from "react-dom"
 import "./index.css"
 import App from "./App"
 import reportWebVitals from "./reportWebVitals"
+import firebase from "firebase/app"
+
+firebase.initializeApp({
+  apiKey: "AIzaSyBX_gN0xhvNTQ8mRLD-BB8G2-Hly6DUYno",
+  authDomain: "minhaz-raufoon.firebaseapp.com",
+  databaseURL: "https://minhaz-raufoon.firebaseio.com",
+  projectId: "minhaz-raufoon",
+  storageBucket: "minhaz-raufoon.appspot.com",
+  messagingSenderId: "424916751339",
+})
 
 ReactDOM.render(
   <React.StrictMode>

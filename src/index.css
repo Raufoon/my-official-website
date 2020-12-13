@@ -54,8 +54,7 @@ header {
 
 main {
   flex: 1;
-  padding-left: var(--gap-1);
-  padding-right: var(--gap-1);
+  padding: var(--gap-1);
 }
 
 section {
@@ -66,6 +65,7 @@ footer {
   height: var(--footer-height);
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
+  background-color: var(--color-2);
 }
 
 a {

@@ -1,0 +1,9 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+}
+
+.poster {
+  height: 60vh;
+  border-radius: 2px;
+}

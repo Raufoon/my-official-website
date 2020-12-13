@@ -1,11 +1,17 @@
+import { Route, Switch } from "react-router-dom"
 import "./App.css"
-import Header from "./Header"
+import Header from "./components/Header"
+import Home from "./routes/home"
 
 function App() {
   return (
     <>
       <Header />
-      <main>Main</main>
+      <main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </main>
       <footer>Footer</footer>
     </>
   )

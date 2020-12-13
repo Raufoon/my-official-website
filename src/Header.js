@@ -11,7 +11,7 @@ export default function Header() {
         </NavLink>
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/resume">Resume</NavLink>
-        <NavLink to="/notice">Notice</NavLink>
+        <NavLink to="/notice">Notices</NavLink>
       </nav>
     </header>
   )

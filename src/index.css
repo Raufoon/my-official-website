@@ -20,6 +20,7 @@ body {
   --footer-height: 10rem;
 
   --gap-1: 2rem;
+  --main-padding: 2rem;
 }
 
 * {
@@ -54,11 +55,13 @@ header {
 
 main {
   flex: 1;
-  padding: var(--gap-1);
+  padding: var(--main-padding);
 }
 
 section {
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(
+    100vh - var(--header-height) - var(--main-padding) - var(--main-padding)
+  );
 }
 
 footer {

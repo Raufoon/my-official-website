@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { read } from "./database"
+import { readAsList } from "./database"
 
-export default function useDataFromDB(path) {
+export default function useFetchListFromDB(path, options) {
   const [info, setInfo] = useState({
     isFetching: true,
     hasError: false,
@@ -9,8 +9,10 @@ export default function useDataFromDB(path) {
 
   useEffect(() => {
     async function fetchInfo() {
-      const info = await read(path)
-      setInfo(info)
+      const info = await readAsList(path)
+      setInfo({
+        list: info,
+      })
     }
     fetchInfo()
   }, [path])

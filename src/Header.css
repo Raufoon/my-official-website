@@ -3,3 +3,19 @@
   flex-direction: row;
   align-items: center;
 }
+
+.Header nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Header nav a {
+  margin-left: var(--gap-1);
+  margin-right: var(--gap-1);
+}
+
+.Header nav .active {
+  color: var(--color-highlight);
+}

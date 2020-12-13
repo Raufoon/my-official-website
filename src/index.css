@@ -11,9 +11,10 @@ body {
   overflow-x: hidden;
 
   --color-bg: #0e1111;
+  --color-text: #f1f1f1;
+  --color-highlight: yellow;
   --color-2: #232b2b;
   --color-3: #3b444b;
-  --color-text: #f1f1f1;
 
   --header-height: 5rem;
   --footer-height: 10rem;
@@ -51,4 +52,11 @@ footer {
   height: var(--footer-height);
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  text-transform: uppercase;
+  font-weight: bold;
 }

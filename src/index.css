@@ -6,9 +6,41 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "PT Sans", sans-serif;
+
+  width: 100%;
+  overflow-x: hidden;
+
+  --color-bg: #0e1111;
+  --color-2: #232b2b;
+  --color-3: #3b444b;
+  --color-text: #f1f1f1;
+
+  --header-height: 5rem;
+  --footer-height: 10rem;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+header {
+  height: var(--header-height);
+  position: sticky;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  height: var(--footer-height);
 }

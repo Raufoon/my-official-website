@@ -17,6 +17,8 @@ body {
 
   --header-height: 5rem;
   --footer-height: 10rem;
+
+  --gap-1: 2rem;
 }
 
 #root {
@@ -35,12 +37,18 @@ code {
 header {
   height: var(--header-height);
   position: sticky;
+  padding-left: var(--gap-1);
+  padding-right: var(--gap-1);
 }
 
 main {
   flex: 1;
+  padding-left: var(--gap-1);
+  padding-right: var(--gap-1);
 }
 
 footer {
   height: var(--footer-height);
+  padding-left: var(--gap-1);
+  padding-right: var(--gap-1);
 }

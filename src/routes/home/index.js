@@ -6,12 +6,13 @@ export default function Home() {
   const { isFetching, hasError, subtitle, about, photos } = useDataFromDB(
     `en/me`
   )
+  if (isFetching) return "Loading..."
   return (
     <section className={styles.Home}>
       <div className={styles.photoContainer}>
         <Poster
           className={styles.poster}
-          src="https://i.imgur.com/K9Nkdus.jpg"
+          src={photos[Math.floor(Math.random() * photos.length)]}
         />
       </div>
       <div className={styles.aboutMe}>

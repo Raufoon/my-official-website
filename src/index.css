@@ -21,6 +21,7 @@ body {
 
   --gap-1: 2rem;
   --main-padding: 2rem;
+  --font-size: 1rem;
 }
 
 * {
@@ -76,11 +77,18 @@ a {
   color: var(--color-text);
   text-transform: uppercase;
   font-weight: bold;
+  padding: var(--gap-1);
+  text-align: center;
 }
 
 button {
   border: unset;
   background-color: unset;
+  color: var(--color-text);
+  font-weight: bold;
+  padding: var(--gap-1);
+  font-size: var(--font-size);
+  text-transform: uppercase;
 }
 
 button:hover {

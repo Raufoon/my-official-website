@@ -16,3 +16,7 @@
 .PosterQuote h3 button {
   padding: 0;
 }
+
+.PosterQuote iframe {
+  border: none;
+}

@@ -16,23 +16,22 @@ export default function PosterQuote(props) {
 
   if (isFetching) return "Loading..."
 
-  if (media_type === "video") return false
-
   return (
     <Poster
       className={styles.PosterQuote}
       src={url}
       style={{
-        height: isEnlarged ? "70vh" : "30vh",
+        height: isEnlarged ? "unset" : "30vh",
         backgroundPosition: isEnlarged ? "center" : "top",
       }}
     >
-      <h1>
+      <h3>
         <button onClick={() => setEnlarged((state) => !state)}>
           {isEnlarged ? <ShrinkIcon /> : <EnlargeIcon />}
         </button>
         &nbsp;&nbsp;{title}
-      </h1>
+      </h3>
+      {media_type === "video" && <iframe title="youtube" src={url}></iframe>}
       {isEnlarged && <p>{explanation}</p>}
     </Poster>
   )

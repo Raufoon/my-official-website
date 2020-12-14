@@ -6,9 +6,17 @@ import { ReactComponent as ShrinkIcon } from "../../assets/icons/shrink2.svg"
 
 export default function PosterQuote(props) {
   const [isEnlarged, setEnlarged] = useState(false)
-  const { isFetching, url, title, explanation } = useAstronomyPicOfTheDay()
+  const {
+    isFetching,
+    url,
+    media_type,
+    title,
+    explanation,
+  } = useAstronomyPicOfTheDay()
 
   if (isFetching) return "Loading..."
+
+  if (media_type === "video") return false
 
   return (
     <Poster

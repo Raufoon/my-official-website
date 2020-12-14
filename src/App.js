@@ -15,7 +15,7 @@ function App() {
           <Route component={InvalidRoutePage} />
         </Switch>
       </main>
-      <footer>Footer</footer>
+      <footer></footer>
     </>
   )
 }

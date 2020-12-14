@@ -22,9 +22,27 @@ export default function Header() {
     })
   }, [])
 
+  const langButtons = (
+    <>
+      <button
+        className={settings.lang === "en" ? "active" : ""}
+        onClick={() => setLang("en")}
+      >
+        EN
+      </button>
+      <button
+        className={settings.lang === "de" ? "active" : ""}
+        onClick={() => setLang("de")}
+      >
+        DE
+      </button>
+    </>
+  )
+
   return (
     <header className="Header">
       <h1>Minhaz Raufoon</h1>
+
       <button className="navCollapseButton" onClick={toggleMobileNav}>
         {isMobileNavVisible ? <ShrinkIcon /> : <ExpandIcon />}
       </button>
@@ -36,23 +54,10 @@ export default function Header() {
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/resume">Resume</NavLink>
         <NavLink to="/notice">Notices</NavLink>
+        <div className={"languageButtons forMobile"}>{langButtons}</div>
       </nav>
 
-      <div className={"languageButtons"}>
-        <button
-          className={settings.lang === "en" ? "active" : ""}
-          onClick={() => setLang("en")}
-        >
-          EN
-        </button>
-        &nbsp; |&nbsp;
-        <button
-          className={settings.lang === "de" ? "active" : ""}
-          onClick={() => setLang("de")}
-        >
-          DE
-        </button>
-      </div>
+      <div className={"languageButtons"}>{langButtons}</div>
     </header>
   )
 }

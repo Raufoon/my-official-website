@@ -39,12 +39,12 @@
 
 .navCollapseButton {
   display: none;
+  margin-left: auto;
 }
 
 @media screen and (max-width: 860px) {
   .navCollapseButton {
     display: inline-block;
-    margin-left: auto;
   }
 }
 
@@ -54,11 +54,31 @@
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 860px) {
+  .languageButtons {
+    display: none;
+  }
+}
 
+.languageButtons.forMobile {
+  display: none;
+}
+@media screen and (max-width: 860px) {
+  .languageButtons.forMobile {
+    display: flex;
+    margin: var(--gap-1);
+  }
+}
 .languageButtons .active {
   color: var(--color-highlight);
 }
 
 .languageButtons button {
   padding: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.languageButtons button:nth-child(1) {
+  border-right: 1px solid var(--color-text);
 }

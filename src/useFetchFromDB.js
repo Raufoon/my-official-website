@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { read } from "./database"
 
-export default function useFetchFromDB(path, options) {
+export default function useFetchFromDB(path) {
   const [info, setInfo] = useState({
     isFetching: true,
     hasError: false,

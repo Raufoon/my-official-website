@@ -36,16 +36,13 @@
   justify-content: center;
 }
 
-.socialLinks a {
-  margin: 1rem;
-}
-
 .socialLinks svg {
   width: 1.5rem;
   height: 1.5rem;
 }
 
 .aboutMe {
+  flex: 1;
 }
 @media screen and (min-width: 1001px) {
   .aboutMe {

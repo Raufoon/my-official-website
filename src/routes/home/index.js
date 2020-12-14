@@ -6,9 +6,12 @@ import { ReactComponent as GithubIcon } from "../../assets/icons/github.svg"
 import { ReactComponent as LinkedinIcon } from "../../assets/icons/linkedin2.svg"
 import { ReactComponent as XingIcon } from "../../assets/icons/xing2.svg"
 import PosterQuote from "./PosterQuote"
+import { useContext } from "react"
+import { SettingsContext } from "../../settings"
 
 export default function Home() {
-  const aboutMe = useFetchFromDB(`en/me`)
+  const { settings } = useContext(SettingsContext)
+  const aboutMe = useFetchFromDB(`${settings.lang}/me`)
   const photosData = useFetchListFromDB(`photos`)
   const socialLinksData = useFetchListFromDB(`contact/socialLinks`)
 

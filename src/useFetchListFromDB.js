@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { readAsList } from "./database"
 
-export default function useFetchListFromDB(path, options) {
+export default function useFetchListFromDB(path) {
   const [info, setInfo] = useState({
     isFetching: true,
     hasError: false,

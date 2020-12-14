@@ -46,7 +46,6 @@ function useAstronomyPicOfTheDay() {
       .then((response) => response.json())
       .then(function (data) {
         setApodData(data)
-        console.log(data)
       })
   }, [])
 

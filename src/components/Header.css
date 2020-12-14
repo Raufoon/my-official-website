@@ -40,6 +40,7 @@
 .navCollapseButton {
   display: none;
   margin-left: auto;
+  padding: 0;
 }
 
 @media screen and (max-width: 860px) {

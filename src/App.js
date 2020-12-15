@@ -7,6 +7,7 @@ import Loader from "./components/Loader"
 
 const Home = lazy(() => import("./routes/home"))
 const Resume = lazy(() => import("./routes/resume"))
+const Projects = lazy(() => import("./routes/projects"))
 
 function App() {
   const settings = useSettings()
@@ -19,6 +20,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/resume" component={Resume} />
+            <Route exact path="/projects" component={Projects} />
             <Route component={InvalidRoutePage} />
           </Switch>
         </Suspense>

@@ -8,6 +8,7 @@ import { ReactComponent as XingIcon } from "../../assets/icons/xing2.svg"
 import PosterQuote from "./PosterQuote"
 import { useContext } from "react"
 import { SettingsContext } from "../../settings"
+import Loader from "../../components/Loader"
 
 export default function Home() {
   const { settings } = useContext(SettingsContext)
@@ -16,7 +17,7 @@ export default function Home() {
   const socialLinksData = useFetchListFromDB(`contact/socialLinks`)
 
   if (aboutMe.isFetching || photosData.isFetching || socialLinksData.isFetching)
-    return "Loading..."
+    return <Loader />
 
   const { subtitle, about } = aboutMe
 

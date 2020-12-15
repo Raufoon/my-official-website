@@ -3,6 +3,7 @@ import Poster from "../../components/Poster"
 import styles from "./PosterQuote.module.css"
 import { ReactComponent as EnlargeIcon } from "../../assets/icons/enlarge2.svg"
 import { ReactComponent as ShrinkIcon } from "../../assets/icons/shrink2.svg"
+import Loader from "../../components/Loader"
 
 export default function PosterQuote(props) {
   const [isEnlarged, setEnlarged] = useState(false)
@@ -14,7 +15,7 @@ export default function PosterQuote(props) {
     explanation,
   } = useAstronomyPicOfTheDay()
 
-  if (isFetching) return "Loading..."
+  if (isFetching) return <Loader />
 
   return (
     <Poster

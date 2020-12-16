@@ -3,6 +3,7 @@ import styles from "./FullStackTemplate.module.css"
 
 export default function FullStackTemplate(props) {
   const {
+    className,
     type,
     title,
     subtitle,
@@ -12,7 +13,7 @@ export default function FullStackTemplate(props) {
   } = props
 
   return (
-    <section className={styles.FullStackTemplate}>
+    <section className={`${styles.FullStackTemplate} ${className}`}>
       <div className={styles.monolith}>
         <h3>{type}</h3>
       </div>

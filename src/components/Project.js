@@ -30,6 +30,7 @@ export default function Project({ project }) {
 
   return (
     <Template
+      className={styles.Project}
       {...project}
       {...rest}
       type={typeString}

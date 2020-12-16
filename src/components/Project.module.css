@@ -1,0 +1,13 @@
+.Project {
+}
+
+.Project h1 {
+  font-size: 2.5rem;
+}
+
+.Project label {
+  font-weight: 700;
+  margin-right: var(--gap-1);
+  margin-top: var(--gap-1);
+  color: #000;
+}

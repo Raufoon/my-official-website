@@ -24,7 +24,7 @@ export default function PhotoSlider(props) {
   }, [photos])
 
   return (
-    <div className={styles.PhotoSlider}>
+    <div className={`${styles.PhotoSlider} ${props.className}`}>
       <Poster className={styles.poster} src={photos[currentImageIdx]} />
 
       <div className={styles.dots}>

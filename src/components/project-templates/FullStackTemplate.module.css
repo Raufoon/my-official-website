@@ -1,0 +1,115 @@
+.FullStackTemplate {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 900px) {
+  .FullStackTemplate {
+    display: grid;
+    grid-template-columns: [c0] 55% [c1] 35% [c2] 10% [c3];
+    grid-template-rows: [r0] auto [r1] 50vh [r2];
+  }
+}
+@media screen and (min-width: 1250px) {
+  .FullStackTemplate {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.monolith {
+  height: 10vh;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #daa520;
+}
+@media screen and (min-width: 900px) {
+  .monolith {
+    grid-column-start: c2;
+    grid-column-end: c3;
+    grid-row-start: r0;
+    grid-row-end: r2;
+    height: unset;
+  }
+  .monolith h3 {
+    transform: rotate(90deg);
+    white-space: nowrap;
+    text-transform: capitalize;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .monolith {
+    order: 4;
+    width: 10vh;
+  }
+}
+
+.details {
+  background-color: var(--color-invert);
+  color: var(--color-bg);
+  padding: var(--gap-1);
+}
+@media screen and (min-width: 900px) {
+  .details {
+    grid-column-start: c0;
+    grid-column-end: c2;
+    grid-row-start: r0;
+    grid-row-end: r1;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .details {
+    flex: 2;
+  }
+}
+
+.technologies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.technologies > * {
+  margin-right: var(--gap-1);
+}
+
+.desktopImageSlider {
+  height: 30vh;
+  padding: var(--gap-1);
+  background-color: #468499;
+}
+@media screen and (min-width: 900px) {
+  .desktopImageSlider {
+    grid-column-start: c0;
+    grid-column-end: c1;
+    grid-row-start: r1;
+    grid-row-end: r2;
+    height: unset;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .desktopImageSlider {
+    flex: 2;
+  }
+}
+
+.mobileImageSlider {
+  background-color: #0e2f44;
+  height: 30vh;
+  padding: var(--gap-1);
+}
+@media screen and (min-width: 900px) {
+  .mobileImageSlider {
+    grid-column-start: c1;
+    grid-column-end: c2;
+    grid-row-start: r1;
+    grid-row-end: r2;
+    height: unset;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .mobileImageSlider {
+    flex: 1;
+  }
+}

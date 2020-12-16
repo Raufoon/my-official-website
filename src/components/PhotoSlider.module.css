@@ -1,13 +1,15 @@
 .PhotoSlider {
   display: flex;
   flex-direction: column;
-  min-width: 500px;
-  min-height: 500px;
+  min-width: 200px;
+  min-height: 200px;
   position: relative;
 }
 
 .poster {
   flex: 1;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
 }
 
 .dots {

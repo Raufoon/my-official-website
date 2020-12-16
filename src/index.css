@@ -15,6 +15,7 @@ body {
   --color-icon: #f1f1f1;
   --color-highlight: yellow;
   --color-2: #232b2b;
+  --color-invert: var(--color-text);
 
   --header-height: 5rem;
   --footer-height: 10rem;

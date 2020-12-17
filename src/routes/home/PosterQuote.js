@@ -21,6 +21,7 @@ export default function PosterQuote(props) {
     <Poster
       className={`${styles.PosterQuote} ${isEnlarged ? styles.enlarged : ""}`}
       src={url}
+      zoomable={true}
     >
       <h3>
         <button onClick={() => setEnlarged((state) => !state)}>

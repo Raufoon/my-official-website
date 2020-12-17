@@ -1,5 +1,5 @@
 import Loader from "../../components/Loader"
-import Project from "../../components/Project"
+import Project from "../../components/project"
 import useFetchListFromDB from "../../useFetchListFromDB"
 
 export default function Projects() {

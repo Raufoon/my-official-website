@@ -9,6 +9,7 @@ export default function FullStackTemplate(props) {
     subtitle,
     desktopImages,
     mobileImages,
+    links,
     technologies,
   } = props
 
@@ -23,6 +24,11 @@ export default function FullStackTemplate(props) {
         <div className={styles.technologies}>
           {technologies.map((tech) => (
             <label key={tech}>#{tech}</label>
+          ))}
+        </div>
+        <div className={styles.links}>
+          {links.map((link) => (
+            <span>{link.type}</span>
           ))}
         </div>
       </div>

@@ -1,0 +1,57 @@
+.Project {
+  display: flex;
+  flex-direction: column;
+}
+
+.monolith {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-2);
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.details {
+  background-color: var(--color-invert);
+  color: var(--color-bg);
+  padding: var(--gap-1);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.technologies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.technologies > * {
+  margin-right: var(--gap-0);
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.links svg {
+  fill: var(--color-bg);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.links a {
+  padding: 1rem;
+}
+
+.photoSlider {
+  height: 50vh;
+}

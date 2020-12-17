@@ -25,6 +25,8 @@ body {
   --gap-1: 2rem;
   --main-padding: 2rem;
   --font-size: 1rem;
+
+  --z-index-highest: 3000;
 }
 
 * {
@@ -55,6 +57,7 @@ header {
   min-height: var(--header-height);
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
+  z-index: var(--z-index-highest);
 }
 
 main {

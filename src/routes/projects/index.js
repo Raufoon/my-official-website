@@ -4,6 +4,8 @@ import Project from "../../components/Project"
 import useFetchListFromDB from "../../useFetchListFromDB"
 import styles from "./index.module.css"
 
+const themes = ["#407294", "#daa520"]
+
 export default function Projects() {
   const { isFetching, list } = useFetchListFromDB(`myprojects`)
 
@@ -16,8 +18,8 @@ export default function Projects() {
 
   return (
     <section className={styles.Projects}>
-      {sortedProjectList.map((project) => (
-        <Project key={project.id} project={project} />
+      {sortedProjectList.map((project, index) => (
+        <Project key={project.id} project={project} theme={themes[index]} />
       ))}
     </section>
   )

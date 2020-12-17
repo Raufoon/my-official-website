@@ -5,7 +5,7 @@ import PhotoSlider from "./PhotoSlider"
 import styles from "./Project.module.css"
 import ProjectLinkIcon from "./ProjectLinkIcon"
 
-export default function Project({ project }) {
+export default function Project({ project, theme }) {
   const { id, type, photos, technologies, links } = project
 
   const typeString = useMemo(() => {
@@ -46,7 +46,7 @@ export default function Project({ project }) {
       <PhotoSlider
         className={styles.photoSlider}
         photos={photos}
-        frameColor={"#407294"}
+        frameColor={theme}
       />
     </section>
   )

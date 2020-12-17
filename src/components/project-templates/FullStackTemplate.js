@@ -29,8 +29,13 @@ export default function FullStackTemplate(props) {
       <PhotoSlider
         className={styles.desktopImageSlider}
         photos={desktopImages}
+        frameColor={"#122"}
       />
-      <PhotoSlider className={styles.mobileImageSlider} photos={mobileImages} />
+      <PhotoSlider
+        className={styles.mobileImageSlider}
+        frameColor={"#045"}
+        photos={mobileImages}
+      />
     </section>
   )
 }

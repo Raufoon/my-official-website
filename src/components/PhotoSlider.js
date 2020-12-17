@@ -1,7 +1,7 @@
 import styles from "./PhotoSlider.module.css"
 import Poster from "./Poster"
 import { ReactComponent as DashIcon } from "../assets/icons/minus.svg"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 const PHOTOS = [
   "https://www.pandasecurity.com/en/mediacenter/src/uploads/2013/11/pandasecurity-facebook-photo-privacy.jpg",
@@ -10,13 +10,22 @@ const PHOTOS = [
 ]
 
 export default function PhotoSlider(props) {
-  const [currentImageIdx, setCurrentImageIdx] = useState(0)
   const photos = props.photos || PHOTOS
+  const { frameColor } = props
+
+  const style = useMemo(
+    () => ({
+      borderColor: frameColor || "inherit",
+    }),
+    [frameColor]
+  )
+
+  const [currentImageIdx, setCurrentImageIdx] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIdx((prev) => (prev + 1) % photos.length)
-    }, 3000)
+    }, 5000)
 
     return () => {
       clearInterval(interval)
@@ -24,9 +33,11 @@ export default function PhotoSlider(props) {
   }, [photos])
 
   return (
-    <div className={`${styles.PhotoSlider} ${props.className}`}>
-      <Poster className={styles.poster} src={photos[currentImageIdx]} />
-
+    <Poster
+      className={`${styles.PhotoSlider} ${props.className}`}
+      style={style}
+      src={photos[currentImageIdx]}
+    >
       <div className={styles.dots}>
         {photos.map((photo, index) => (
           <div key={index}>
@@ -41,6 +52,6 @@ export default function PhotoSlider(props) {
           </div>
         ))}
       </div>
-    </div>
+    </Poster>
   )
 }

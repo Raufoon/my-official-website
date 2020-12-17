@@ -11,10 +11,10 @@ body {
   overflow-x: hidden;
 
   --color-bg: #0e1111;
+  --color-2: #232b2b;
   --color-text: #f1f1f1;
   --color-icon: #f1f1f1;
   --color-highlight: yellow;
-  --color-2: #232b2b;
   --color-invert: var(--color-text);
 
   --header-height: 5rem;

@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #daa520;
+  background-color: var(--color-2);
 }
 @media screen and (min-width: 900px) {
   .monolith {
@@ -41,7 +41,7 @@
 @media screen and (min-width: 1250px) {
   .monolith {
     order: 4;
-    width: 10vh;
+    width: calc(var(--gap-1) * 1.5);
   }
 }
 
@@ -77,7 +77,6 @@
 .desktopImageSlider {
   height: 30vh;
   padding: var(--gap-1);
-  background-color: #468499;
 }
 @media screen and (min-width: 900px) {
   .desktopImageSlider {

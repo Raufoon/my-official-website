@@ -7,6 +7,12 @@
   text-shadow: 1px 1px 5px var(--color-bg);
 }
 
+.PosterQuote.enlarged {
+  height: 70vh;
+  justify-content: flex-end;
+  background-position: top;
+}
+
 .PosterQuote > * {
   margin: 0;
   padding: 1rem;

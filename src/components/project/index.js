@@ -25,7 +25,7 @@ export default function Project({ project }) {
       Template = FullStackTemplate
       break
     default:
-      throw new Error("Unsupported project type")
+      Template = () => false
   }
 
   return (

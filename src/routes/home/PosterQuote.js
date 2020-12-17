@@ -19,18 +19,14 @@ export default function PosterQuote(props) {
 
   return (
     <Poster
-      className={styles.PosterQuote}
+      className={`${styles.PosterQuote} ${isEnlarged ? styles.enlarged : ""}`}
       src={url}
-      style={{
-        height: isEnlarged ? "unset" : "30vh",
-        backgroundPosition: isEnlarged ? "center" : "top",
-      }}
     >
       <h3>
         <button onClick={() => setEnlarged((state) => !state)}>
           {isEnlarged ? <ShrinkIcon /> : <EnlargeIcon />}
         </button>
-        &nbsp;&nbsp;{title}
+        &nbsp;&nbsp;{title}&nbsp;(Astronomy picture of the day)
       </h3>
       {media_type === "video" && <iframe title="youtube" src={url}></iframe>}
       {isEnlarged && <p>{explanation}</p>}

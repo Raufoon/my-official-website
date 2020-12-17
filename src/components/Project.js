@@ -35,7 +35,7 @@ export default function Project({ project }) {
       {...rest}
       type={typeString}
       desktopImages={project.photos[0]}
-      mobileImages={undefined}
+      mobileImages={project.photos[1]}
     />
   )
 }

@@ -23,6 +23,8 @@ export default function PhotoSlider(props) {
   const [currentImageIdx, setCurrentImageIdx] = useState(0)
 
   useEffect(() => {
+    if (photos.length < 2) return
+
     const interval = setInterval(() => {
       setCurrentImageIdx((prev) => (prev + 1) % photos.length)
     }, 5000)

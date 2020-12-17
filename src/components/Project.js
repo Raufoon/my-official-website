@@ -15,7 +15,7 @@ export default function Project({ project, theme, invertLayout }) {
   const { settings } = useContext(SettingsContext)
 
   const { isFetching, hasError, title, subtitle } = useFetchFromDB(
-    `${settings.lang}/myprojects/${id}`
+    `${settings.lang}/projects/${id}`
   )
 
   if (isFetching || hasError) return false

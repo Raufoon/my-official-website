@@ -7,7 +7,7 @@ import styles from "./index.module.css"
 const themes = ["#407294", "#daa520"]
 
 export default function Projects() {
-  const { isFetching, list } = useFetchListFromDB(`myprojects`)
+  const { isFetching, list } = useFetchListFromDB(`projects`)
 
   const sortedProjectList = useMemo(() => {
     if (!list) return []

@@ -11,7 +11,7 @@ export default function Poster(props) {
     createModal(
       <img
         src={src}
-        style={{ maxWidth: "80vw", maxHeight: "90vh" }}
+        style={{ maxWidth: "80vw", maxHeight: "80vh" }}
         alt="zoomed view"
       />
     )

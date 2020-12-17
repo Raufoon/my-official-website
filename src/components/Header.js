@@ -50,18 +50,12 @@ export default function Header() {
       </button>
 
       <nav ref={navBarRef}>
-        <NavLink exact to="/" onClick={toggleMobileNav}>
+        <NavLink exact to="/">
           Me
         </NavLink>
-        <NavLink to="/projects" onClick={toggleMobileNav}>
-          Projects
-        </NavLink>
-        <NavLink to="/resume" onClick={toggleMobileNav}>
-          Resume
-        </NavLink>
-        <NavLink to="/notice" onClick={toggleMobileNav}>
-          Notices
-        </NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/resume">Resume</NavLink>
+        <NavLink to="/notice">Notices</NavLink>
         <div className={"languageButtons forMobile"}>{langButtons}</div>
       </nav>
 

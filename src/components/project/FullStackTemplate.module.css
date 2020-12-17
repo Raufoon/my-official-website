@@ -87,8 +87,8 @@
 }
 .links svg {
   fill: var(--color-bg);
-  width: var(--gap-1);
-  height: var(--gap-1);
+  width: var(--gap-h);
+  height: var(--gap-h);
 }
 
 .desktopImageSlider {

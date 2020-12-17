@@ -48,7 +48,7 @@
 .details {
   background-color: var(--color-invert);
   color: var(--color-bg);
-  padding: var(--gap-1);
+  padding: calc(var(--gap-1) * 1.5);
   display: flex;
   flex-direction: column;
 }
@@ -81,6 +81,14 @@
   flex-direction: row;
   justify-content: center;
   margin-top: auto;
+}
+.links a {
+  padding: var(--gap-0);
+}
+.links svg {
+  fill: var(--color-bg);
+  width: var(--gap-1);
+  height: var(--gap-1);
 }
 
 .desktopImageSlider {

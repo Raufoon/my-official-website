@@ -26,7 +26,7 @@ body {
   --main-padding: 2rem;
   --font-size: 1rem;
 
-  --z-index-highest: 3000;
+  --z-index-highest: 2000;
 }
 
 * {

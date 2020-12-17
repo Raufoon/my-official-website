@@ -37,6 +37,7 @@ export default function PhotoSlider(props) {
       className={`${styles.PhotoSlider} ${props.className}`}
       style={style}
       src={photos[currentImageIdx]}
+      zoomable={true}
     >
       <div className={styles.dots}>
         {photos.map((photo, index) => (

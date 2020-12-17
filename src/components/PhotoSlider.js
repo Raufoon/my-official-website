@@ -44,9 +44,9 @@ export default function PhotoSlider(props) {
             &nbsp;
             <DashIcon
               style={{
-                fill:
-                  index === currentImageIdx ? "yellow" : "var(--color-text)",
+                fill: index === currentImageIdx ? "#222" : "var(--color-text)",
               }}
+              stroke={"#000"}
             />
             &nbsp;
           </div>

@@ -22,7 +22,9 @@ export default function Project({ project }) {
 
   return (
     <section className={styles.Project}>
-      <h3 className={styles.monolith}>{typeString}</h3>
+      <div className={styles.monolith}>
+        <h3>{typeString}</h3>
+      </div>
 
       <div className={styles.details}>
         <h1>{title}</h1>

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useRef, useState } from "react"
+import { useCallback, useContext, useMemo, useRef, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { ReactComponent as ExpandIcon } from "../assets/icons/arrow-down.svg"
 import { ReactComponent as ShrinkIcon } from "../assets/icons/arrow-up.svg"
@@ -22,22 +22,24 @@ export default function Header() {
     })
   }, [])
 
-  const langButtons = (
-    <>
-      <button
-        className={settings.lang === "en" ? "active" : ""}
-        onClick={() => setLang("en")}
-      >
-        EN
-      </button>
-      <button
-        className={settings.lang === "de" ? "active" : ""}
-        onClick={() => setLang("de")}
-      >
-        DE
-      </button>
-    </>
-  )
+  const langButtons = useMemo(() => {
+    return (
+      <>
+        <button
+          className={settings.lang === "en" ? "active" : ""}
+          onClick={() => setLang("en")}
+        >
+          EN
+        </button>
+        <button
+          className={settings.lang === "de" ? "active" : ""}
+          onClick={() => setLang("de")}
+        >
+          DE
+        </button>
+      </>
+    )
+  }, [settings.lang, setLang])
 
   return (
     <header className="Header">
@@ -48,12 +50,18 @@ export default function Header() {
       </button>
 
       <nav ref={navBarRef}>
-        <NavLink exact to="/">
+        <NavLink exact to="/" onClick={toggleMobileNav}>
           Me
         </NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/resume">Resume</NavLink>
-        <NavLink to="/notice">Notices</NavLink>
+        <NavLink to="/projects" onClick={toggleMobileNav}>
+          Projects
+        </NavLink>
+        <NavLink to="/resume" onClick={toggleMobileNav}>
+          Resume
+        </NavLink>
+        <NavLink to="/notice" onClick={toggleMobileNav}>
+          Notices
+        </NavLink>
         <div className={"languageButtons forMobile"}>{langButtons}</div>
       </nav>
 

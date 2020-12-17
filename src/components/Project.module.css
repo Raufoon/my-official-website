@@ -16,6 +16,9 @@
   }
 }
 
+.Project.inverted {
+}
+
 .monolith {
   height: 4rem;
   display: flex;
@@ -70,6 +73,9 @@
   .details h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+  }
+  .Project.inverted .details {
+    order: 2;
   }
 }
 

@@ -19,7 +19,12 @@ export default function Projects() {
   return (
     <section className={styles.Projects}>
       {sortedProjectList.map((project, index) => (
-        <Project key={project.id} project={project} theme={themes[index]} />
+        <Project
+          key={project.id}
+          project={project}
+          theme={themes[index]}
+          invertLayout={index % 2 === 1}
+        />
       ))}
     </section>
   )

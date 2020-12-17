@@ -5,7 +5,7 @@ import PhotoSlider from "./PhotoSlider"
 import styles from "./Project.module.css"
 import ProjectLinkIcon from "./ProjectLinkIcon"
 
-export default function Project({ project, theme }) {
+export default function Project({ project, theme, invertLayout }) {
   const { id, type, photos, technologies, links } = project
 
   const typeString = useMemo(() => {
@@ -21,7 +21,9 @@ export default function Project({ project, theme }) {
   if (isFetching || hasError) return false
 
   return (
-    <section className={styles.Project}>
+    <section
+      className={`${styles.Project} ${invertLayout ? styles.inverted : ""}`}
+    >
       <div className={styles.monolith}>
         <h3>{typeString}</h3>
       </div>

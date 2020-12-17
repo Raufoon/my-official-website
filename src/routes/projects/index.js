@@ -3,7 +3,7 @@ import Project from "../../components/project"
 import useFetchListFromDB from "../../useFetchListFromDB"
 
 export default function Projects() {
-  const { isFetching, hasError, list } = useFetchListFromDB(`myprojects`)
+  const { isFetching, list } = useFetchListFromDB(`myprojects`)
 
   if (isFetching) return <Loader center={true} />
 

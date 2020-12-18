@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import Poster from "../../components/Poster"
 import styles from "./PosterQuote.module.css"
 import { ReactComponent as EnlargeIcon } from "../../assets/icons/enlarge2.svg"
@@ -15,6 +15,11 @@ export default function PosterQuote(props) {
     explanation,
   } = useAstronomyPicOfTheDay()
 
+  const toggleEnlargedState = useCallback((event) => {
+    event.stopPropagation()
+    setEnlarged((state) => !state)
+  }, [])
+
   if (isFetching) return <Loader />
 
   return (
@@ -24,7 +29,7 @@ export default function PosterQuote(props) {
       zoomable={true}
     >
       <h3>
-        <button onClick={() => setEnlarged((state) => !state)}>
+        <button onClick={toggleEnlargedState}>
           {isEnlarged ? <ShrinkIcon /> : <EnlargeIcon />}
         </button>
         &nbsp;&nbsp;{title}&nbsp;(Astronomy picture of the day)

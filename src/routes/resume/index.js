@@ -6,14 +6,11 @@ const CV_DE =
 export default function Resume() {
   return (
     <div className={styles.Resume}>
-      <a href={CV_DE} download={"cv.pdf"} target="_blank" rel="noreferrer">
-        Download
-      </a>
       <iframe
         className={styles.content}
         title="resume"
         src={CV_DE}
-        frameborder="0"
+        frameBorder="0"
       ></iframe>
     </div>
   )

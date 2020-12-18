@@ -1,27 +1,15 @@
 .Resume {
   display: flex;
   flex-direction: column;
-}
-@media screen and (min-width: 766px) {
-  .Resume {
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: center;
-  }
-}
-
-.Resume a {
-  background-color: greenyellow;
-  color: var(--color-bg);
-  margin-bottom: var(--gap-1);
+  align-items: center;
 }
 
 .content {
+  width: 80vw;
   min-height: 80vh;
 }
 @media screen and (min-width: 766px) {
   .content {
     width: 60vw;
-    margin-right: var(--gap-1);
   }
 }

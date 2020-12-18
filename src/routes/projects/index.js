@@ -4,8 +4,6 @@ import Project from "../../components/Project"
 import useFetchListFromDB from "../../useFetchListFromDB"
 import styles from "./index.module.css"
 
-const themes = ["#407294", "#daa520"]
-
 export default function Projects() {
   const { isFetching, list } = useFetchListFromDB(`projects`)
 
@@ -22,7 +20,6 @@ export default function Projects() {
         <Project
           key={project.id}
           project={project}
-          theme={themes[index]}
           invertLayout={index % 2 === 1}
         />
       ))}

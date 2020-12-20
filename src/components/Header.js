@@ -14,9 +14,11 @@ export default function Header() {
   const toggleMobileNav = useCallback(() => {
     setMobileNavVisible((prev) => {
       if (prev) {
-        navBarRef.current.style.display = "none"
+        navBarRef.current.classList.remove("expanded")
+        navBarRef.current.classList.add("collapsed")
       } else {
-        navBarRef.current.style.display = "flex"
+        navBarRef.current.classList.remove("collapsed")
+        navBarRef.current.classList.add("expanded")
       }
       return !prev
     })
@@ -50,13 +52,21 @@ export default function Header() {
       </button>
 
       <nav ref={navBarRef}>
-        <NavLink exact to="/">
+        <NavLink exact to="/" onClick={toggleMobileNav}>
           Me
         </NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/resume">Resume</NavLink>
-        <NavLink to="/notice">Notices</NavLink>
-        <div className={"languageButtons forMobile"}>{langButtons}</div>
+        <NavLink to="/projects" onClick={toggleMobileNav}>
+          Projects
+        </NavLink>
+        <NavLink to="/resume" onClick={toggleMobileNav}>
+          Resume
+        </NavLink>
+        <NavLink to="/notice" onClick={toggleMobileNav}>
+          Notices
+        </NavLink>
+        <div className={"languageButtons forMobile"} onClick={toggleMobileNav}>
+          {langButtons}
+        </div>
       </nav>
 
       <div className={"languageButtons"}>{langButtons}</div>

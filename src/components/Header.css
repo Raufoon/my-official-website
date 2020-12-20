@@ -18,6 +18,12 @@
     flex-direction: column;
     display: none;
   }
+  .Header nav.collapsed {
+    display: none;
+  }
+  .Header nav.expanded {
+    display: flex;
+  }
 }
 
 .Header nav a {

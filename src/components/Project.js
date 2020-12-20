@@ -18,13 +18,20 @@ export default function Project({ project, invertLayout }) {
     `${settings.lang}/projects/${id}`
   )
 
+  const monolithStyle = useMemo(
+    () => ({
+      backgroundColor: getMonolithTheme(type),
+    }),
+    [type]
+  )
+
   if (isFetching || hasError) return false
 
   return (
     <section
       className={`${styles.Project} ${invertLayout ? styles.inverted : ""}`}
     >
-      <div className={styles.monolith}>
+      <div className={styles.monolith} style={monolithStyle}>
         <h3>{typeString}</h3>
       </div>
 
@@ -52,4 +59,19 @@ export default function Project({ project, invertLayout }) {
       />
     </section>
   )
+}
+
+function getMonolithTheme(projectType) {
+  switch (projectType) {
+    case "frontend-web":
+      return "#3b9ed6"
+    case "java-desktop-app":
+      return "#ffa500"
+    case "full-stack-web":
+      return "#6f549a"
+    case "assembly":
+      return "#ff6367"
+    default:
+      return "var(--color-2)"
+  }
 }

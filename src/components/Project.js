@@ -28,9 +28,7 @@ export default function Project({ project, invertLayout }) {
   if (isFetching || hasError) return false
 
   return (
-    <section
-      className={`${styles.Project} ${invertLayout ? styles.inverted : ""}`}
-    >
+    <div className={`${styles.Project} ${invertLayout ? styles.inverted : ""}`}>
       <div className={styles.monolith} style={monolithStyle}>
         <h3>{typeString}</h3>
       </div>
@@ -43,6 +41,8 @@ export default function Project({ project, invertLayout }) {
             <label key={tech}>#{tech}</label>
           ))}
         </div>
+        <br />
+        <br />
         <div className={styles.links}>
           {links.map((link) => (
             <a key={link.type} href={link.url}>
@@ -57,7 +57,7 @@ export default function Project({ project, invertLayout }) {
         frameColor={"lightgray"}
         photos={photos}
       />
-    </section>
+    </div>
   )
 }
 

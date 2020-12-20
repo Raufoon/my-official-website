@@ -4,6 +4,7 @@ import useFetchFromDB from "../useFetchFromDB"
 import PhotoSlider from "./PhotoSlider"
 import styles from "./Project.module.css"
 import ProjectLinkIcon from "./ProjectLinkIcon"
+import TechLabel from "./TechLabel"
 
 export default function Project({ project, invertLayout }) {
   const { id, type, photos, technologies, links } = project
@@ -38,7 +39,7 @@ export default function Project({ project, invertLayout }) {
         <p>{subtitle}</p>
         <div className={styles.technologies}>
           {technologies.map((tech) => (
-            <label key={tech}>#{tech}</label>
+            <TechLabel key={tech} type={tech} />
           ))}
         </div>
         <br />

@@ -9,6 +9,7 @@ import PosterQuote from "./PosterQuote"
 import { useContext } from "react"
 import { SettingsContext } from "../../settings"
 import Loader from "../../components/Loader"
+import ExtendableTextContent from "../../components/ExtendableTextContent"
 
 export default function Home() {
   const { settings } = useContext(SettingsContext)
@@ -50,12 +51,8 @@ export default function Home() {
 
       <div className={styles.aboutMe}>
         <PosterQuote />
-
         <h2>{subtitle}</h2>
-
-        {about.map((para, index) => (
-          <p key={index}>{para}</p>
-        ))}
+        <ExtendableTextContent paragraphs={about} />
       </div>
     </section>
   )

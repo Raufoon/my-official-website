@@ -4,6 +4,7 @@ import InvalidRoutePage from "./components/InvalidRoute"
 import { SettingsContext, useSettings } from "./settings"
 import { lazy, Suspense } from "react"
 import Loader from "./components/Loader"
+import Footer from "./components/Footer"
 
 const Home = lazy(() => import("./routes/home"))
 const Resume = lazy(() => import("./routes/resume"))
@@ -25,7 +26,7 @@ function App() {
           </Switch>
         </Suspense>
       </main>
-      <footer></footer>
+      <Footer />
     </SettingsContext.Provider>
   )
 }

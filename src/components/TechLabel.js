@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 
-export default function TechLabel({ type }) {
+export default function TechLabel({ type, children }) {
   const labelStyle = useMemo(() => {
     let color = "#222"
     switch (type.toLowerCase()) {
@@ -8,16 +8,12 @@ export default function TechLabel({ type }) {
         color = "#392897"
         break
 
-      case "html5":
-        color = "#994c30"
+      case "express.js":
+        color = "#006900"
         break
 
       case "react.js":
         color = "#045463"
-        break
-
-      case "css":
-        color = "#0000ff"
         break
 
       case "javascript":
@@ -37,14 +33,14 @@ export default function TechLabel({ type }) {
         break
 
       case "angularjs":
-        color = "#800000"
+        color = "#b80505"
         break
 
       default:
-        color = "#222"
+        color = "gray"
     }
-    return { color }
+    return { color, fontWeight: "bold" }
   }, [type])
 
-  return <label style={labelStyle}>{type}</label>
+  return <label style={labelStyle}>{children || type}</label>
 }

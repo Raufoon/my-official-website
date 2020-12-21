@@ -6,3 +6,14 @@
 .Projects > * {
   margin-bottom: var(--gap-1);
 }
+
+.techFilters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.techFilters > * {
+  margin: 1rem;
+}

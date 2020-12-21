@@ -48,7 +48,7 @@ export default function Projects() {
           <button
             key={item.tech}
             onClick={() => setFilter(item.tech)}
-            className={filter === item.tech && styles.active}
+            className={filter === item.tech ? styles.active : ""}
           >
             <TechLabel type={item.tech}>
               {item.tech} ({item.count})

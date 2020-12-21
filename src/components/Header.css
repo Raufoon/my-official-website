@@ -6,6 +6,10 @@
   background-color: var(--color-2);
 }
 
+.Header h1 {
+  margin: 0;
+}
+
 .Header nav {
   display: flex;
   flex-direction: row;

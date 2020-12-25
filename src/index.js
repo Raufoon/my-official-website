@@ -15,6 +15,23 @@ firebase.initializeApp({
   messagingSenderId: "424916751339",
 })
 
+window.customElements.define(
+  "highlighted-text",
+  class extends HTMLElement {
+    connectedCallback() {
+      this.innerHTML = `<b style="color: ${this.getAttribute("color")}">${
+        this.innerHTML
+      }</b>`
+    }
+    get color() {
+      return this.hasAttribute("color")
+    }
+    set color(value = "#fff") {
+      this.setAttribute("color", value)
+    }
+  }
+)
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

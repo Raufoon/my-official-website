@@ -52,7 +52,7 @@ export default function Home() {
         <PosterQuote />
         <h2>{subtitle}</h2>
         {about.map((para, index) => (
-          <p key={index}>{para}</p>
+          <p key={index} dangerouslySetInnerHTML={{ __html: para }}></p>
         ))}
       </div>
     </section>

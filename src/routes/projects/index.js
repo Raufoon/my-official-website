@@ -51,7 +51,7 @@ export default function Projects() {
             className={filter === item.tech ? styles.active : ""}
           >
             <TechLabel type={item.tech}>
-              {item.tech} ({item.count})
+              {item.tech}({item.count})
             </TechLabel>
           </button>
         ))}

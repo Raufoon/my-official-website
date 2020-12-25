@@ -36,10 +36,22 @@ export default function TechLabel({ type, children }) {
         color = "#b80505"
         break
 
+      case "postgresql":
+        color = "#0000ff"
+        break
+
+      case "django":
+        color = "#14755d"
+        break
+
       default:
         color = "gray"
     }
-    return { color, fontWeight: "bold" }
+    return {
+      color,
+      fontSize: "16px",
+      fontFamily: "monospace",
+    }
   }, [type])
 
   return <label style={labelStyle}>{children || type}</label>

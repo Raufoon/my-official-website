@@ -1,0 +1,24 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: var(--gap-1);
+}
+
+.headline {
+  color: var(--color-highlight);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.section > * {
+  padding: 0.5rem;
+}
+
+.section a {
+  text-transform: none;
+  font-weight: normal;
+}

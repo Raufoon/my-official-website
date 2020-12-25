@@ -61,9 +61,6 @@ export default function Header() {
         <NavLink to="/resume" onClick={toggleMobileNav}>
           Resume
         </NavLink>
-        <NavLink to="/notice" onClick={toggleMobileNav}>
-          Notices
-        </NavLink>
         <div className={"languageButtons forMobile"} onClick={toggleMobileNav}>
           {langButtons}
         </div>

@@ -18,7 +18,6 @@ body {
   --color-invert: var(--color-text);
 
   --header-height: 5rem;
-  --footer-height: 10rem;
 
   --gap-0: 1rem;
   --gap-h: 1.5rem;
@@ -72,7 +71,6 @@ section {
 }
 
 footer {
-  height: var(--footer-height);
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
   background-color: var(--color-2);

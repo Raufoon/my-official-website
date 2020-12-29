@@ -1,7 +1,14 @@
 .ProjectFilterPanel {
+  background-color: var(--color-bg);
+}
+
+.titlebar h2 {
+  flex: 1;
 }
 
 .filterList {
+  display: flex;
+  flex-direction: column;
 }
 
 .filterList > * {

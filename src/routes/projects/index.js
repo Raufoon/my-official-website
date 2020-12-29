@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo } from 'react'
 import Loader from '../../components/Loader'
 import Project from '../../components/Project'
-import TechLabel from '../../components/TechLabel'
 import useFetchListFromDB from '../../useFetchListFromDB'
 import styles from './index.module.css'
 import ProjectFilterPanel from './ProjectFilterPanel'
+import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
+import { createModal } from '../../components/modal'
 
 export default function Projects() {
   const { isFetching, list } = useFetchListFromDB(`projects`)
@@ -15,11 +16,27 @@ export default function Projects() {
     return filteredList.sort((a, b) => (a.priority > b.priority ? -1 : 1))
   }, [list])
 
+  const openFilterModal = useCallback(() => {
+    createModal(
+      <ProjectFilterPanel
+        className={styles.filterPanelMobile}
+        projects={list}
+      />
+    )
+  }, [list])
+
   if (isFetching) return <Loader center={true} />
 
   return (
     <section className={styles.Projects}>
-      <ProjectFilterPanel className={styles.techFilters} projects={list} />
+      <ProjectFilterPanel className={styles.filterPanel} projects={list} />
+      <button
+        className={styles.filterPanelMobileOpener}
+        onClick={openFilterModal}
+      >
+        <FilterIcon width="2rem" height="2rem" />
+        &nbsp;&nbsp;Filters
+      </button>
 
       <div className={styles.projectList}>
         {filteredSortedProjectList.map((project, index) => (

@@ -8,32 +8,11 @@
 }
 
 .techFilters {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: sticky;
-  top: var(--header-height);
-  background-color: var(--color-bg);
-  z-index: var(--z-index-highest);
-}
-@media screen and (max-width: 600px) {
-  .techFilters {
-    position: unset;
-    z-index: unset;
-  }
 }
 
-.techFilters > * {
-  padding: 1rem;
-  text-transform: none;
+.projectList {
 }
 
-.techFilters > *:hover {
-  cursor: pointer;
-  background-color: white;
-}
-
-.techFilters .active {
-  background-color: white;
+.projectList > * {
+  margin-top: 1rem;
 }

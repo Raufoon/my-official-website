@@ -1,0 +1,9 @@
+.ProjectFilterPanel {
+}
+
+.filterList {
+}
+
+.filterList > * {
+  margin-bottom: 1rem;
+}

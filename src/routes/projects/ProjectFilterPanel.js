@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
 
 function getSortedLabelsWithCount(labels) {
@@ -6,7 +6,6 @@ function getSortedLabelsWithCount(labels) {
     result[current] ? result[current]++ : (result[current] = 1)
     return result
   }, {})
-
   return Object.keys(countMap)
     .map((key) => ({
       label: key,
@@ -15,7 +14,9 @@ function getSortedLabelsWithCount(labels) {
     .sort((a, b) => (a.count > b.count ? -1 : 1))
 }
 
-export default function ProjectFilterPanel({ className, projects }) {
+export default function ProjectFilterPanel(props) {
+  const { className, projects, setVisibleProjects } = props
+
   const allTechLabelsWithCount = useMemo(() => {
     const allTechNames2D = projects.map((project) => project.technologies)
     const allTechLabels = [].concat(...allTechNames2D)
@@ -29,6 +30,27 @@ export default function ProjectFilterPanel({ className, projects }) {
     })
     return getSortedLabelsWithCount(allTypes)
   }, [projects])
+
+  const [techFilters, setTechFilters] = useState([])
+
+  const addTechFilter = useCallback((tech) => {
+    setTechFilters((state) => [...state, tech])
+  }, [])
+
+  const removeTechFilter = useCallback((tech) => {
+    setTechFilters((state) => state.filter((label) => label !== tech))
+  }, [])
+
+  useEffect(() => {
+    let filteredProjects = projects.filter((project) => {
+      return techFilters.reduce(
+        (result, tech) => result && project.technologies.indexOf(tech) !== -1,
+        true
+      )
+    })
+
+    setVisibleProjects(filteredProjects)
+  }, [techFilters, setVisibleProjects, projects])
 
   return (
     <div className={`${styles.ProjectFilterPanel} ${className}`}>
@@ -48,7 +70,14 @@ export default function ProjectFilterPanel({ className, projects }) {
         <h4>Technologies</h4>
         {allTechLabelsWithCount.map(({ label, count }) => (
           <div key={label}>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) =>
+                e.target.checked
+                  ? addTechFilter(label)
+                  : removeTechFilter(label)
+              }
+            />
             &nbsp;{label} ({count})
           </div>
         ))}

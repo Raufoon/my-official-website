@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Loader from '../../components/Loader'
 import Project from '../../components/Project'
 import useFetchListFromDB from '../../useFetchListFromDB'
@@ -10,10 +10,13 @@ import { createModal } from '../../components/modal'
 export default function Projects() {
   const { isFetching, list } = useFetchListFromDB(`projects`)
 
-  const filteredSortedProjectList = useMemo(() => {
-    if (!list) return []
-    const filteredList = list
-    return filteredList.sort((a, b) => (a.priority > b.priority ? -1 : 1))
+  const [visibleProjects, setVisibleProjects] = useState([])
+
+  useEffect(() => {
+    list &&
+      setVisibleProjects(
+        list.sort((a, b) => (a.priority > b.priority ? -1 : 1))
+      )
   }, [list])
 
   const openFilterModal = useCallback(() => {
@@ -21,6 +24,7 @@ export default function Projects() {
       <ProjectFilterPanel
         className={styles.filterPanelMobile}
         projects={list}
+        setVisibleProjects={setVisibleProjects}
       />
     )
   }, [list])
@@ -29,7 +33,11 @@ export default function Projects() {
 
   return (
     <section className={styles.Projects}>
-      <ProjectFilterPanel className={styles.filterPanel} projects={list} />
+      <ProjectFilterPanel
+        className={styles.filterPanel}
+        projects={list}
+        setVisibleProjects={setVisibleProjects}
+      />
       <button
         className={styles.filterPanelMobileOpener}
         onClick={openFilterModal}
@@ -39,7 +47,7 @@ export default function Projects() {
       </button>
 
       <div className={styles.projectList}>
-        {filteredSortedProjectList.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <Project
             key={project.id}
             project={project}

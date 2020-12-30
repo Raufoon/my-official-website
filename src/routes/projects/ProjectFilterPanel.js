@@ -1,19 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
 
-function getSortedLabelsWithCount(labels) {
-  const countMap = labels.reduce((result, current) => {
-    result[current] ? result[current]++ : (result[current] = 1)
-    return result
-  }, {})
-  return Object.keys(countMap)
-    .map((key) => ({
-      label: key,
-      count: countMap[key],
-    }))
-    .sort((a, b) => (a.count > b.count ? -1 : 1))
-}
-
 export default function ProjectFilterPanel(props) {
   const { className, projects, setVisibleProjects } = props
 
@@ -24,14 +11,12 @@ export default function ProjectFilterPanel(props) {
   }, [projects])
 
   const allProjectTypesWithCount = useMemo(() => {
-    const allTypes = projects.map((project) => {
-      const projectType = project.type.replace(/-/g, ' ')
-      return projectType.charAt(0).toUpperCase() + projectType.slice(1)
-    })
+    const allTypes = projects.map((project) => project.type)
     return getSortedLabelsWithCount(allTypes)
   }, [projects])
 
   const [techFilters, setTechFilters] = useState([])
+  const [typeFilter, setTypeFilter] = useState(null)
 
   const addTechFilter = useCallback((tech) => {
     setTechFilters((state) => [...state, tech])
@@ -49,8 +34,14 @@ export default function ProjectFilterPanel(props) {
       )
     })
 
+    if (typeFilter) {
+      filteredProjects = filteredProjects.filter(
+        (project) => project.type === typeFilter
+      )
+    }
+
     setVisibleProjects(filteredProjects)
-  }, [techFilters, setVisibleProjects, projects])
+  }, [techFilters, typeFilter, setVisibleProjects, projects])
 
   return (
     <div className={`${styles.ProjectFilterPanel} ${className}`}>
@@ -60,7 +51,13 @@ export default function ProjectFilterPanel(props) {
         <h4>Project Types</h4>
         {allProjectTypesWithCount.map(({ label, count }) => (
           <div key={label}>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={typeFilter === label}
+              onChange={(e) =>
+                e.target.checked ? setTypeFilter(label) : setTypeFilter(null)
+              }
+            />
             &nbsp;{label} ({count})
           </div>
         ))}
@@ -84,4 +81,17 @@ export default function ProjectFilterPanel(props) {
       </div>
     </div>
   )
+}
+
+function getSortedLabelsWithCount(labels) {
+  const countMap = labels.reduce((result, current) => {
+    result[current] ? result[current]++ : (result[current] = 1)
+    return result
+  }, {})
+  return Object.keys(countMap)
+    .map((key) => ({
+      label: key,
+      count: countMap[key],
+    }))
+    .sort((a, b) => (a.count > b.count ? -1 : 1))
 }

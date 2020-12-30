@@ -6,8 +6,10 @@
   background-color: var(--color-2);
 }
 
-.Header h1 {
+.webtitle {
   margin: 0;
+  text-transform: none;
+  padding: 0;
 }
 
 .Header nav {

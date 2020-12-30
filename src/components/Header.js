@@ -1,9 +1,9 @@
-import { useCallback, useContext, useMemo, useRef, useState } from "react"
-import { NavLink } from "react-router-dom"
-import { ReactComponent as ExpandIcon } from "../assets/icons/arrow-down.svg"
-import { ReactComponent as ShrinkIcon } from "../assets/icons/arrow-up.svg"
-import { SettingsContext } from "../settings"
-import "./Header.css"
+import { useCallback, useContext, useMemo, useRef, useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { ReactComponent as ExpandIcon } from '../assets/icons/arrow-down.svg'
+import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
+import { SettingsContext } from '../settings'
+import './Header.css'
 
 export default function Header() {
   const navBarRef = useRef(null)
@@ -14,11 +14,11 @@ export default function Header() {
   const toggleMobileNav = useCallback(() => {
     setMobileNavVisible((prev) => {
       if (prev) {
-        navBarRef.current.classList.remove("expanded")
-        navBarRef.current.classList.add("collapsed")
+        navBarRef.current.classList.remove('expanded')
+        navBarRef.current.classList.add('collapsed')
       } else {
-        navBarRef.current.classList.remove("collapsed")
-        navBarRef.current.classList.add("expanded")
+        navBarRef.current.classList.remove('collapsed')
+        navBarRef.current.classList.add('expanded')
       }
       return !prev
     })
@@ -28,14 +28,14 @@ export default function Header() {
     return (
       <>
         <button
-          className={settings.lang === "en" ? "active" : ""}
-          onClick={() => setLang("en")}
+          className={settings.lang === 'en' ? 'active' : ''}
+          onClick={() => setLang('en')}
         >
           EN
         </button>
         <button
-          className={settings.lang === "de" ? "active" : ""}
-          onClick={() => setLang("de")}
+          className={settings.lang === 'de' ? 'active' : ''}
+          onClick={() => setLang('de')}
         >
           DE
         </button>
@@ -45,7 +45,9 @@ export default function Header() {
 
   return (
     <header className="Header">
-      <h1>Minhaz Raufoon</h1>
+      <Link className={'webtitle'} to="/">
+        <h1>Minhaz Raufoon</h1>
+      </Link>
 
       <button className="navCollapseButton" onClick={toggleMobileNav}>
         {isMobileNavVisible ? <ShrinkIcon /> : <ExpandIcon />}
@@ -61,12 +63,12 @@ export default function Header() {
         <NavLink to="/resume" onClick={toggleMobileNav}>
           Resume
         </NavLink>
-        <div className={"languageButtons forMobile"} onClick={toggleMobileNav}>
+        <div className={'languageButtons forMobile'} onClick={toggleMobileNav}>
           {langButtons}
         </div>
       </nav>
 
-      <div className={"languageButtons"}>{langButtons}</div>
+      <div className={'languageButtons'}>{langButtons}</div>
     </header>
   )
 }

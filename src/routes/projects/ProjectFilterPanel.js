@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
+import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 
 export default function ProjectFilterPanel(props) {
   const { className, projects, setVisibleProjects } = props
@@ -26,6 +27,13 @@ export default function ProjectFilterPanel(props) {
     setTechFilters((state) => state.filter((label) => label !== tech))
   }, [])
 
+  const clearAllFilters = useCallback(() => {
+    setTechFilters([])
+    setTypeFilter(null)
+  }, [])
+
+  const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
+
   useEffect(() => {
     let filteredProjects = projects.filter((project) => {
       return techFilters.reduce(
@@ -45,10 +53,23 @@ export default function ProjectFilterPanel(props) {
 
   return (
     <div className={`${styles.ProjectFilterPanel} ${className}`}>
-      <h2>Filters</h2>
+      <div className={styles.header}>
+        <h2>Filters</h2>
+
+        {shouldDisplayClearButton && (
+          <button
+            className={styles.clearFilterButton}
+            onClick={clearAllFilters}
+          >
+            <CloseIcon />
+            &nbsp;Clear Filters
+          </button>
+        )}
+      </div>
 
       <div className={styles.filterList}>
         <h4>Project Types</h4>
+
         {allProjectTypesWithCount.map(({ label, count }) => (
           <div key={label}>
             <input
@@ -65,10 +86,12 @@ export default function ProjectFilterPanel(props) {
 
       <div className={styles.filterList}>
         <h4>Technologies</h4>
+
         {allTechLabelsWithCount.map(({ label, count }) => (
           <div key={label}>
             <input
               type="checkbox"
+              checked={techFilters.indexOf(label) !== -1}
               onChange={(e) =>
                 e.target.checked
                   ? addTechFilter(label)

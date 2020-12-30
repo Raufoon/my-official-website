@@ -1,5 +1,4 @@
 .PosterQuote {
-  height: 30vh;
   background-position: top;
   display: flex;
   flex-direction: column;
@@ -8,7 +7,6 @@
 }
 
 .PosterQuote.enlarged {
-  height: 70vh;
   justify-content: flex-end;
   background-position: top;
 }

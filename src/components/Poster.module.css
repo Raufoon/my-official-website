@@ -2,5 +2,5 @@
   background-position: center;
   background-size: cover;
   border-radius: 2px;
-  transition: background-image 0.2s ease-in-out;
+  transition: background-image 600ms ease-in;
 }

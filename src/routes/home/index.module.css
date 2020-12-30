@@ -41,6 +41,12 @@
   height: 1.5rem;
 }
 
+.socialLinks svg:hover {
+  transform: scale(1.5, 1.5);
+  transition: transform 300ms;
+  fill: var(--color-highlight);
+}
+
 .aboutMe {
   flex: 1;
 }

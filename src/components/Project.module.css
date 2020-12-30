@@ -112,6 +112,11 @@
   padding: 1rem;
 }
 
+.links a:hover {
+  transform: scale(1.5, 1.5);
+  transition: transform 300ms;
+}
+
 .photoSlider {
   height: 50vh;
 }

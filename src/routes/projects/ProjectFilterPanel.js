@@ -116,5 +116,5 @@ function getSortedLabelsWithCount(labels) {
       label: key,
       count: countMap[key],
     }))
-    .sort((a, b) => (a.count > b.count ? -1 : 1))
+    .sort((a, b) => (a.label < b.label ? -1 : 1))
 }

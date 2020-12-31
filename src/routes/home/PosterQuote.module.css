@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   text-shadow: 1px 1px 5px var(--color-bg);
+  min-height: 200px;
 }
 
 .PosterQuote.enlarged {

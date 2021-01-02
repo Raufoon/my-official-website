@@ -38,8 +38,6 @@ export default function Project({ project, invertLayout }) {
             <TechLabel key={tech} type={tech} />
           ))}
         </div>
-        <br />
-        <br />
         <div className={styles.links}>
           {links.map((link) => (
             <a key={link.type} href={link.url} target="_blank" rel="noreferrer">

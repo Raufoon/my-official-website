@@ -35,7 +35,6 @@ export default function TechLabel({ type, children }) {
     return {
       color,
       fontSize: '16px',
-      fontFamily: 'monospace',
     }
   }, [type])
 

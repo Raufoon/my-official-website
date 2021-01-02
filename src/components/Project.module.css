@@ -84,32 +84,31 @@
 }
 @media screen and (min-width: 1100px) {
   .technologies {
-    margin-top: 2rem;
   }
 }
 
 .technologies > * {
   margin-right: var(--gap-0);
   margin-top: var(--gap-0);
-  font-weight: bold;
 }
 
 .links {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 4rem;
   justify-content: center;
-  margin-top: auto;
 }
 
 .links svg {
-  fill: var(--color-bg);
-  width: 1.2rem;
-  height: 1.2rem;
+  fill: #004477;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .links a {
-  padding: 1rem;
+  padding: 0;
+  padding-right: 1rem;
 }
 
 .links a:hover {

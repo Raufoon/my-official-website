@@ -5,7 +5,7 @@
 @media screen and (min-width: 900px) {
   .Project {
     display: grid;
-    grid-template-columns: [c0] auto [c1] 4rem [c2];
+    grid-template-columns: [c0] auto [c1] 3rem [c2];
     grid-template-rows: [r0] auto [r1] 50vh [r2];
   }
 }
@@ -20,7 +20,7 @@
 }
 
 .monolith {
-  height: 4rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@
 @media screen and (min-width: 1100px) {
   .monolith {
     order: 3;
-    width: 4rem;
+    width: 3rem;
   }
 }
 

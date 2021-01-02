@@ -112,7 +112,7 @@
 }
 
 .links a:hover {
-  transform: scale(1.5, 1.5);
+  transform: scale(1.4, 1.4);
   transition: transform 300ms;
 }
 

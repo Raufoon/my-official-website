@@ -6,6 +6,10 @@
   text-shadow: 1px 1px 5px var(--color-bg);
   min-height: 200px;
 }
+.PosterQuote:hover {
+  background-position: bottom;
+  transition: background-position 3s;
+}
 
 .PosterQuote.enlarged {
   justify-content: flex-end;
@@ -20,6 +24,11 @@
 
 .PosterQuote h3 button {
   padding: 0;
+}
+
+.PosterQuote h3 button:hover {
+  transform: scale(2, 2);
+  transition: transform 200ms;
 }
 
 .PosterQuote iframe {

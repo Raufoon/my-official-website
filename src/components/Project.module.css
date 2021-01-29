@@ -121,6 +121,11 @@
 .photoSlider {
   height: 50vh;
   border: 1rem solid var(--color-invert) !important;
+  transition: background-image 1s;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center !important;
+  background-color: var(--color-invert);
 }
 @media screen and (min-width: 900px) {
   .photoSlider {

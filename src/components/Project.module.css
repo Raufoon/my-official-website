@@ -1,6 +1,8 @@
 .Project {
   display: flex;
   flex-direction: column;
+  border-radius: 15px !important;
+  overflow: hidden;
 }
 @media screen and (min-width: 900px) {
   .Project {
@@ -118,6 +120,7 @@
 
 .photoSlider {
   height: 50vh;
+  border: 1rem solid var(--color-invert) !important;
 }
 @media screen and (min-width: 900px) {
   .photoSlider {

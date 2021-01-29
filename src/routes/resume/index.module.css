@@ -8,8 +8,3 @@
   width: 80vw;
   min-height: 80vh;
 }
-@media screen and (min-width: 766px) {
-  .content {
-    width: 60vw;
-  }
-}

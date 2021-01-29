@@ -12,6 +12,8 @@ export default function Projects() {
 
   const [visibleProjects, setVisibleProjects] = useState([])
 
+  const [filterDescription, setFilterDescription] = useState(null)
+
   useEffect(() => {
     list &&
       setVisibleProjects(
@@ -37,6 +39,7 @@ export default function Projects() {
         className={styles.filterPanel}
         projects={list}
         setVisibleProjects={setVisibleProjects}
+        setFilterDescription={setFilterDescription}
       />
       <button
         className={styles.filterPanelMobileOpener}
@@ -47,6 +50,8 @@ export default function Projects() {
       </button>
 
       <div className={styles.projectList}>
+        <h1>{filterDescription}</h1>
+
         {visibleProjects.map((project, index) => (
           <Project
             key={project.id}

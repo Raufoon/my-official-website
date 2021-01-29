@@ -3,7 +3,12 @@ import styles from './ProjectFilterPanel.module.css'
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 
 export default function ProjectFilterPanel(props) {
-  const { className, projects, setVisibleProjects } = props
+  const {
+    className,
+    projects,
+    setVisibleProjects,
+    setFilterDescription,
+  } = props
 
   const allTechLabelsWithCount = useMemo(() => {
     const allTechNames2D = projects.map((project) => project.technologies)
@@ -18,6 +23,24 @@ export default function ProjectFilterPanel(props) {
 
   const [techFilters, setTechFilters] = useState([])
   const [typeFilter, setTypeFilter] = useState(null)
+
+  useEffect(() => {
+    if (!typeFilter && techFilters.length === 0) {
+      setFilterDescription(null)
+      return
+    }
+    if (techFilters.length === 0) {
+      setFilterDescription(`${typeFilter} Projects`)
+      return
+    }
+    if (!typeFilter) {
+      setFilterDescription(`Projects with ${techFilters.join(' + ')}`)
+      return
+    }
+    setFilterDescription(
+      `${typeFilter} Projects with ${techFilters.join(' + ')}`
+    )
+  }, [setFilterDescription, techFilters, typeFilter])
 
   const addTechFilter = useCallback((tech) => {
     setTechFilters((state) => [...state, tech])

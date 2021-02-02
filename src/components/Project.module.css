@@ -99,23 +99,28 @@
   flex-direction: row;
   align-items: center;
   margin-top: 4rem;
-  justify-content: center;
 }
 
 .links svg {
   fill: #004477;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .links a {
-  padding: 0;
-  padding-right: 1rem;
+  color: #004477 !important;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 1px 3px lightgray;
+  margin: 5px;
 }
 
 .links a:hover {
-  transform: scale(1.4, 1.4);
-  transition: transform 300ms;
+  background-color: lightgray;
 }
 
 .photoSlider {

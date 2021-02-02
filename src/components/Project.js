@@ -42,6 +42,7 @@ export default function Project({ project, invertLayout }) {
           {links.map((link) => (
             <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
               <ProjectLinkIcon type={link.type} />
+              &nbsp;&nbsp;{link.type}
             </a>
           ))}
         </div>

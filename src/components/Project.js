@@ -5,9 +5,10 @@ import PhotoSlider from './PhotoSlider'
 import styles from './Project.module.css'
 import ProjectLinkIcon from './ProjectLinkIcon'
 import TechLabel from './TechLabel'
+import VideoPoster from './VideoPoster'
 
 export default function Project({ project, invertLayout }) {
-  const { id, type, photos, technologies, links } = project
+  const { id, type, photos, technologies, links, video } = project
 
   const { settings } = useContext(SettingsContext)
 
@@ -48,11 +49,15 @@ export default function Project({ project, invertLayout }) {
         </div>
       </div>
 
-      <PhotoSlider
-        className={styles.photoSlider}
-        frameColor={'lightgray'}
-        photos={photos}
-      />
+      {video ? (
+        <VideoPoster className={styles.photoSlider} src={video} />
+      ) : (
+        <PhotoSlider
+          className={styles.photoSlider}
+          frameColor={'lightgray'}
+          photos={photos}
+        />
+      )}
     </div>
   )
 }

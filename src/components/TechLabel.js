@@ -5,8 +5,6 @@ export default function TechLabel({ type, children }) {
     let color = '#222'
 
     switch (type.toLowerCase()) {
-      case 'express.js':
-      case 'sdl2':
       case 'react.js':
         color = '#045463'
         break
@@ -15,16 +13,19 @@ export default function TechLabel({ type, children }) {
       case 'c++':
       case 'assembly-language':
       case 'java':
+      case 'python':
         color = '#e57300'
         break
 
       case 'graphql':
       case 'firebase':
       case 'postgresql':
-        color = '#0000ff'
+        color = '#9c5f4b'
         break
 
+      case 'express.js':
       case 'angularjs':
+      case 'next.js':
       case 'django':
         color = '#14755d'
         break

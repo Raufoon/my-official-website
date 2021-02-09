@@ -102,13 +102,12 @@
 }
 
 .links svg {
-  fill: #004477;
   width: 1rem;
   height: 1rem;
 }
 
 .links a {
-  color: #004477 !important;
+  background-color: #222 !important;
   padding: 0.5rem;
   display: flex;
   flex-direction: row;
@@ -117,6 +116,8 @@
   background-color: white;
   box-shadow: 0 1px 3px lightgray;
   margin: 5px;
+  text-transform: capitalize;
+  border-radius: 2px;
 }
 
 .links a:hover {

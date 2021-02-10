@@ -41,7 +41,13 @@ export default function Project({ project, invertLayout }) {
         </div>
         <div className={styles.links}>
           {links.map((link) => (
-            <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
+            <a
+              key={link.type}
+              href={link.url}
+              style={monolithStyle}
+              target="_blank"
+              rel="noreferrer"
+            >
               <ProjectLinkIcon type={link.type} />
               &nbsp;&nbsp;{link.type}
             </a>
@@ -68,7 +74,7 @@ function getMonolithTheme(projectType) {
       return '#3b9ed6'
 
     case 'Desktop App':
-      return '#ffa500'
+      return '#cc6540'
 
     case 'Desktop Game':
       return '#f6546a'
@@ -78,6 +84,9 @@ function getMonolithTheme(projectType) {
 
     case 'Assembly':
       return '#ff6367'
+
+    case 'Research Project':
+      return '#003366'
 
     default:
       return 'var(--color-2)'

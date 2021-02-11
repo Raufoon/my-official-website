@@ -61,7 +61,12 @@ header {
 
 main {
   flex: 1;
-  padding: var(--main-padding);
+  padding: 10px;
+}
+@media screen and (min-width: 500px) {
+  main {
+    padding: var(--main-padding);
+  }
 }
 
 section {

@@ -4,10 +4,11 @@
   border-radius: 15px !important;
   overflow: hidden;
   border: 1px solid lightgray;
-  margin: 1rem;
+  margin-bottom: 2rem;
 }
 @media screen and (min-width: 900px) {
   .Project {
+    margin: 1rem;
     display: grid;
     grid-template-columns: [c0] auto [c1] 3rem [c2];
     grid-template-rows: [r0] auto [r1] 50vh [r2];
@@ -130,7 +131,6 @@
 
 .photoSlider {
   height: 50vh;
-  border: 1rem solid white !important;
   transition: background-image 1s;
   background-size: contain;
   background-repeat: no-repeat;
@@ -138,6 +138,7 @@
 }
 @media screen and (min-width: 900px) {
   .photoSlider {
+    border: 1rem solid white !important;
     grid-row-start: r1;
     grid-row-end: r2;
     grid-column-start: c0;

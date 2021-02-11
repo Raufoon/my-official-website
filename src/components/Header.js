@@ -1,6 +1,6 @@
 import { useCallback, useContext, useMemo, useRef, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { ReactComponent as ExpandIcon } from '../assets/icons/arrow-down.svg'
+import { ReactComponent as ExpandIcon } from '../assets/icons/menu.svg'
 import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
 import { SettingsContext } from '../settings'
 import './Header.css'
@@ -65,6 +65,7 @@ export default function Header() {
           Resume
         </NavLink>
         <div className={'languageButtons forMobile'} onClick={toggleMobileNav}>
+          <ThemePicker selectTheme={toggleTheme} theme={settings.theme} />
           {langButtons}
         </div>
       </nav>

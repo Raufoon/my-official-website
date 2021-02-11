@@ -105,13 +105,13 @@
 }
 
 .links svg {
-  width: 1rem;
+  width: 12px;
   fill: white;
-  height: 1rem;
+  height: 12px;
 }
 
 .links a {
-  padding: 0.5rem;
+  padding: 6px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -121,6 +121,7 @@
   margin: 5px;
   text-transform: uppercase;
   border-radius: 2px;
+  font-size: 12px;
 }
 
 .links a:hover {

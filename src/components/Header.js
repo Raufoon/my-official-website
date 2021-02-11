@@ -4,12 +4,13 @@ import { ReactComponent as ExpandIcon } from '../assets/icons/arrow-down.svg'
 import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
 import { SettingsContext } from '../settings'
 import './Header.css'
+import ThemePicker from './ThemePicker'
 
 export default function Header() {
   const navBarRef = useRef(null)
   const [isMobileNavVisible, setMobileNavVisible] = useState(false)
 
-  const { settings, setLang } = useContext(SettingsContext)
+  const { settings, setLang, toggleTheme } = useContext(SettingsContext)
 
   const toggleMobileNav = useCallback(() => {
     setMobileNavVisible((prev) => {
@@ -68,7 +69,11 @@ export default function Header() {
         </div>
       </nav>
 
-      <div className={'languageButtons'}>{langButtons}</div>
+      <div className={'languageButtons'}>
+        <ThemePicker selectTheme={toggleTheme} theme={settings.theme} />
+
+        {langButtons}
+      </div>
     </header>
   )
 }

@@ -92,6 +92,6 @@
   padding-right: 1rem;
 }
 
-.languageButtons button:nth-child(1) {
-  border-right: 1px solid var(--color-text);
+.languageButtons button:last-child {
+  border-left: 1px solid var(--color-text);
 }

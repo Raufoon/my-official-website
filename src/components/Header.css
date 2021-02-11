@@ -6,6 +6,34 @@
   background-color: var(--color-2);
 }
 
+.logo {
+  background-color: #993232;
+  width: 5rem;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+  clip-path: polygon(0 0, 100% 3%, 100% 96%, 0% 100%);
+}
+
+.logo b {
+  transform: rotate(90deg);
+  white-space: nowrap;
+  align-self: center;
+  font-size: 10px;
+  color: #fce7b2;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+
+.logo span {
+  background-color: #fbd77f;
+  height: 100%;
+  width: 5px;
+  margin-right: 5px;
+}
+
 .webtitle {
   margin: 0;
   text-transform: none;

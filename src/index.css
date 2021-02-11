@@ -54,7 +54,6 @@ header {
   top: 0;
   left: 0;
   min-height: var(--header-height);
-  padding-left: var(--gap-1);
   padding-right: var(--gap-1);
   z-index: var(--z-index-highest);
 }

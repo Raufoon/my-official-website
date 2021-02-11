@@ -3,6 +3,8 @@
   flex-direction: column;
   border-radius: 15px !important;
   overflow: hidden;
+  border: 1px solid lightgray;
+  margin: 1rem;
 }
 @media screen and (min-width: 900px) {
   .Project {
@@ -29,6 +31,7 @@
   background-color: var(--color-2);
   text-transform: capitalize;
   margin: 0;
+  color: white;
 }
 @media screen and (min-width: 900px) {
   .monolith {
@@ -51,8 +54,8 @@
 }
 
 .details {
-  background-color: var(--color-invert);
-  color: var(--color-bg);
+  background-color: white;
+  color: #222;
   padding: var(--gap-1);
   min-height: 50vh;
   display: flex;
@@ -103,6 +106,7 @@
 
 .links svg {
   width: 1rem;
+  fill: white;
   height: 1rem;
 }
 
@@ -112,7 +116,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  color: white;
   box-shadow: 0 1px 3px lightgray;
   margin: 5px;
   text-transform: uppercase;
@@ -125,12 +129,11 @@
 
 .photoSlider {
   height: 50vh;
-  border: 1rem solid var(--color-invert) !important;
+  border: 1rem solid white !important;
   transition: background-image 1s;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center !important;
-  background-color: var(--color-invert);
 }
 @media screen and (min-width: 900px) {
   .photoSlider {

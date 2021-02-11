@@ -25,6 +25,7 @@ export default function Projects() {
     createModal(
       <ProjectFilterPanel
         className={styles.filterPanelMobile}
+        setFilterDescription={setFilterDescription}
         projects={list}
         setVisibleProjects={setVisibleProjects}
       />

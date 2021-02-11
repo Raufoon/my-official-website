@@ -47,7 +47,7 @@ export default function Header() {
   return (
     <header className="Header">
       <Link className={'webtitle'} to="/">
-        <h1>Minhaz Raufoon</h1>
+        <h2>Minhaz Raufoon</h2>
       </Link>
 
       <button className="navCollapseButton" onClick={toggleMobileNav}>

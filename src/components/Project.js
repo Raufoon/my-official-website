@@ -1,4 +1,5 @@
 import { useContext, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { SettingsContext } from '../settings'
 import useFetchFromDB from '../useFetchFromDB'
 import PhotoSlider from './PhotoSlider'
@@ -52,6 +53,10 @@ export default function Project({ project, invertLayout }) {
               &nbsp;&nbsp;{link.type}
             </a>
           ))}
+
+          <Link to={`/projects/${id}`} style={monolithStyle}>
+            more
+          </Link>
         </div>
       </div>
 

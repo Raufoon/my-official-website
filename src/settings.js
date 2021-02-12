@@ -13,17 +13,19 @@ export function useSettings() {
   useEffect(() => {
     function initTheme(theme) {
       if (theme === 'light') {
-        document.body.style.setProperty('--color-bg', '#f1f1f1')
-        document.body.style.setProperty('--color-2', '#fafafa')
+        document.body.style.setProperty('--color-bg', '#f5f5f5')
+        document.body.style.setProperty('--color-2', '#fff')
         document.body.style.setProperty('--color-text', '#0e1111')
         document.body.style.setProperty('--color-icon', '#0e1111')
         document.body.style.setProperty('--color-highlight', '#bf1932')
+        document.body.style.setProperty('--color-shadow', 'lightgray')
       } else {
         document.body.style.setProperty('--color-bg', '#0e1111')
         document.body.style.setProperty('--color-2', '#232b2b')
         document.body.style.setProperty('--color-text', '#f1f1f1')
         document.body.style.setProperty('--color-icon', '#f1f1f1')
         document.body.style.setProperty('--color-highlight', '#f8db6e')
+        document.body.style.setProperty('--color-shadow', 'transparent')
       }
     }
     initTheme(settings.theme)

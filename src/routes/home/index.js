@@ -1,14 +1,13 @@
-import Poster from "../../components/Poster"
-import styles from "./index.module.css"
-import useFetchFromDB from "../../useFetchFromDB"
-import useFetchListFromDB from "../../useFetchListFromDB"
-import { ReactComponent as GithubIcon } from "../../assets/icons/github.svg"
-import { ReactComponent as LinkedinIcon } from "../../assets/icons/linkedin2.svg"
-import { ReactComponent as XingIcon } from "../../assets/icons/xing2.svg"
-import PosterQuote from "./PosterQuote"
-import { useContext } from "react"
-import { SettingsContext } from "../../settings"
-import Loader from "../../components/Loader"
+import Poster from '../../components/Poster'
+import styles from './index.module.css'
+import useFetchFromDB from '../../useFetchFromDB'
+import useFetchListFromDB from '../../useFetchListFromDB'
+import { ReactComponent as GithubIcon } from '../../assets/icons/github.svg'
+import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin2.svg'
+import { ReactComponent as XingIcon } from '../../assets/icons/xing2.svg'
+import { useContext } from 'react'
+import { SettingsContext } from '../../settings'
+import Loader from '../../components/Loader'
 
 export default function Home() {
   const { settings } = useContext(SettingsContext)
@@ -49,8 +48,8 @@ export default function Home() {
       </div>
 
       <div className={styles.aboutMe}>
-        <PosterQuote />
-        <h2>{subtitle}</h2>
+        {/**<PosterQuote /> */}
+        <h1>{subtitle}</h1>
         {about.map((para, index) => (
           <p key={index} dangerouslySetInnerHTML={{ __html: para }}></p>
         ))}
@@ -61,11 +60,11 @@ export default function Home() {
 
 function getIconComponentBySocialLink(linkType) {
   switch (linkType) {
-    case "github":
+    case 'github':
       return GithubIcon
-    case "linkedin":
+    case 'linkedin':
       return LinkedinIcon
-    case "xing":
+    case 'xing':
       return XingIcon
     default:
       return null

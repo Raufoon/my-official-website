@@ -46,12 +46,6 @@ export default function Header() {
 
   return (
     <header className="Header">
-      <div className="logo">
-        <b>S C C</b>
-        <span>&nbsp;</span>
-        <span>&nbsp;</span>
-      </div>
-
       <Link className={'webtitle'} to="/">
         <h2>Minhaz Raufoon</h2>
       </Link>

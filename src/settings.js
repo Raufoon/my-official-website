@@ -19,6 +19,10 @@ export function useSettings() {
         document.body.style.setProperty('--color-icon', '#0e1111')
         document.body.style.setProperty('--color-highlight', '#bf1932')
         document.body.style.setProperty('--color-shadow', 'lightgray')
+        document.body.style.setProperty(
+          '--invert-bio-highlights',
+          'invert(100%)'
+        )
       } else {
         document.body.style.setProperty('--color-bg', '#0e1111')
         document.body.style.setProperty('--color-2', '#232b2b')
@@ -26,6 +30,7 @@ export function useSettings() {
         document.body.style.setProperty('--color-icon', '#f1f1f1')
         document.body.style.setProperty('--color-highlight', '#f8db6e')
         document.body.style.setProperty('--color-shadow', 'transparent')
+        document.body.style.setProperty('--invert-bio-highlights', undefined)
       }
     }
     initTheme(settings.theme)

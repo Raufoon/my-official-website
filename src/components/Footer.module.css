@@ -52,8 +52,8 @@
 }
 
 .socialLinks a {
-  padding: 0;
-  margin-right: 2rem;
+  padding: 0.5rem;
+  margin: 5px;
   margin-left: 0;
   background-color: var(--color-2);
   text-transform: capitalize;

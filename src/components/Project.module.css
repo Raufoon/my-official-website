@@ -107,7 +107,7 @@
 
 .links svg {
   width: 12px;
-  fill: white;
+  fill: #222;
   height: 12px;
 }
 
@@ -117,12 +117,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 1px 3px lightgray;
+  color: #222;
   margin: 5px;
   text-transform: uppercase;
   border-radius: 2px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .links a:hover {

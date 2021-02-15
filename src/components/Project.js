@@ -42,21 +42,13 @@ export default function Project({ project, invertLayout }) {
         </div>
         <div className={styles.links}>
           {links.map((link) => (
-            <a
-              key={link.type}
-              href={link.url}
-              style={monolithStyle}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
               <ProjectLinkIcon type={link.type} />
               &nbsp;&nbsp;{link.type}
             </a>
           ))}
 
-          <Link to={`/projects/${id}`} style={monolithStyle}>
-            more
-          </Link>
+          <Link to={`/projects/${id}`}>more</Link>
         </div>
       </div>
 

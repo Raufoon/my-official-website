@@ -4,6 +4,14 @@
   text-align: center;
   padding: var(--gap-1);
 }
+@media screen and (min-width: 800px) {
+  .Footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: space-around;
+  }
+}
 
 .headline {
   color: var(--color-highlight);
@@ -15,10 +23,33 @@
 }
 
 .section > * {
-  padding: 0.5rem;
+  padding: 5px;
 }
 
 .section a {
   text-transform: none;
   font-weight: normal;
+}
+
+@media screen and (min-width: 800px) {
+  .section a {
+    text-align: left;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.socialLinks a {
+  padding: 0.5rem;
+  margin: 5px;
+  background-color: var(--color-2);
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }

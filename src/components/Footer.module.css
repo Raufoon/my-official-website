@@ -37,6 +37,14 @@
   }
 }
 
+.section button {
+  text-transform: none;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
 .socialLinks {
   display: flex;
   flex-direction: row;
@@ -44,8 +52,9 @@
 }
 
 .socialLinks a {
-  padding: 0.5rem;
-  margin: 5px;
+  padding: 0;
+  margin-right: 2rem;
+  margin-left: 0;
   background-color: var(--color-2);
   text-transform: capitalize;
   display: flex;

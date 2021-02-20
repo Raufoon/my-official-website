@@ -1,14 +1,13 @@
 .Footer {
   display: flex;
   flex-direction: column;
-  text-align: center;
   padding: var(--gap-1);
+  align-items: flex-start;
 }
 @media screen and (min-width: 800px) {
   .Footer {
     flex-direction: row;
     flex-wrap: wrap;
-    text-align: left;
     justify-content: space-around;
   }
 }
@@ -27,6 +26,7 @@
 }
 
 .section a {
+  text-align: left;
   text-transform: none;
   font-weight: normal;
 }
@@ -42,7 +42,6 @@
   font-weight: normal;
   display: flex;
   align-items: center;
-  text-align: left;
 }
 
 .socialLinks {

@@ -31,7 +31,7 @@
 }
 @media screen and (min-width: 1001px) {
   .poster {
-    width: 70vh;
+    width: 40vw;
     align-self: center;
   }
 }
@@ -65,8 +65,12 @@
 }
 
 .aboutMe h1 {
-  font-size: 2rem;
-  margin-top: 0;
+}
+@media screen and (min-width: 1001px) {
+  .aboutMe h1 {
+    font-size: 2rem;
+    margin-top: 0;
+  }
 }
 
 .aboutMe p {

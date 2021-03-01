@@ -23,14 +23,16 @@ export default function Footer() {
 
       <div className={styles.section}>
         <h3 className={styles.headline}>Contact</h3>
-        <button>
+
+        <span className={styles.contactInfo}>
           <EmailIcon />
           &nbsp;&nbsp;minhaz.raufoon.1567@gmail.com
-        </button>
-        <button>
+        </span>
+
+        <span className={styles.contactInfo}>
           <PhoneIcon />
           &nbsp;&nbsp;+491788680932
-        </button>
+        </span>
       </div>
 
       <div className={styles.section}>

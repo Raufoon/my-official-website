@@ -61,3 +61,8 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.contactInfo {
+  display: flex;
+  align-items: center;
+}

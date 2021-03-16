@@ -1,0 +1,28 @@
+.APODSection {
+  background-position: top;
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  animation: animateAPOD 15s linear 0s infinite normal forwards;
+}
+
+@keyframes animateAPOD {
+  0% {
+    background-position: top;
+  }
+  50% {
+    background-position: bottom;
+  }
+  100% {
+    background-position: top;
+  }
+}
+
+.APODSection > * {
+  margin: 0;
+  text-align: center;
+  padding: 2rem;
+}

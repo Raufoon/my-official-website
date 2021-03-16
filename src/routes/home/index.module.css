@@ -1,18 +1,18 @@
-.Home {
+.intro {
   display: flex;
   flex-direction: column;
 }
 @media screen and (min-width: 1001px) {
-  .Home {
+  .intro {
     flex-direction: row;
     justify-content: center;
-    padding-top: 3rem;
   }
 }
 
 .photoContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
 }
 @media screen and (min-width: 1001px) {
   .photoContainer {
@@ -21,8 +21,8 @@
 }
 
 .poster {
+  width: 100vw;
   height: 50vh;
-  background-position: 0 0;
 }
 @media screen and (min-width: 501px) {
   .poster {
@@ -31,7 +31,8 @@
 }
 @media screen and (min-width: 1001px) {
   .poster {
-    width: 40vw;
+    width: 35vw;
+    height: 35vw;
     align-self: center;
   }
 }
@@ -57,6 +58,7 @@
 .aboutMe {
   flex: 1;
   font-size: 1rem !important;
+  padding: 2rem;
 }
 @media screen and (min-width: 1001px) {
   .aboutMe {

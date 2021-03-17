@@ -1,11 +1,15 @@
+.Home {
+}
+
 .intro {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (min-width: 1001px) {
   .intro {
     flex-direction: row;
-    justify-content: center;
   }
 }
 
@@ -31,8 +35,8 @@
 }
 @media screen and (min-width: 1001px) {
   .poster {
-    width: 35vw;
-    height: 35vw;
+    width: 30vw;
+    height: 30vw;
     align-self: center;
   }
 }
@@ -75,7 +79,10 @@
   }
 }
 
-.aboutMe p {
+.Home p {
   line-height: 2rem;
+  max-width: 1000px;
+  font-size: 1rem !important;
   letter-spacing: 1px;
+  font-weight: bold;
 }

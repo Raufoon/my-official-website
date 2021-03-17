@@ -6,10 +6,10 @@
   color: white;
   flex-direction: column;
   justify-content: center;
-  animation: animateAPOD 15s linear 0s infinite normal forwards;
+  animation: animateBgImg 30s linear 0s infinite normal forwards;
 }
 
-@keyframes animateAPOD {
+@keyframes animateBgImg {
   0% {
     background-position: top;
   }

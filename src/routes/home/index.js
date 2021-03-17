@@ -5,7 +5,10 @@ import useFetchListFromDB from '../../useFetchListFromDB'
 import { useContext } from 'react'
 import { SettingsContext } from '../../settings'
 import Loader from '../../components/Loader'
-import APODSection from './APODSection'
+import PosterSection from '../../components/PosterSection'
+import secBg1 from '../../assets/images/sec-bg1.jpg'
+import secBg2 from '../../assets/images/sec-bg2.jpg'
+import secBg3 from '../../assets/images/sec-bg3.jpg'
 
 export default function Home() {
   const { settings } = useContext(SettingsContext)
@@ -21,20 +24,28 @@ export default function Home() {
 
   return (
     <div className={styles.Home}>
-      <section className={styles.intro}>
-        <div className={styles.photoContainer}>
-          <Poster className={styles.poster} src={randomizedPhoto} />
-        </div>
+      <PosterSection imgSrc={secBg1}>
+        <div className={styles.intro}>
+          <div className={styles.photoContainer}>
+            <Poster className={styles.poster} src={randomizedPhoto} />
+          </div>
 
-        <div className={styles.aboutMe}>
-          <h1>{subtitle}</h1>
-          {about.map((para, index) => (
-            <p key={index} dangerouslySetInnerHTML={{ __html: para }}></p>
-          ))}
+          <div className={styles.aboutMe}>
+            <h1>{subtitle}</h1>
+            <p dangerouslySetInnerHTML={{ __html: about[0] }}></p>
+          </div>
         </div>
-      </section>
+      </PosterSection>
 
-      <APODSection />
+      <PosterSection imgSrc={secBg2}>
+        <h1>My academic life</h1>
+        <p dangerouslySetInnerHTML={{ __html: about[1] }}></p>
+      </PosterSection>
+
+      <PosterSection imgSrc={secBg3}>
+        <h1>More about me</h1>
+        <p dangerouslySetInnerHTML={{ __html: about[2] }}></p>
+      </PosterSection>
     </div>
   )
 }

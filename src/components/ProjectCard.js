@@ -21,7 +21,7 @@ export default function ProjectCard(props) {
 
   const monolithStyle = useMemo(
     () => ({
-      backgroundColor: getMonolithTheme(type),
+      color: getMonolithTheme(type),
     }),
     [type]
   )

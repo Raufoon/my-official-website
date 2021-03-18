@@ -58,3 +58,9 @@
 .projectList > * {
   margin-top: 1rem;
 }
+
+.filterDesc {
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-highlight);
+}

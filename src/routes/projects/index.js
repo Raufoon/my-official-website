@@ -51,7 +51,9 @@ export default function Projects() {
       </button>
 
       <div className={styles.projectList}>
-        <h1>{filterDescription}</h1>
+        {filterDescription && (
+          <h1 className={styles.filterDesc}>{filterDescription}</h1>
+        )}
 
         {visibleProjects.map((project, index) => (
           <Project

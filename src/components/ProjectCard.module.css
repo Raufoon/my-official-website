@@ -1,10 +1,9 @@
 .Project {
   display: flex;
   flex-direction: column;
-  border-radius: 15px !important;
   overflow: hidden;
-  border: 1px solid lightgray;
   margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-2);
 }
 @media screen and (min-width: 900px) {
   .Project {
@@ -29,10 +28,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-2);
   text-transform: capitalize;
   margin: 0;
-  color: white;
+  font-weight: bold;
+  letter-spacing: 5px;
 }
 @media screen and (min-width: 900px) {
   .monolith {
@@ -55,8 +54,8 @@
 }
 
 .details {
-  background-color: white;
-  color: #222;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   padding: var(--gap-1);
   min-height: 50vh;
   display: flex;
@@ -107,7 +106,7 @@
 
 .links svg {
   width: 12px;
-  fill: #222;
+  fill: var(--color-text);
   height: 12px;
 }
 
@@ -117,7 +116,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  color: #222;
+  color: var(--color-text);
   margin: 5px;
   text-transform: uppercase;
   border-radius: 2px;
@@ -125,7 +124,7 @@
 }
 
 .links a:hover {
-  background-color: lightgray;
+  background-color: var(--color-2);
 }
 
 .photoSlider {
@@ -137,7 +136,7 @@
 }
 @media screen and (min-width: 900px) {
   .photoSlider {
-    border: 1rem solid white !important;
+    border: 3rem solid transparent !important;
     grid-row-start: r1;
     grid-row-end: r2;
     grid-column-start: c0;

@@ -1,4 +1,10 @@
 .Home {
+  text-align: center;
+}
+@media screen and (min-width: 1001px) {
+  .Home {
+    text-align: left;
+  }
 }
 
 .intro {
@@ -30,7 +36,8 @@
 }
 @media screen and (min-width: 501px) {
   .poster {
-    height: 70vh;
+    width: 60vh;
+    height: 60vh;
   }
 }
 @media screen and (min-width: 1001px) {

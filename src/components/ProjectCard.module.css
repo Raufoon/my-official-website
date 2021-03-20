@@ -56,8 +56,7 @@
 .details {
   background-color: var(--color-bg);
   color: var(--color-text);
-  padding: var(--gap-1);
-  min-height: 50vh;
+  padding: var(--gap-h);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,6 +65,8 @@
   .details {
     grid-row-start: r0;
     grid-row-end: r1;
+    min-height: 50vh;
+    padding: var(--gap-1);
     grid-column-start: c0;
     grid-column-end: c1;
   }
@@ -101,7 +102,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
+}
+@media screen and (min-width: 1100px) {
+  .links {
+    margin-top: 4rem;
+  }
 }
 
 .links svg {
@@ -128,7 +134,7 @@
 }
 
 .photoSlider {
-  height: 50vh;
+  height: 40vh;
   transition: background-image 1s;
   background-size: contain;
   background-repeat: no-repeat;

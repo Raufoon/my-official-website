@@ -3,8 +3,7 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--color-2);
-  box-shadow: 0 1px 2px var(--color-shadow);
+  background: linear-gradient(var(--color-2), var(--color-2), transparent);
 }
 
 .logo {

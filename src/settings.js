@@ -16,7 +16,7 @@ export function useSettings() {
         document.body.style.setProperty('--color-bg', '#f5f5f5')
         document.body.style.setProperty(
           '--color-bg-blur',
-          'rgba(245, 245, 245, 0.85)'
+          'rgba(245, 245, 245, 1)'
         )
         document.body.style.setProperty('--color-2', '#fff')
         document.body.style.setProperty('--color-text', '#0e1111')
@@ -30,7 +30,7 @@ export function useSettings() {
       } else {
         document.body.style.setProperty('--color-bg', '#0e1111')
         document.body.style.setProperty('--color-bg-blur', 'rgba(0, 0, 0, 0.8)')
-        document.body.style.setProperty('--color-2', '#232b2b')
+        document.body.style.setProperty('--color-2', 'black')
         document.body.style.setProperty('--color-text', '#f1f1f1')
         document.body.style.setProperty('--color-icon', '#f1f1f1')
         document.body.style.setProperty('--color-highlight', '#f8db6e')

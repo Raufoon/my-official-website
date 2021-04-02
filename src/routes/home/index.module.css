@@ -78,10 +78,11 @@
 }
 
 .Home h1 {
+  font-weight: normal;
 }
 @media screen and (min-width: 1001px) {
   .Home h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-top: 0;
   }
 }
@@ -91,5 +92,5 @@
   max-width: 1000px;
   font-size: 1rem !important;
   letter-spacing: 1px;
-  font-weight: bold;
+  font-weight: 100;
 }

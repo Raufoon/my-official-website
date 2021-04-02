@@ -128,3 +128,7 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.tac {
+  text-align: center;
+}

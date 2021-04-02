@@ -39,12 +39,12 @@ export default function Home() {
 
       <PosterSection imgSrc={secBg2}>
         <h1>My academic life</h1>
-        <p dangerouslySetInnerHTML={{ __html: about[1] }}></p>
+        <p className="tac" dangerouslySetInnerHTML={{ __html: about[1] }}></p>
       </PosterSection>
 
       <PosterSection imgSrc={secBg3}>
         <h1>More about me</h1>
-        <p dangerouslySetInnerHTML={{ __html: about[2] }}></p>
+        <p className="tac" dangerouslySetInnerHTML={{ __html: about[2] }}></p>
       </PosterSection>
     </div>
   )

@@ -17,7 +17,7 @@ firebase.initializeApp({
 
 window.customElements.define(
   'hl-txt',
-  class extends HTMLElement {
+  class HighlightedText extends HTMLElement {
     connectedCallback() {
       this.innerHTML = `<b style="color: ${this.getAttribute('color')}">${
         this.innerHTML

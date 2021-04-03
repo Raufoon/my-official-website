@@ -82,7 +82,7 @@ function getMonolithTheme(projectType) {
     case 'Assembly':
       return '#ff6367'
 
-    case 'Research Project':
+    case 'Research & Development':
       return '#003366'
 
     default:

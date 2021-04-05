@@ -5,9 +5,130 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Raleway', sans-serif;
+
+  width: 100%;
+  overflow-x: hidden;
+
+  --color-bg: #0e1111;
+  --color-bg-blur: rgba(0, 0, 0, 0.9);
+  --color-2: #232b2b;
+  --color-text: #f1f1f1;
+  --color-icon: #f1f1f1;
+  --color-highlight: #f8db6e;
+  --color-invert: var(--color-text);
+
+  --header-height: 5rem;
+
+  --gap-0: 1rem;
+  --gap-h: 1.5rem;
+  --gap-1: 2rem;
+  --font-size: 1rem;
+
+  --z-index-highest: 2000;
+}
+
+* {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  min-height: var(--header-height);
+  padding-right: var(--gap-1);
+  padding-left: var(--gap-1);
+  z-index: var(--z-index-highest);
+}
+
+main {
+  flex: 1;
+  padding: 0;
+}
+
+section {
+  min-height: calc(100vh - var(--header-height));
+}
+
+footer {
+  padding-left: var(--gap-1);
+  padding-right: var(--gap-1);
+  background-color: var(--color-2);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: var(--gap-1);
+  text-align: center;
+}
+
+button {
+  border: unset;
+  background-color: unset;
+  color: var(--color-text);
+  font-weight: bold;
+  padding: var(--gap-1);
+  font-size: var(--font-size);
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--color-icon);
+}
+
+p {
+  line-height: 2rem;
+  font-size: 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.tac {
+  text-align: center;
 }

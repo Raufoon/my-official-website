@@ -1,8 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
+import { ProjectType } from '../../global-types'
 
-export default function ProjectFilterPanel(props) {
+interface Props {
+  className: string
+  projects: Array<ProjectType>
+  setVisibleProjects: any
+  setFilterDescription: any
+}
+
+export default function ProjectFilterPanel(props: Props) {
   const {
     className,
     projects,
@@ -10,19 +18,21 @@ export default function ProjectFilterPanel(props) {
     setFilterDescription,
   } = props
 
+
   const allTechLabelsWithCount = useMemo(() => {
-    const allTechNames2D = projects.map((project) => project.technologies)
-    const allTechLabels = [].concat(...allTechNames2D)
+    const allTechLabels: Array<string> = projects.flatMap((project) => project.technologies)    
     return getSortedLabelsWithCount(allTechLabels)
   }, [projects])
+
 
   const allProjectTypesWithCount = useMemo(() => {
     const allTypes = projects.map((project) => project.type)
     return getSortedLabelsWithCount(allTypes)
   }, [projects])
 
-  const [techFilters, setTechFilters] = useState([])
-  const [typeFilter, setTypeFilter] = useState(null)
+  const [techFilters, setTechFilters] = useState([] as Array<string>)
+
+  const [typeFilter, setTypeFilter] = useState('')
 
   useEffect(() => {
     if (!typeFilter && techFilters.length === 0) {
@@ -52,7 +62,7 @@ export default function ProjectFilterPanel(props) {
 
   const clearAllFilters = useCallback(() => {
     setTechFilters([])
-    setTypeFilter(null)
+    setTypeFilter('')
   }, [])
 
   const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
@@ -60,7 +70,7 @@ export default function ProjectFilterPanel(props) {
   useEffect(() => {
     let filteredProjects = projects.filter((project) => {
       return techFilters.reduce(
-        (result, tech) => result && project.technologies.indexOf(tech) !== -1,
+        (result: boolean, tech: string): boolean => result && (project.technologies.indexOf(tech) !== -1),
         true
       )
     })
@@ -99,7 +109,7 @@ export default function ProjectFilterPanel(props) {
               type="checkbox"
               checked={typeFilter === label}
               onChange={(e) =>
-                e.target.checked ? setTypeFilter(label) : setTypeFilter(null)
+                e.target.checked ? setTypeFilter(label) : setTypeFilter('')
               }
             />
             &nbsp;{label} ({count})
@@ -129,15 +139,16 @@ export default function ProjectFilterPanel(props) {
   )
 }
 
-function getSortedLabelsWithCount(labels) {
-  const countMap = labels.reduce((result, current) => {
-    result[current] ? result[current]++ : (result[current] = 1)
-    return result
-  }, {})
-  return Object.keys(countMap)
-    .map((key) => ({
-      label: key,
-      count: countMap[key],
-    }))
-    .sort((a, b) => (a.label < b.label ? -1 : 1))
+function getSortedLabelsWithCount(labels: Array<string>) {
+  const uniques = new Set(labels)
+  
+  let countMap: {[key: string]: number} = {}
+
+  Array.from(uniques).forEach(label => countMap[label] = 0)
+  
+  labels.forEach(label => countMap[label]++)
+
+  const uniqueLabelsWithCounts = Array.from(uniques).map(label => ({label, count: countMap[label]}))
+
+  return uniqueLabelsWithCounts.sort((a, b) => (a.label < b.label ? -1 : 1))
 }

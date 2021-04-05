@@ -1,6 +1,11 @@
 import { useMemo } from 'react'
 
-export default function TechLabel({ type, children }) {
+interface Props {
+  type: string,
+  children?: any
+}
+
+export default function TechLabel({ type, children }: Props) {
   const labelStyle = useMemo(() => {
     let color = '#222'
 

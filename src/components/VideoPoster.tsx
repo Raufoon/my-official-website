@@ -1,6 +1,11 @@
 import styles from './VideoPoster.module.css'
 
-export default function VideoPoster({ className, src }) {
+interface Props {
+  className?: string
+  src: string
+}
+
+export default function VideoPoster({ className, src }: Props) {
   const isYoutubeLink = src.indexOf('youtube.com') !== -1
 
   return (

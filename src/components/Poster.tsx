@@ -2,7 +2,15 @@ import { useCallback, useMemo } from "react"
 import { createModal } from "./modal"
 import styles from "./Poster.module.css"
 
-export default function Poster(props) {
+interface Props {
+  className?: string
+  src: string
+  style?: any
+  children?: any
+  zoomable?: boolean
+}
+
+export default function Poster(props: Props) {
   const { className, src, style, children, zoomable } = props
 
   const zoom = useCallback(() => {

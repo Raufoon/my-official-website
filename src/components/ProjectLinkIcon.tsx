@@ -3,7 +3,11 @@ import { ReactComponent as DownloadIcon } from '../assets/icons/download3.svg'
 import { ReactComponent as WebsiteIcon } from '../assets/icons/earth.svg'
 import { ReactComponent as DocumentIcon } from '../assets/icons/attachment.svg'
 
-export default function ProjectLinkIcon({ type }) {
+interface Props {
+  type: string
+}
+
+export default function ProjectLinkIcon({ type }: Props) {
   switch (type) {
     case 'github':
       return <GithubIcon />

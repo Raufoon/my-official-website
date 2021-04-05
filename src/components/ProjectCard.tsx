@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { ProjectVisualType } from '../global-types'
 import PhotoSlider from './PhotoSlider'
 import styles from './ProjectCard.module.css'
 import ProjectLinkIcon from './ProjectLinkIcon'
 import TechLabel from './TechLabel'
 import VideoPoster from './VideoPoster'
 
-export default function ProjectCard(props) {
+export default function ProjectCard(props: ProjectVisualType) {
   const {
     id,
     title,
@@ -58,14 +59,14 @@ export default function ProjectCard(props) {
         <PhotoSlider
           className={styles.photoSlider}
           frameColor={'lightgray'}
-          photos={photos}
+          photos={photos || []}
         />
       )}
     </div>
   )
 }
 
-function getMonolithTheme(projectType) {
+function getMonolithTheme(projectType: string) {
   switch (projectType) {
     case 'Frontend Web':
       return '#3b9ed6'

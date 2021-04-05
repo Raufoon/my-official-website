@@ -1,36 +1,37 @@
 import { useCallback, useEffect, useState } from 'react'
 import Loader from '../../components/Loader'
 import Project from '../../components/Project'
-import useFetchListFromDB from '../../useFetchListFromDB'
+import useFetchListFromDB from '../../hooks/useFetchListFromDB'
 import styles from './index.module.css'
 import ProjectFilterPanel from './ProjectFilterPanel'
 import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
 import { createModal } from '../../components/modal'
+import { ProjectType } from '../../global-types'
 
 export default function Projects() {
-  const { isFetching, list } = useFetchListFromDB(`projects`)
+  const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(`projects`)
 
-  const [visibleProjects, setVisibleProjects] = useState([])
+  const [visibleProjects, setVisibleProjects] = useState([] as Array<ProjectType>)
 
   const [filterDescription, setFilterDescription] = useState(null)
 
   useEffect(() => {
-    list &&
-      setVisibleProjects(
-        list.sort((a, b) => (a.priority > b.priority ? -1 : 1))
-      )
-  }, [list])
+    if (projects) {
+      const sortedProjects = projects.sort((a, b) => (a.priority > b.priority ? -1 : 1))
+      setVisibleProjects(sortedProjects)
+    }      
+  }, [projects])
 
   const openFilterModal = useCallback(() => {
     createModal(
       <ProjectFilterPanel
         className={styles.filterPanelMobile}
         setFilterDescription={setFilterDescription}
-        projects={list}
+        projects={projects}
         setVisibleProjects={setVisibleProjects}
       />
     )
-  }, [list])
+  }, [projects])
 
   if (isFetching) return <Loader center={true} />
 
@@ -38,7 +39,7 @@ export default function Projects() {
     <section className={styles.Projects}>
       <ProjectFilterPanel
         className={styles.filterPanel}
-        projects={list}
+        projects={projects}
         setVisibleProjects={setVisibleProjects}
         setFilterDescription={setFilterDescription}
       />

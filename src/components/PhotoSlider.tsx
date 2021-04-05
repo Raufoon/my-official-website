@@ -9,7 +9,13 @@ const PHOTOS = [
   "https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg",
 ]
 
-export default function PhotoSlider(props) {
+interface Props {
+  className?: string
+  photos: Array<string>
+  frameColor?: string
+}
+
+export default function PhotoSlider(props: Props) {
   const photos = props.photos || PHOTOS
   const { frameColor } = props
 

@@ -7,6 +7,9 @@ import { lazy, Suspense } from 'react'
 import Loader from './components/Loader'
 
 const Home = lazy(() => import('./routes/home'))
+const Resume = lazy(() => import('./routes/resume'))
+const ProjectPage = lazy(() => import('./routes/projects/ProjectPage'))
+const Projects = lazy(() => import('./routes/projects'))
 
 function App() {
   const appSettings = useAppSettings()
@@ -18,6 +21,9 @@ function App() {
       <Suspense fallback={<Loader center={true} />}>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/resume" component={Resume} />
+          <Route path="/projects/:id" component={ProjectPage} />
+          <Route exact path="/projects" component={Projects} />
         </Switch>
       </Suspense>
       </main>

@@ -5,23 +5,31 @@ import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
 import styles from "./index.module.css"
 import Loader from "../Loader"
 
-export function closeModal(event) {
+export function closeModal(event?: any) {
   if (event) {
-    event.persist()
+    // event.persist()
   }
-  const lastModalElement = document.getElementById("modal-root").lastChild
+  const lastModalElement = document.getElementById("modal-root")?.lastChild
   if (lastModalElement) {
-    ReactDOM.unmountComponentAtNode(lastModalElement)
+    ReactDOM.unmountComponentAtNode(lastModalElement as Element)
     lastModalElement.remove()
     releaseLastZIndex()
   }
 }
 
-export function createModal(content, settings = {}) {
+interface ModalSettings {
+  onlyCloseByButton?: boolean
+  contentClassName?: string
+  hideClose?: boolean
+  noScroll?: boolean
+}
+
+export function createModal(content: any, settings: ModalSettings = {}) {
   const modalRoot = document.getElementById("modal-root")
   const modalZIndex = getAvailableZIndex()
   const modalElement = document.createElement("div")
-  modalRoot.appendChild(modalElement)
+  
+  modalRoot?.appendChild(modalElement)
 
   ReactDOM.render(
     <div
@@ -48,10 +56,7 @@ export function createModal(content, settings = {}) {
           </button>
         )}
 
-        <div
-          className={`${styles.children}`}
-          style={{ overflow: settings.noScroll && "hidden" }}
-        >
+        <div className={`${styles.children}`}>
           {content}
         </div>
       </div>
@@ -60,14 +65,19 @@ export function createModal(content, settings = {}) {
   )
 }
 
-function ConfirmationModal(props) {
-  const { text, confirm, loaderText } = props
+interface ConfirmationModalProps {
+  text?: string
+  confirm: () => void
+}
+
+function ConfirmationModal(props: ConfirmationModalProps) {
+  const { text, confirm } = props
   const [pending, setPending] = useState(false)
 
   if (pending)
     return (
       <div className={styles.ConfirmationModal}>
-        <Loader size="20px" text={loaderText || "Loading..."} />
+        <Loader/>
       </div>
     )
   return (
@@ -90,12 +100,11 @@ function ConfirmationModal(props) {
   )
 }
 
-export function onConfirmationPopup(text, confirm, settings = {}) {
+export function onConfirmationPopup(text: string, confirm: () => void, settings: ModalSettings = {}) {
   createModal(
     <ConfirmationModal
       text={text}
       confirm={confirm}
-      loaderText={settings.loaderText}
     />,
     {
       hideClose: true,

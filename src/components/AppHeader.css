@@ -1,0 +1,125 @@
+.AppHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  background: linear-gradient(var(--color-2), var(--color-2), transparent);
+}
+
+.logo {
+  background-color: #993232;
+  width: 5rem;
+  height: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+  clip-path: polygon(0 0, 100% 3%, 100% 96%, 0% 100%);
+}
+
+.logo b {
+  transform: rotate(90deg);
+  white-space: nowrap;
+  align-self: center;
+  font-size: 10px;
+  color: #fce7b2;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+
+.logo span {
+  background-color: #fbd77f;
+  height: 100%;
+  width: 5px;
+  margin-right: 5px;
+}
+
+.webtitle {
+  margin: 0;
+  text-transform: none;
+  padding: 0;
+}
+
+.AppHeader nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 860px) {
+  .AppHeader nav {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+  }
+  .AppHeader nav.collapsed {
+    display: none;
+  }
+  .AppHeader nav.expanded {
+    display: flex;
+  }
+}
+
+.AppHeader nav a {
+  padding: 0;
+  margin-left: var(--gap-1);
+  margin-right: var(--gap-1);
+}
+@media screen and (max-width: 860px) {
+  .AppHeader nav a {
+    margin: 0;
+    margin-top: var(--gap-1);
+    margin-bottom: var(--gap-1);
+  }
+}
+
+.AppHeader nav .active {
+  color: var(--color-highlight);
+}
+
+.navCollapseButton {
+  display: none;
+  margin-left: auto;
+  padding: 0;
+}
+
+@media screen and (max-width: 860px) {
+  .navCollapseButton {
+    display: inline-block;
+  }
+}
+
+.languageButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 860px) {
+  .languageButtons {
+    display: none;
+  }
+}
+
+.languageButtons.forMobile {
+  display: none;
+}
+@media screen and (max-width: 860px) {
+  .languageButtons.forMobile {
+    display: flex;
+    margin: var(--gap-1);
+  }
+}
+.languageButtons .active {
+  color: var(--color-highlight);
+}
+
+.languageButtons button {
+  padding: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.languageButtons button:last-child {
+  border-left: 1px solid var(--color-text);
+}

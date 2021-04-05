@@ -1,0 +1,124 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalzoomin {
+  -webkit-animation: modalzoomin 200ms;
+  animation: modalzoomin 200ms;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes modalzoomin {
+  10% {
+    -webkit-transform: scale(0.99, 0.99);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@keyframes modalzoomin {
+  10% {
+    transform: scale(0.99, 0.99);
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+.Modal .content {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 2px;
+  position: relative;
+  max-width: 95vw !important;
+  max-height: 90vh !important;
+  transform: scale(0.99, 0.99);
+  opacity: 0;
+}
+
+@media screen and (max-width: 499px) {
+  .Modal .content {
+    width: 90vw;
+  }
+}
+
+.Modal .children {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.Modal .closeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  border: none;
+  border-radius: 0px;
+}
+
+.Modal .closeBtn svg {
+  fill: gray;
+}
+
+.Modal .closeBtn svg:hover {
+  fill: crimson;
+}
+
+.Modal .label {
+  font-size: x-large;
+  margin-bottom: 15px;
+  padding: 10px;
+  color: gray;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.ConfirmationModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 237px;
+  max-width: 390px;
+  text-align: center;
+  overflow: none;
+}
+
+.ConfirmationModal label {
+  font-size: large;
+  font-family: 'Raleway', sans-serif;
+}
+
+.ConfirmationModal button {
+  border: 1px solid lightgray;
+  border-radius: 0;
+  margin: 5px;
+  padding: 5px;
+  width: 50px;
+  margin-bottom: 0;
+}
+
+.ConfirmationModal button:hover {
+  background-color: lightgray;
+}
+
+.confirmBtn {
+  color: white;
+  background-color: #e6897c;
+  border: 1px solid #e6897c !important;
+  font-weight: bold;
+}
+
+.confirmBtn:hover {
+  background-color: crimson !important;
+}

@@ -1,0 +1,21 @@
+.PhotoSlider {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 200px;
+  position: relative;
+  border: var(--gap-1) solid;
+  border-color: var(--color-2);
+  background-position: left !important;
+  border-radius: 0 !important;
+}
+
+.dots {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

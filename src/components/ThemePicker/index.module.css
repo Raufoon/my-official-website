@@ -1,0 +1,18 @@
+.ThemePicker {
+  background-color: gray;
+  min-width: 2rem;
+  min-height: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  margin: 0 1rem 0 1rem;
+}
+
+.ThemePicker svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 5px;
+  border-radius: 100%;
+}

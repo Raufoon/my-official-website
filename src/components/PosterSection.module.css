@@ -1,0 +1,20 @@
+.PosterSection {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.inner {
+  background-color: var(--color-bg-blur);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 100%;
+}

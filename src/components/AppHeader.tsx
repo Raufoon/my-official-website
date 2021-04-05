@@ -5,7 +5,7 @@ import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
 import { SettingsContext } from '../contexts'
 import './AppHeader.css'
 import ThemePicker from './ThemePicker'
-import { setLang, toggleTheme } from '../utils'
+import { setLang } from '../utils'
 import { AppSettings } from '../settings'
 
 export default function AppHeader() {
@@ -68,13 +68,13 @@ export default function AppHeader() {
           Resume
         </NavLink>
         <div className={'languageButtons forMobile'} onClick={toggleMobileNav}>
-          <ThemePicker selectTheme={toggleTheme} theme={settings.theme} />
+          <ThemePicker currentTheme={settings.theme} />
           {langButtons}
         </div>
       </nav>
 
       <div className={'languageButtons'}>
-        <ThemePicker selectTheme={toggleTheme} theme={settings.theme} />
+        <ThemePicker currentTheme={settings.theme} />
         {langButtons}
       </div>
     </header>

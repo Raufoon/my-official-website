@@ -1,12 +1,19 @@
+import { toggleTheme } from '../../utils'
+import PropTypes from 'prop-types'
 import style from './index.module.css'
 import { ReactComponent as MoonIcon } from './moon-fill.svg'
 import { ReactComponent as SunIcon } from './sun.svg'
 
-export default function ThemePicker({ selectTheme, theme }) {
-  const isDark = theme === 'dark'
+interface Props {
+  currentTheme: string;
+}
+
+export default function ThemePicker(props: Props) {
+  const isDark = props.currentTheme === 'dark'
   const Icon = isDark ? MoonIcon : SunIcon
+
   return (
-    <button className={style.ThemePicker} onClick={selectTheme}>
+    <button className={style.ThemePicker} onClick={toggleTheme}>
       <Icon
         style={{
           left: isDark ? 0 : 'unset',
@@ -18,4 +25,8 @@ export default function ThemePicker({ selectTheme, theme }) {
       />
     </button>
   )
+}
+
+ThemePicker.propTypes = {
+  currentTheme: PropTypes.string.isRequired
 }

@@ -7,10 +7,10 @@ import { ReactComponent as LinkedinIcon } from '../assets/icons/linkedin2.svg'
 import { ReactComponent as XingIcon } from '../assets/icons/xing2.svg'
 import { ReactComponent as EmailIcon } from '../assets/icons/envelop.svg'
 import { ReactComponent as PhoneIcon } from '../assets/icons/phone.svg'
-import { APIResponseWithList } from '../global-types'
+import { SocialLink } from '../global-types'
 
 export default function Footer() {
-  const { list }: APIResponseWithList = useFetchListFromDB(`contact/socialLinks`)
+  const { list } = useFetchListFromDB<SocialLink>(`contact/socialLinks`)
 
   return (
     <footer className={styles.Footer}>
@@ -37,8 +37,9 @@ export default function Footer() {
 
       <div className={styles.section}>
         <h3 className={styles.headline}>Follow</h3>
+
         <div className={styles.socialLinks}>
-          {list.map((socialLink) => {
+          {list.map((socialLink: SocialLink) => {
             const Icon = getIconComponentBySocialLink(socialLink.type)
             return (
               <a

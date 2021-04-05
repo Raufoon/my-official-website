@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { readAsList } from "../database"
 import { APIResponseWithList } from '../global-types'
 
-const responseFetching: APIResponseWithList = {
+const responseFetching: APIResponseWithList<any> = {
   isFetching: true,
   hasError: false,
   list: []
 }
 
-function createSuccessfulResponse(list: Array<any>): APIResponseWithList {
+function createSuccessfulResponse<T>(list: Array<T>): APIResponseWithList<T> {
   return {
     isFetching: false,
     hasError: false,
@@ -16,16 +16,16 @@ function createSuccessfulResponse(list: Array<any>): APIResponseWithList {
   }
 }
 
-export default function useFetchListFromDB(path: string) {
-  const [info, setInfo] = useState(responseFetching)
+export default function useFetchListFromDB<T>(path: string): APIResponseWithList<T> {
+  const [response, setResponse] = useState(responseFetching)
 
   useEffect(() => {
     async function fetchInfo() {
-      const info = await readAsList(path)
-      setInfo(createSuccessfulResponse(info))
+      const data = await readAsList(path)
+      setResponse(createSuccessfulResponse(data))
     }
     fetchInfo()
   }, [path])
 
-  return info
+  return response
 }

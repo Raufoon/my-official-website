@@ -1,0 +1,96 @@
+.Home {
+  text-align: center;
+}
+@media screen and (min-width: 1001px) {
+  .Home {
+    text-align: left;
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1001px) {
+  .intro {
+    flex-direction: row;
+  }
+}
+
+.photoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+@media screen and (min-width: 1001px) {
+  .photoContainer {
+    flex: 1;
+  }
+}
+
+.poster {
+  width: 100vw;
+  height: 50vh;
+}
+@media screen and (min-width: 501px) {
+  .poster {
+    width: 60vh;
+    height: 60vh;
+  }
+}
+@media screen and (min-width: 1001px) {
+  .poster {
+    width: 30vw;
+    height: 30vw;
+    align-self: center;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.socialLinks svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.socialLinks svg:hover {
+  transform: scale(1.5, 1.5);
+  transition: transform 300ms;
+  fill: var(--color-highlight);
+}
+
+.aboutMe {
+  flex: 1;
+  font-size: 1rem !important;
+  padding: 2rem;
+}
+@media screen and (min-width: 1001px) {
+  .aboutMe {
+    flex: 1;
+  }
+}
+
+.Home h1 {
+  font-weight: normal;
+}
+@media screen and (min-width: 1001px) {
+  .Home h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+}
+
+.Home p {
+  line-height: 2rem;
+  max-width: 1000px;
+  font-size: 1rem !important;
+  letter-spacing: 1px;
+  font-weight: 100;
+}

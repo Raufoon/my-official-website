@@ -1,0 +1,30 @@
+.ProjectFilterPanel {
+  background-color: var(--color-bg);
+}
+
+.titlebar h2 {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.clearFilterButton {
+  padding: var(--gap-0);
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: auto;
+  text-transform: none;
+}
+
+.filterList {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterList > * {
+  margin-bottom: 1rem;
+}

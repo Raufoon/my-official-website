@@ -1,0 +1,10 @@
+.Resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 80vw;
+  min-height: 80vh;
+}

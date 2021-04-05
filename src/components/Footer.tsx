@@ -1,16 +1,16 @@
 import { Link } from 'react-router-dom'
-import useFetchListFromDB from '../useFetchListFromDB'
+import { FunctionComponent } from 'react'
+import useFetchListFromDB from '../hooks/useFetchListFromDB'
 import styles from './Footer.module.css'
 import { ReactComponent as GithubIcon } from '../assets/icons/github.svg'
 import { ReactComponent as LinkedinIcon } from '../assets/icons/linkedin2.svg'
 import { ReactComponent as XingIcon } from '../assets/icons/xing2.svg'
 import { ReactComponent as EmailIcon } from '../assets/icons/envelop.svg'
 import { ReactComponent as PhoneIcon } from '../assets/icons/phone.svg'
+import { APIResponseWithList } from '../global-types'
 
 export default function Footer() {
-  const { isFetching, list } = useFetchListFromDB(`contact/socialLinks`)
-
-  if (isFetching) return false
+  const { list }: APIResponseWithList = useFetchListFromDB(`contact/socialLinks`)
 
   return (
     <footer className={styles.Footer}>
@@ -58,7 +58,7 @@ export default function Footer() {
   )
 }
 
-function getIconComponentBySocialLink(linkType) {
+function getIconComponentBySocialLink(linkType: string): FunctionComponent {
   switch (linkType) {
     case 'github':
       return GithubIcon
@@ -67,6 +67,6 @@ function getIconComponentBySocialLink(linkType) {
     case 'xing':
       return XingIcon
     default:
-      return null
+      return () => <></>
   }
 }

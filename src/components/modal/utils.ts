@@ -1,18 +1,34 @@
-let usedZIndices = [2001]
-
-export function getAvailableZIndex(): number {
-  const last = usedZIndices[usedZIndices.length - 1]
-  usedZIndices.push(last + 1)
-  return last + 1
+function getLastUsedZIndex(): number {
+  return parseInt(sessionStorage.getItem('rfn-modal-lzi') || '1000', 10)
 }
 
-export function releaseZIndex(value: number) {
-  const idx = usedZIndices.indexOf(value)
-  if (idx > -1) {
-    usedZIndices.splice(idx, 1)
+function setLastUsedZIndex(value: number): void {
+  sessionStorage.setItem('rfn-modal-lzi', value.toString())
+}
+
+export function releaseLastUsedZIndex(): void {
+  const zindex = getLastUsedZIndex()
+  setLastUsedZIndex(zindex - 1)
+}
+
+export function getHighestAvailableZIndex(): number {
+  const zindex = getLastUsedZIndex()
+  setLastUsedZIndex(zindex + 1)
+  return zindex + 1
+}
+
+export function getModalRootElement(): HTMLElement {
+  const mroot = document.getElementById('modal-root')
+
+  if (!mroot) {
+    const newMroot: HTMLElement = document.createElement('div')
+    newMroot.setAttribute('id', 'modal-root')
+    document.body.appendChild(newMroot)
+    return newMroot
   }
+  return mroot
 }
 
-export function releaseLastZIndex() {
-  usedZIndices.pop()
+export function getLastModalElement(): HTMLElement {
+  return getModalRootElement().lastChild as HTMLElement
 }

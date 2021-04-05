@@ -10,7 +10,7 @@ import {
 export default function useAppSettings() {
   const [settings, setSettings] = useState(getSavedSettings())
 
-  useEffect(function () {
+  useEffect(function onSettingsEvents() {
     function toggleTheme() {
       setSettings((prev) => ({
         ...prev,
@@ -36,7 +36,7 @@ export default function useAppSettings() {
   }, [])
 
   useEffect(
-    function () {
+    function onThemeChange() {
       const themeCSSvariables: ThemeCSSVariables =
         settings.theme === 'light' ? lightThemeVariables : darkThemeVariables
 
@@ -50,7 +50,7 @@ export default function useAppSettings() {
   )
 
   useEffect(
-    function () {
+    function onLanguageChange() {
       localStorage.setItem('lang', settings.lang)
     },
     [settings.lang]

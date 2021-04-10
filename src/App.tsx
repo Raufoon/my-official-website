@@ -8,7 +8,7 @@ import Loader from './components/Loader'
 
 const Home = lazy(() => import('./routes/home'))
 const Resume = lazy(() => import('./routes/resume'))
-const ProjectPage = lazy(() => import('./routes/projects/ProjectPage'))
+const ProjectPage = lazy(() => import('./routes/projects/project-page'))
 const Projects = lazy(() => import('./routes/projects'))
 
 function App() {

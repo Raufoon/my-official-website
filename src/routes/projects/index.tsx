@@ -5,7 +5,7 @@ import ProjectFilterPanel from './ProjectFilterPanel'
 import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
 import { createModal } from '../../components/modal'
 import IconButton from '../../components/IconButton'
-import useViewableProjects from './hooks/useViewableProjects'
+import useViewableProjects from '../../hooks/useViewableProjects'
 import Project from '../../components/project'
 
 export default function Projects() {

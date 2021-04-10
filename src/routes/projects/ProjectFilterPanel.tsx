@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
-import { getSortedLabelFreqPairs } from './utils'
+import { getSortedLabelFreqPairs, intersects } from './utils'
 import { ProjectType } from './types'
 import IconButton from '../../components/IconButton'
 
@@ -20,36 +20,38 @@ export default function ProjectFilterPanel(props: Props) {
     setFilterDescription,
   } = props
 
-  const techLabelFreqPairs = useMemo(() => {
-    const techLabels: Array<string> = projects.flatMap(
-      (project) => project.technologies
-    )
-    return getSortedLabelFreqPairs(techLabels)
-  }, [projects])
-
-  const ptypeLabelFreqPairs = useMemo(() => {
-    const types = projects.map((project) => project.type)
-    return getSortedLabelFreqPairs(types)
-  }, [projects])
-
   const [techFilters, setTechFilters] = useState([] as Array<string>)
-
   const [typeFilter, setTypeFilter] = useState('')
 
   useEffect(
     function setFilterDescFromFilters() {
       let desc = ''
-
       if (typeFilter) {
         desc = `${typeFilter} Projects`
       }
       if (techFilters && techFilters.length > 0) {
         desc = `${desc || 'Projects'} with ${techFilters.join(' + ')}`
       }
-
       setFilterDescription(desc)
     },
     [setFilterDescription, techFilters, typeFilter]
+  )
+
+  useEffect(
+    function applyAllFilters() {
+      const filteredByType = typeFilter
+        ? projects.filter((p) => p.type === typeFilter)
+        : projects
+
+      const noTechFilters = techFilters.length === 0
+
+      const filteredByTech = noTechFilters
+        ? filteredByType
+        : filteredByType.filter((p) => intersects(p.technologies, techFilters))
+
+      setVisibleProjects(filteredByTech)
+    },
+    [techFilters, typeFilter, setVisibleProjects, projects]
   )
 
   const addTechFilter = useCallback((tech) => {
@@ -65,26 +67,17 @@ export default function ProjectFilterPanel(props: Props) {
     setTypeFilter('')
   }, [])
 
-  const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
+  const techLabelFreqPairs = useMemo(() => {
+    const techLabels = projects.flatMap((project) => project.technologies)
+    return getSortedLabelFreqPairs(techLabels)
+  }, [projects])
 
-  useEffect(
-    function applyAllFilters() {
-      let filteredProjects = projects.filter((project) => {
-        return techFilters.reduce(
-          (result: boolean, tech: string): boolean =>
-            result && project.technologies.indexOf(tech) !== -1,
-          true
-        )
-      })
-      if (typeFilter) {
-        filteredProjects = filteredProjects.filter(
-          (project) => project.type === typeFilter
-        )
-      }
-      setVisibleProjects(filteredProjects)
-    },
-    [techFilters, typeFilter, setVisibleProjects, projects]
-  )
+  const ptypeLabelFreqPairs = useMemo(() => {
+    const types = projects.map((project) => project.type)
+    return getSortedLabelFreqPairs(types)
+  }, [projects])
+
+  const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
 
   return (
     <div className={`${styles.ProjectFilterPanel} ${className}`}>

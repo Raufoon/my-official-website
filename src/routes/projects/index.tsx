@@ -50,7 +50,7 @@ export default function Projects() {
 
       <div className={styles.projectList}>
         {filterDescription && (
-          <h1 className={styles.filterDesc}>{filterDescription}</h1>
+          <h3 className={styles.filterDesc}>{filterDescription}</h3>
         )}
         {visibleProjects.map((project, index) => (
           <Project

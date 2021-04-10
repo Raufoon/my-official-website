@@ -9,17 +9,23 @@ import { createModal } from '../../components/modal'
 import { ProjectType } from '../../global-types'
 
 export default function Projects() {
-  const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(`projects`)
+  const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(
+    `projects`
+  )
 
-  const [visibleProjects, setVisibleProjects] = useState([] as Array<ProjectType>)
+  const [visibleProjects, setVisibleProjects] = useState(
+    [] as Array<ProjectType>
+  )
 
   const [filterDescription, setFilterDescription] = useState(null)
 
   useEffect(() => {
     if (projects) {
-      const sortedProjects = projects.sort((a, b) => (a.priority > b.priority ? -1 : 1))
+      const sortedProjects = projects.sort((a, b) =>
+        a.priority > b.priority ? -1 : 1
+      )
       setVisibleProjects(sortedProjects)
-    }      
+    }
   }, [projects])
 
   const openFilterModal = useCallback(() => {

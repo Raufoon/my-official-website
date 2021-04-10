@@ -13,17 +13,22 @@ import { AboutMe, AppSettings } from '../../global-types'
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)
-  
-  const { data: aboutMe, isFetching: isAboutFetching } = useFetchFromDB<AboutMe>(
-    `${settings.lang}/me`
-  )
-  
-  const { list: photos, isFetching: isPhotosFetching} = useFetchListFromDB<string>(`photos`)
-  
+
+  const {
+    data: aboutMe,
+    isFetching: isAboutFetching,
+  } = useFetchFromDB<AboutMe>(`${settings.lang}/me`)
+
+  const {
+    list: photos,
+    isFetching: isPhotosFetching,
+  } = useFetchListFromDB<string>(`photos`)
+
   if (isAboutFetching || isPhotosFetching) return <Loader />
-  
+
   const { subtitle, about }: AboutMe = aboutMe
-  const randomizedPhoto: string = photos[Math.floor(Math.random() * photos.length)]
+  const randomizedPhoto: string =
+    photos[Math.floor(Math.random() * photos.length)]
 
   return (
     <div className={styles.Home}>

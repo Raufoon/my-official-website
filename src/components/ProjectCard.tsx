@@ -20,27 +20,29 @@ export default function ProjectCard(props: ProjectVisualType) {
     video,
   } = props
 
-  const monolithStyle = useMemo(
+  const projectTypeLabelStyle = useMemo(
     () => ({
-      color: getMonolithTheme(type),
+      color: getProjectThemeColor(type),
     }),
     [type]
   )
 
   return (
     <div className={`${styles.Project} ${invertLayout ? styles.inverted : ''}`}>
-      <div className={styles.monolith} style={monolithStyle}>
+      <div className={styles.monolith} style={projectTypeLabelStyle}>
         <h3>{type}</h3>
       </div>
 
       <div className={styles.details}>
         <h1>{title}</h1>
         <p>{subtitle}</p>
+
         <div className={styles.technologies}>
           {technologies.map((tech) => (
             <TechLabel key={tech} type={tech} />
           ))}
         </div>
+
         <div className={styles.links}>
           {links.map((link) => (
             <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
@@ -48,7 +50,6 @@ export default function ProjectCard(props: ProjectVisualType) {
               &nbsp;&nbsp;{link.type}
             </a>
           ))}
-
           <Link to={`/projects/${id}`}>more</Link>
         </div>
       </div>
@@ -66,7 +67,7 @@ export default function ProjectCard(props: ProjectVisualType) {
   )
 }
 
-function getMonolithTheme(projectType: string) {
+function getProjectThemeColor(projectType: string) {
   switch (projectType) {
     case 'Frontend Web':
       return '#3b9ed6'

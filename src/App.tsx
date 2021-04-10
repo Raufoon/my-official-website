@@ -1,8 +1,8 @@
 import useAppSettings from './hooks/useAppSettings'
 import { Route, Switch } from 'react-router-dom'
-import { SettingsContext }from './contexts'
-import AppHeader from './components/AppHeader';
-import Footer from './components/Footer';
+import { SettingsContext } from './contexts'
+import AppHeader from './components/AppHeader'
+import Footer from './components/Footer'
 import { lazy, Suspense } from 'react'
 import Loader from './components/Loader'
 
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <SettingsContext.Provider value={appSettings}>
-      <AppHeader/>
+      <AppHeader />
 
       <main id="app-main">
         <Suspense fallback={<Loader center={true} />}>
@@ -28,10 +28,10 @@ function App() {
           </Switch>
         </Suspense>
       </main>
-      
-      <Footer/>
+
+      <Footer />
     </SettingsContext.Provider>
-  );
+  )
 }
 
-export default App;
+export default App

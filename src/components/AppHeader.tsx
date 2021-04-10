@@ -10,19 +10,23 @@ import { AppSettings } from '../global-types'
 
 export default function AppHeader() {
   const navBarRef = useRef<HTMLDivElement>(null)
+
   const [isMobileNavVisible, setMobileNavVisible] = useState(false)
+
   const settings: AppSettings = useContext(SettingsContext)
 
   const toggleMobileNav = useCallback(() => {
     setMobileNavVisible((prev) => {
-      const current = navBarRef.current
-      if (!current) return prev
-      if (prev) {
-        current.classList.remove('expanded')
-        current.classList.add('collapsed')
-      } else {
-        current.classList.remove('collapsed')
-        current.classList.add('expanded')
+      const { current } = navBarRef
+      if (current) {
+        const { classList } = current
+        if (prev) {
+          classList.remove('expanded')
+          classList.add('collapsed')
+        } else {
+          classList.remove('collapsed')
+          classList.add('expanded')
+        }
       }
       return !prev
     })
@@ -61,12 +65,15 @@ export default function AppHeader() {
         <NavLink exact to="/" onClick={toggleMobileNav}>
           Me
         </NavLink>
+
         <NavLink to="/projects" onClick={toggleMobileNav}>
           Projects
         </NavLink>
+
         <NavLink to="/resume" onClick={toggleMobileNav}>
           Resume
         </NavLink>
+
         <div className={'languageButtons forMobile'} onClick={toggleMobileNav}>
           <ThemePicker currentTheme={settings.theme} />
           {langButtons}

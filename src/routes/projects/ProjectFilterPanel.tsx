@@ -19,12 +19,12 @@ export default function ProjectFilterPanel(props: Props) {
     setFilterDescription,
   } = props
 
-
   const allTechLabelsWithCount = useMemo(() => {
-    const allTechLabels: Array<string> = projects.flatMap((project) => project.technologies)    
+    const allTechLabels: Array<string> = projects.flatMap(
+      (project) => project.technologies
+    )
     return getSortedLabelFreqPairs(allTechLabels)
   }, [projects])
-
 
   const allProjectTypesWithCount = useMemo(() => {
     const allTypes = projects.map((project) => project.type)
@@ -71,7 +71,8 @@ export default function ProjectFilterPanel(props: Props) {
   useEffect(() => {
     let filteredProjects = projects.filter((project) => {
       return techFilters.reduce(
-        (result: boolean, tech: string): boolean => result && (project.technologies.indexOf(tech) !== -1),
+        (result: boolean, tech: string): boolean =>
+          result && project.technologies.indexOf(tech) !== -1,
         true
       )
     })
@@ -139,4 +140,3 @@ export default function ProjectFilterPanel(props: Props) {
     </div>
   )
 }
-

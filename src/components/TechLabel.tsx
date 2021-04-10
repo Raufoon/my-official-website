@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 
 interface Props {
-  type: string,
+  type: string
   children?: any
 }
 

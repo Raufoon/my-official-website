@@ -51,9 +51,10 @@ code {
 
 #app-main {
   padding: 0;
+  flex: 1;
 }
 
-section {
+.atLeastFullHeight {
   min-height: calc(100vh - var(--header-height));
 }
 

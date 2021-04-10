@@ -36,7 +36,7 @@ export default function Projects() {
   if (isFetching) return <Loader center={true} />
 
   return (
-    <section className={styles.Projects}>
+    <div className={styles.Projects}>
       <ProjectFilterPanel
         className={styles.filterPanel}
         projects={projects}
@@ -64,6 +64,6 @@ export default function Projects() {
           />
         ))}
       </div>
-    </section>
+    </div>
   )
 }

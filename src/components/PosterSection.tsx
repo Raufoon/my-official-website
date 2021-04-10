@@ -11,7 +11,7 @@ export default function PosterSection(props: Props) {
 
   return (
     <section
-      className={`${styles.PosterSection} ${className}`}
+      className={`${styles.PosterSection} ${className} atLeastFullHeight`}
       style={{ backgroundImage: `url(${imgSrc})` }}
     >
       <div className={styles.inner}>{children}</div>

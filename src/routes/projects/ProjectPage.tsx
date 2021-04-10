@@ -16,7 +16,7 @@ export default function ProjectPage() {
   if (hasError) return <span>Failed to load</span>
 
   return (
-    <section className={styles.ProjectPage}>
+    <section className={`${styles.ProjectPage} atLeastFullHeight`}>
       <Project project={project} />
     </section>
   )

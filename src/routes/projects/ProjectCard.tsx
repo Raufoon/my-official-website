@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ProjectVisualType } from '../routes/projects/types'
-import PhotoSlider from './PhotoSlider'
+import PhotoSlider from '../../components/PhotoSlider'
+import VideoPoster from '../../components/VideoPoster'
 import styles from './ProjectCard.module.css'
 import ProjectLinkIcon from './ProjectLinkIcon'
 import TechLabel from './TechLabel'
-import VideoPoster from './VideoPoster'
+import { ProjectVisualType } from './types'
 
 export default function ProjectCard(props: ProjectVisualType) {
   const {

@@ -1,6 +1,6 @@
 import { useRouteMatch } from 'react-router-dom'
 import Loader from '../../components/Loader'
-import Project from '../../components/Project'
+import Project from './Project'
 import useFetchFromDB from '../../hooks/useFetchFromDB'
 import styles from './ProjectPage.module.css'
 import { ProjectType } from './types'

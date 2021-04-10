@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { EVENTS } from '../constants'
+import { ThemeCSSVariables } from '../global-types'
 import {
   darkThemeVariables,
   getSavedSettings,
   lightThemeVariables,
-  ThemeCSSVariables,
 } from '../settings'
 
 export default function useAppSettings() {

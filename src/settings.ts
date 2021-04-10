@@ -1,7 +1,4 @@
-export interface AppSettings {
-  lang: 'en' | 'de'
-  theme: 'light' | 'dark'
-}
+import { AppSettings, ThemeCSSVariables } from './global-types'
 
 const defaultSettings: AppSettings = {
   lang: 'en',
@@ -22,8 +19,6 @@ export function getSavedSettings(): AppSettings {
     ...defaultSettings,
   }
 }
-
-export type ThemeCSSVariables = Array<[string, string]>
 
 export const lightThemeVariables: ThemeCSSVariables = [
   ['--color-bg', '#f5f5f5'],

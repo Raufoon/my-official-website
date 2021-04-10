@@ -5,8 +5,8 @@ import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
 import { SettingsContext } from '../contexts'
 import ThemePicker from './ThemePicker'
 import { setLang } from '../utils'
-import { AppSettings } from '../settings'
 import './AppHeader.css'
+import { AppSettings } from '../global-types'
 
 export default function AppHeader() {
   const navBarRef = useRef<HTMLDivElement>(null)

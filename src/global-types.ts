@@ -35,3 +35,14 @@ export interface APIResponse<T> {
   hasError: boolean
   data: T
 }
+
+export type AppTheme = 'light' | 'dark'
+
+export type AppLang = 'en' | 'de'
+
+export interface AppSettings {
+  lang: AppLang
+  theme: AppTheme
+}
+
+export type ThemeCSSVariables = Array<[string, string]>

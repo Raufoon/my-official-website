@@ -1,11 +1,11 @@
 import { toggleTheme } from '../../utils'
-import PropTypes from 'prop-types'
 import style from './index.module.css'
 import { ReactComponent as MoonIcon } from './moon-fill.svg'
 import { ReactComponent as SunIcon } from './sun.svg'
+import { AppTheme } from '../../global-types'
 
 interface Props {
-  currentTheme: string;
+  currentTheme: AppTheme;
 }
 
 export default function ThemePicker(props: Props) {
@@ -25,8 +25,4 @@ export default function ThemePicker(props: Props) {
       />
     </button>
   )
-}
-
-ThemePicker.propTypes = {
-  currentTheme: PropTypes.string.isRequired
 }

@@ -9,8 +9,7 @@ import PosterSection from '../../components/PosterSection'
 import secBg1 from '../../assets/images/sec-bg1.jpg'
 import secBg2 from '../../assets/images/sec-bg2.jpg'
 import secBg3 from '../../assets/images/sec-bg3.jpg'
-import { AppSettings } from '../../settings'
-import { AboutMe } from '../../global-types'
+import { AboutMe, AppSettings } from '../../global-types'
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)

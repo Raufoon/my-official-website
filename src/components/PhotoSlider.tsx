@@ -1,7 +1,7 @@
-import styles from './PhotoSlider.module.css'
 import Poster from './Poster'
 import { ReactComponent as DashIcon } from '../assets/icons/minus.svg'
 import { useEffect, useMemo, useState } from 'react'
+import styles from './PhotoSlider.module.css'
 
 interface Props {
   className?: string

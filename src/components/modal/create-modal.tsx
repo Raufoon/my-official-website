@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom'
 import { getHighestAvailableZIndex, getModalRootElement } from './utils'
 import closeLastModal from './close-last-modal'
-import styles from './styles.module.css'
 import { ReactComponent as CloseIcon } from './close-icon.svg'
 import IconButton from '../IconButton'
+import styles from './styles.module.css'
 
 export interface ModalSettings {
   onlyCloseByButton?: boolean

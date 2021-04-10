@@ -8,6 +8,7 @@ import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
 import { createModal } from '../../components/modal'
 import { ProjectType } from '../../global-types'
 import { compareProjectsByPriority } from './utils'
+import IconButton from '../../components/IconButton'
 
 export default function Projects() {
   const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(
@@ -52,19 +53,18 @@ export default function Projects() {
         setFilterDescription={setFilterDescription}
       />
 
-      <button
-        className={styles.filterPanelMobileOpener}
+      <IconButton
+        btnClassName={styles.filterPanelMobileOpener}
         onClick={openFilterModal}
-      >
-        <FilterIcon width="2rem" height="2rem" />
-        &nbsp;&nbsp;Filters
-      </button>
+        Icon={FilterIcon}
+        iconProps={{ width: '2rem', height: '2rem' }}
+        label="Filters"
+      />
 
       <div className={styles.projectList}>
         {filterDescription && (
           <h1 className={styles.filterDesc}>{filterDescription}</h1>
         )}
-
         {visibleProjects.map((project, index) => (
           <Project
             key={project.id}

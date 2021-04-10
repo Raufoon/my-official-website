@@ -1,12 +1,12 @@
 import { useCallback } from 'react'
 import Loader from '../../components/Loader'
-import Project from './project'
 import styles from './index.module.css'
 import ProjectFilterPanel from './ProjectFilterPanel'
 import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
 import { createModal } from '../../components/modal'
 import IconButton from '../../components/IconButton'
 import useViewableProjects from './hooks/useViewableProjects'
+import Project from '../../components/project'
 
 export default function Projects() {
   const {

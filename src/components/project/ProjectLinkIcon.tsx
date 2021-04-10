@@ -1,7 +1,7 @@
-import { ReactComponent as GithubIcon } from '../../../assets/icons/github.svg'
-import { ReactComponent as DownloadIcon } from '../../../assets/icons/download3.svg'
-import { ReactComponent as WebsiteIcon } from '../../../assets/icons/earth.svg'
-import { ReactComponent as DocumentIcon } from '../../../assets/icons/attachment.svg'
+import { ReactComponent as GithubIcon } from '../../assets/icons/github.svg'
+import { ReactComponent as DownloadIcon } from '../../assets/icons/download3.svg'
+import { ReactComponent as WebsiteIcon } from '../../assets/icons/earth.svg'
+import { ReactComponent as DocumentIcon } from '../../assets/icons/attachment.svg'
 
 interface Props {
   type: string

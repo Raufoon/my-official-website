@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { ProjectType } from '../../global-types'
+import { getSortedLabelFreqPairs } from './utils'
 
 interface Props {
   className: string
@@ -21,13 +22,13 @@ export default function ProjectFilterPanel(props: Props) {
 
   const allTechLabelsWithCount = useMemo(() => {
     const allTechLabels: Array<string> = projects.flatMap((project) => project.technologies)    
-    return getSortedLabelsWithCount(allTechLabels)
+    return getSortedLabelFreqPairs(allTechLabels)
   }, [projects])
 
 
   const allProjectTypesWithCount = useMemo(() => {
     const allTypes = projects.map((project) => project.type)
-    return getSortedLabelsWithCount(allTypes)
+    return getSortedLabelFreqPairs(allTypes)
   }, [projects])
 
   const [techFilters, setTechFilters] = useState([] as Array<string>)
@@ -103,7 +104,7 @@ export default function ProjectFilterPanel(props: Props) {
       <div className={styles.filterList}>
         <h4>Project Types</h4>
 
-        {allProjectTypesWithCount.map(({ label, count }) => (
+        {allProjectTypesWithCount.map(({ label, freq }) => (
           <div key={label}>
             <input
               type="checkbox"
@@ -112,7 +113,7 @@ export default function ProjectFilterPanel(props: Props) {
                 e.target.checked ? setTypeFilter(label) : setTypeFilter('')
               }
             />
-            &nbsp;{label} ({count})
+            &nbsp;{label} ({freq})
           </div>
         ))}
       </div>
@@ -120,7 +121,7 @@ export default function ProjectFilterPanel(props: Props) {
       <div className={styles.filterList}>
         <h4>Technologies</h4>
 
-        {allTechLabelsWithCount.map(({ label, count }) => (
+        {allTechLabelsWithCount.map(({ label, freq }) => (
           <div key={label}>
             <input
               type="checkbox"
@@ -131,7 +132,7 @@ export default function ProjectFilterPanel(props: Props) {
                   : removeTechFilter(label)
               }
             />
-            &nbsp;{label} ({count})
+            &nbsp;{label} ({freq})
           </div>
         ))}
       </div>
@@ -139,16 +140,3 @@ export default function ProjectFilterPanel(props: Props) {
   )
 }
 
-function getSortedLabelsWithCount(labels: Array<string>) {
-  const uniques = new Set(labels)
-  
-  let countMap: {[key: string]: number} = {}
-
-  Array.from(uniques).forEach(label => countMap[label] = 0)
-  
-  labels.forEach(label => countMap[label]++)
-
-  const uniqueLabelsWithCounts = Array.from(uniques).map(label => ({label, count: countMap[label]}))
-
-  return uniqueLabelsWithCounts.sort((a, b) => (a.label < b.label ? -1 : 1))
-}

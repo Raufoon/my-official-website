@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import Loader from '../../components/Loader'
-import Project from './Project'
+import Project from './project'
 import styles from './index.module.css'
 import ProjectFilterPanel from './ProjectFilterPanel'
 import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'

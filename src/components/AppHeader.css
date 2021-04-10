@@ -4,6 +4,13 @@
   align-items: center;
   flex-wrap: wrap;
   background: linear-gradient(var(--color-2), var(--color-2), transparent);
+  position: sticky;
+  top: 0;
+  left: 0;
+  min-height: var(--header-height);
+  padding-right: var(--gap-1);
+  padding-left: var(--gap-1);
+  z-index: var(--z-index-highest);
 }
 
 .logo {

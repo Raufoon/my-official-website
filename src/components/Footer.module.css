@@ -3,6 +3,9 @@
   flex-direction: column;
   padding: var(--gap-1);
   align-items: flex-start;
+  padding-left: var(--gap-1);
+  padding-right: var(--gap-1);
+  background-color: var(--color-2);
 }
 @media screen and (min-width: 800px) {
   .Footer {

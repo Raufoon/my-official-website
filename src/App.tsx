@@ -17,16 +17,18 @@ function App() {
   return (
     <SettingsContext.Provider value={appSettings}>
       <AppHeader/>
-      <main>
-      <Suspense fallback={<Loader center={true} />}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/resume" component={Resume} />
-          <Route path="/projects/:id" component={ProjectPage} />
-          <Route exact path="/projects" component={Projects} />
-        </Switch>
-      </Suspense>
+
+      <main id="app-main">
+        <Suspense fallback={<Loader center={true} />}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/resume" component={Resume} />
+            <Route path="/projects/:id" component={ProjectPage} />
+            <Route exact path="/projects" component={Projects} />
+          </Switch>
+        </Suspense>
       </main>
+      
       <Footer/>
     </SettingsContext.Provider>
   );

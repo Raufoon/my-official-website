@@ -3,10 +3,10 @@ import { NavLink, Link } from 'react-router-dom'
 import { ReactComponent as ExpandIcon } from '../assets/icons/menu.svg'
 import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
 import { SettingsContext } from '../contexts'
-import './AppHeader.css'
 import ThemePicker from './ThemePicker'
 import { setLang } from '../utils'
 import { AppSettings } from '../settings'
+import './AppHeader.css'
 
 export default function AppHeader() {
   const navBarRef = useRef<HTMLDivElement>(null)

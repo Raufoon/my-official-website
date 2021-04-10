@@ -5,13 +5,13 @@ const CV_DE =
 
 export default function Resume() {
   return (
-    <div className={styles.Resume}>
+    <section className={styles.Resume}>
       <iframe
         className={styles.content}
         title="resume"
         src={CV_DE}
         frameBorder="0"
       ></iframe>
-    </div>
+    </section>
   )
 }

@@ -28,13 +28,15 @@ export default function ProjectCard(props: ProjectVisualType) {
   )
 
   return (
-    <div className={`${styles.Project} ${invertLayout ? styles.inverted : ''}`}>
+    <section
+      className={`${styles.Project} ${invertLayout ? styles.inverted : ''}`}
+    >
       <div className={styles.monolith} style={projectTypeLabelStyle}>
         <h3>{type}</h3>
       </div>
 
-      <div className={styles.details}>
-        <h1>{title}</h1>
+      <article className={styles.details}>
+        <h2>{title}</h2>
         <p>{subtitle}</p>
 
         <div className={styles.technologies}>
@@ -52,7 +54,7 @@ export default function ProjectCard(props: ProjectVisualType) {
           ))}
           <Link to={`/projects/${id}`}>more</Link>
         </div>
-      </div>
+      </article>
 
       {video ? (
         <VideoPoster className={styles.photoSlider} src={video} />
@@ -63,7 +65,7 @@ export default function ProjectCard(props: ProjectVisualType) {
           photos={photos || []}
         />
       )}
-    </div>
+    </section>
   )
 }
 

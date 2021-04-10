@@ -31,17 +31,17 @@ export default function Home() {
     photos[Math.floor(Math.random() * photos.length)]
 
   return (
-    <div className={styles.Home}>
+    <main className={styles.Home}>
       <PosterSection imgSrc={secBg1}>
         <div className={styles.intro}>
-          <div className={styles.photoContainer}>
+          <section className={styles.photoContainer}>
             <Poster className={styles.poster} src={randomizedPhoto} />
-          </div>
+          </section>
 
-          <div className={styles.aboutMe}>
+          <article className={styles.aboutMe}>
             <h1>{subtitle}</h1>
             <p dangerouslySetInnerHTML={{ __html: about[0] }}></p>
-          </div>
+          </article>
         </div>
       </PosterSection>
 
@@ -54,6 +54,6 @@ export default function Home() {
         <h1>More about me</h1>
         <p className="tac" dangerouslySetInnerHTML={{ __html: about[2] }}></p>
       </PosterSection>
-    </div>
+    </main>
   )
 }

@@ -14,14 +14,14 @@ export default function Footer() {
 
   return (
     <footer className={styles.Footer}>
-      <div className={styles.section}>
+      <section className={styles.section}>
         <h3 className={styles.headline}>Sitemap</h3>
         <Link to="/">About me</Link>
         <Link to="/projects">My projects</Link>
         <Link to="/resume">My resume</Link>
-      </div>
+      </section>
 
-      <div className={styles.section}>
+      <section className={styles.section}>
         <h3 className={styles.headline}>Contact</h3>
 
         <span className={styles.contactInfo}>
@@ -33,9 +33,9 @@ export default function Footer() {
           <PhoneIcon />
           &nbsp;&nbsp;+491788680932
         </span>
-      </div>
+      </section>
 
-      <div className={styles.section}>
+      <section className={styles.section}>
         <h3 className={styles.headline}>Follow</h3>
 
         <div className={styles.socialLinks}>
@@ -54,7 +54,7 @@ export default function Footer() {
             )
           })}
         </div>
-      </div>
+      </section>
     </footer>
   )
 }

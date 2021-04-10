@@ -24,7 +24,7 @@ export default function createModal(
   mroot.appendChild(modal)
 
   ReactDOM.render(
-    <div className={styles.Modal} style={{ zIndex }}>
+    <section className={styles.Modal} style={{ zIndex }}>
       <div
         className={`${styles.content} ${styles.zoomin}`}
         onClick={(e) => e.stopPropagation()}
@@ -45,7 +45,7 @@ export default function createModal(
           {content}
         </div>
       </div>
-    </div>,
+    </section>,
     modal
   )
 }

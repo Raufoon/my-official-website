@@ -32,7 +32,7 @@ export default function Projects() {
   if (isFetching) return <Loader center={true} />
 
   return (
-    <div className={styles.Projects}>
+    <main className={styles.Projects}>
       <ProjectFilterPanel
         className={styles.filterPanel}
         projects={allProjects}
@@ -48,7 +48,7 @@ export default function Projects() {
         label="Filters"
       />
 
-      <div className={styles.projectList}>
+      <section className={styles.projectList}>
         {filterDescription && (
           <h3 className={styles.filterDesc}>{filterDescription}</h3>
         )}
@@ -59,7 +59,7 @@ export default function Projects() {
             invertLayout={index % 2 === 1}
           />
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }

@@ -4,8 +4,8 @@ import closeLastModal from './close-last-modal'
 const styles = require('./ConfirmationModal.module.css')
 
 interface Props {
-  text?: string,
-  confirm: any,
+  text?: string
+  confirm: any
   loader: any
 }
 
@@ -28,7 +28,7 @@ export default function ConfirmationModal(props: Props) {
     )
   }
   return (
-    <div className={styles.ConfirmationModal}>
+    <section className={styles.ConfirmationModal}>
       <label>{text || `Are you sure?`}</label>
       <div style={{ display: 'flex', flexDirection: 'row', marginTop: `10px` }}>
         <button onClick={closeLastModal}>No</button>
@@ -36,6 +36,6 @@ export default function ConfirmationModal(props: Props) {
           Yes
         </button>
       </div>
-    </div>
+    </section>
   )
 }

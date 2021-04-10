@@ -80,8 +80,8 @@ export default function ProjectFilterPanel(props: Props) {
   const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
 
   return (
-    <div className={`${styles.ProjectFilterPanel} ${className}`}>
-      <div className={styles.header}>
+    <section className={`${styles.ProjectFilterPanel} ${className}`}>
+      <header className={styles.header}>
         <h2>Filters</h2>
 
         {shouldDisplayClearButton && (
@@ -92,9 +92,9 @@ export default function ProjectFilterPanel(props: Props) {
             label="Clear filters"
           />
         )}
-      </div>
+      </header>
 
-      <div className={styles.filterList}>
+      <section className={styles.filterList}>
         <h4>Project Types</h4>
 
         {ptypeLabelFreqPairs.map(({ label, freq }) => (
@@ -107,9 +107,9 @@ export default function ProjectFilterPanel(props: Props) {
             &nbsp;{label} ({freq})
           </div>
         ))}
-      </div>
+      </section>
 
-      <div className={styles.filterList}>
+      <section className={styles.filterList}>
         <h4>Technologies</h4>
 
         {techLabelFreqPairs.map(({ label, freq }) => (
@@ -126,7 +126,7 @@ export default function ProjectFilterPanel(props: Props) {
             &nbsp;{label} ({freq})
           </div>
         ))}
-      </div>
-    </div>
+      </section>
+    </section>
   )
 }

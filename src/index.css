@@ -87,6 +87,10 @@ svg {
   fill: var(--color-icon);
 }
 
+img {
+  user-select: none;
+}
+
 p {
   line-height: 2rem;
   font-size: 1rem;

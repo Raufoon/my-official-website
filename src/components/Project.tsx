@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import { SettingsContext } from '../contexts'
-import { AppSettings, ProjectType } from '../global-types'
+import { AppSettings } from '../global-types'
 import useFetchFromDB from '../hooks/useFetchFromDB'
+import { ProjectType } from '../routes/projects/types'
 import ProjectCard from './ProjectCard'
 
 interface Props {
-  project: ProjectType,
+  project: ProjectType
   invertLayout?: boolean
 }
 
@@ -16,9 +17,10 @@ export default function Project(props: Props) {
 
   const settings: AppSettings = useContext(SettingsContext)
 
-  const { isFetching, hasError, data } = useFetchFromDB<{title: string, subtitle: string}>(
-    `${settings.lang}/projects/${id}`
-  )
+  const { isFetching, hasError, data } = useFetchFromDB<{
+    title: string
+    subtitle: string
+  }>(`${settings.lang}/projects/${id}`)
 
   if (isFetching || hasError) return <></>
 

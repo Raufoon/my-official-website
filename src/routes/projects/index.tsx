@@ -1,46 +1,33 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback } from 'react'
 import Loader from '../../components/Loader'
 import Project from '../../components/Project'
-import useFetchListFromDB from '../../hooks/useFetchListFromDB'
 import styles from './index.module.css'
 import ProjectFilterPanel from './ProjectFilterPanel'
 import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
 import { createModal } from '../../components/modal'
-import { ProjectType } from '../../global-types'
-import { compareProjectsByPriority } from './utils'
 import IconButton from '../../components/IconButton'
+import useViewableProjects from './hooks/useViewableProjects'
 
 export default function Projects() {
-  const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(
-    `projects`
-  )
-
-  const [visibleProjects, setVisibleProjects] = useState(
-    [] as Array<ProjectType>
-  )
-
-  const [filterDescription, setFilterDescription] = useState('')
-
-  useEffect(
-    function onProjectsFetched() {
-      if (projects) {
-        const sortedProjects = projects.sort(compareProjectsByPriority)
-        setVisibleProjects(sortedProjects)
-      }
-    },
-    [projects]
-  )
+  const {
+    isFetching,
+    allProjects,
+    visibleProjects,
+    filterDescription,
+    setVisibleProjects,
+    setFilterDescription,
+  } = useViewableProjects()
 
   const openFilterModal = useCallback(() => {
     createModal(
       <ProjectFilterPanel
         className={styles.filterPanelMobile}
         setFilterDescription={setFilterDescription}
-        projects={projects}
+        projects={allProjects}
         setVisibleProjects={setVisibleProjects}
       />
     )
-  }, [projects])
+  }, [allProjects, setVisibleProjects, setFilterDescription])
 
   if (isFetching) return <Loader center={true} />
 
@@ -48,7 +35,7 @@ export default function Projects() {
     <div className={styles.Projects}>
       <ProjectFilterPanel
         className={styles.filterPanel}
-        projects={projects}
+        projects={allProjects}
         setVisibleProjects={setVisibleProjects}
         setFilterDescription={setFilterDescription}
       />

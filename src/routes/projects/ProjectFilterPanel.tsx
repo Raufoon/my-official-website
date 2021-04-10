@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import styles from './ProjectFilterPanel.module.css'
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
-import { ProjectType } from '../../global-types'
 import { getSortedLabelFreqPairs } from './utils'
+import { ProjectType } from './types'
 
 interface Props {
   className: string

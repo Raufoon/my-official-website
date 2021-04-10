@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ProjectVisualType } from '../global-types'
+import { ProjectVisualType } from '../routes/projects/types'
 import PhotoSlider from './PhotoSlider'
 import styles from './ProjectCard.module.css'
 import ProjectLinkIcon from './ProjectLinkIcon'

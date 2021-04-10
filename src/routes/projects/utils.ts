@@ -1,4 +1,4 @@
-import { ProjectType } from '../../global-types'
+import { ProjectType } from './types'
 
 interface LabelFreqPair {
   label: string

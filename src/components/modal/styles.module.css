@@ -33,16 +33,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: crimson;
   font-weight: bold;
   border: none;
   border-radius: 0px;
+  cursor: pointer;
 }
 
-.Modal .closeBtn:hover {
-  background-color: lightpink;
-  color: white;
-  cursor: pointer;
+.Modal .closeBtn svg {
+  fill: gray;
+}
+
+.Modal .closeBtn:hover svg {
+  fill: crimson;
 }
 
 .Modal .label {

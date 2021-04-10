@@ -12,15 +12,25 @@ interface Props {
   iconProps?: IconProps
   onClick: any
   label?: string
+  btnStyle?: any
 }
 
 export default function IconButton(props: Props) {
-  const { btnClassName, iconClassName, iconProps, Icon, onClick, label } = props
+  const {
+    btnClassName,
+    btnStyle,
+    iconClassName,
+    iconProps,
+    Icon,
+    onClick,
+    label,
+  } = props
 
   return (
-    <button className={btnClassName} onClick={onClick}>
+    <button className={btnClassName} style={btnStyle} onClick={onClick}>
       <Icon className={iconClassName} {...iconProps} />
-      &nbsp;&nbsp;{label}
+      {!!label && <>&nbsp;&nbsp;</>}
+      {label}
     </button>
   )
 }

@@ -10,7 +10,7 @@
   min-height: var(--header-height);
   padding-right: var(--gap-1);
   padding-left: var(--gap-1);
-  z-index: var(--z-index-highest);
+  z-index: 999;
 }
 
 .logo {

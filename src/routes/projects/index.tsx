@@ -7,6 +7,7 @@ import ProjectFilterPanel from './ProjectFilterPanel'
 import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
 import { createModal } from '../../components/modal'
 import { ProjectType } from '../../global-types'
+import { compareProjectsByPriority } from './utils'
 
 export default function Projects() {
   const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(
@@ -17,16 +18,17 @@ export default function Projects() {
     [] as Array<ProjectType>
   )
 
-  const [filterDescription, setFilterDescription] = useState(null)
+  const [filterDescription, setFilterDescription] = useState('')
 
-  useEffect(() => {
-    if (projects) {
-      const sortedProjects = projects.sort((a, b) =>
-        a.priority > b.priority ? -1 : 1
-      )
-      setVisibleProjects(sortedProjects)
-    }
-  }, [projects])
+  useEffect(
+    function onProjectsFetched() {
+      if (projects) {
+        const sortedProjects = projects.sort(compareProjectsByPriority)
+        setVisibleProjects(sortedProjects)
+      }
+    },
+    [projects]
+  )
 
   const openFilterModal = useCallback(() => {
     createModal(
@@ -49,6 +51,7 @@ export default function Projects() {
         setVisibleProjects={setVisibleProjects}
         setFilterDescription={setFilterDescription}
       />
+
       <button
         className={styles.filterPanelMobileOpener}
         onClick={openFilterModal}

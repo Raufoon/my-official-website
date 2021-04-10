@@ -1,3 +1,5 @@
+import { ProjectType } from '../../global-types'
+
 interface LabelFreqPair {
   label: string
   freq: number
@@ -39,4 +41,8 @@ export function getSortedLabelFreqPairs(
   labels: Array<string>
 ): Array<LabelFreqPair> {
   return getLabelFreqPairs(labels).sort((a, b) => (a.label < b.label ? -1 : 1))
+}
+
+export function compareProjectsByPriority(a: ProjectType, b: ProjectType) {
+  return a.priority > b.priority ? -1 : 1
 }

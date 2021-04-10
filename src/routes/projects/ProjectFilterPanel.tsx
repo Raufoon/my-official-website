@@ -3,6 +3,7 @@ import styles from './ProjectFilterPanel.module.css'
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
 import { getSortedLabelFreqPairs } from './utils'
 import { ProjectType } from './types'
+import IconButton from '../../components/IconButton'
 
 interface Props {
   className: string
@@ -19,39 +20,37 @@ export default function ProjectFilterPanel(props: Props) {
     setFilterDescription,
   } = props
 
-  const allTechLabelsWithCount = useMemo(() => {
-    const allTechLabels: Array<string> = projects.flatMap(
+  const techLabelFreqPairs = useMemo(() => {
+    const techLabels: Array<string> = projects.flatMap(
       (project) => project.technologies
     )
-    return getSortedLabelFreqPairs(allTechLabels)
+    return getSortedLabelFreqPairs(techLabels)
   }, [projects])
 
-  const allProjectTypesWithCount = useMemo(() => {
-    const allTypes = projects.map((project) => project.type)
-    return getSortedLabelFreqPairs(allTypes)
+  const ptypeLabelFreqPairs = useMemo(() => {
+    const types = projects.map((project) => project.type)
+    return getSortedLabelFreqPairs(types)
   }, [projects])
 
   const [techFilters, setTechFilters] = useState([] as Array<string>)
 
   const [typeFilter, setTypeFilter] = useState('')
 
-  useEffect(() => {
-    if (!typeFilter && techFilters.length === 0) {
-      setFilterDescription(null)
-      return
-    }
-    if (techFilters.length === 0) {
-      setFilterDescription(`${typeFilter} Projects`)
-      return
-    }
-    if (!typeFilter) {
-      setFilterDescription(`Projects with ${techFilters.join(' + ')}`)
-      return
-    }
-    setFilterDescription(
-      `${typeFilter} Projects with ${techFilters.join(' + ')}`
-    )
-  }, [setFilterDescription, techFilters, typeFilter])
+  useEffect(
+    function setFilterDescFromFilters() {
+      let desc = ''
+
+      if (typeFilter) {
+        desc = `${typeFilter} Projects`
+      }
+      if (techFilters && techFilters.length > 0) {
+        desc = `${desc || 'Projects'} with ${techFilters.join(' + ')}`
+      }
+
+      setFilterDescription(desc)
+    },
+    [setFilterDescription, techFilters, typeFilter]
+  )
 
   const addTechFilter = useCallback((tech) => {
     setTechFilters((state) => [...state, tech])
@@ -68,23 +67,24 @@ export default function ProjectFilterPanel(props: Props) {
 
   const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
 
-  useEffect(() => {
-    let filteredProjects = projects.filter((project) => {
-      return techFilters.reduce(
-        (result: boolean, tech: string): boolean =>
-          result && project.technologies.indexOf(tech) !== -1,
-        true
-      )
-    })
-
-    if (typeFilter) {
-      filteredProjects = filteredProjects.filter(
-        (project) => project.type === typeFilter
-      )
-    }
-
-    setVisibleProjects(filteredProjects)
-  }, [techFilters, typeFilter, setVisibleProjects, projects])
+  useEffect(
+    function applyAllFilters() {
+      let filteredProjects = projects.filter((project) => {
+        return techFilters.reduce(
+          (result: boolean, tech: string): boolean =>
+            result && project.technologies.indexOf(tech) !== -1,
+          true
+        )
+      })
+      if (typeFilter) {
+        filteredProjects = filteredProjects.filter(
+          (project) => project.type === typeFilter
+        )
+      }
+      setVisibleProjects(filteredProjects)
+    },
+    [techFilters, typeFilter, setVisibleProjects, projects]
+  )
 
   return (
     <div className={`${styles.ProjectFilterPanel} ${className}`}>
@@ -92,27 +92,24 @@ export default function ProjectFilterPanel(props: Props) {
         <h2>Filters</h2>
 
         {shouldDisplayClearButton && (
-          <button
-            className={styles.clearFilterButton}
+          <IconButton
+            btnClassName={styles.clearFilterButton}
             onClick={clearAllFilters}
-          >
-            <CloseIcon />
-            &nbsp;Clear Filters
-          </button>
+            Icon={CloseIcon}
+            label="Clear filters"
+          />
         )}
       </div>
 
       <div className={styles.filterList}>
         <h4>Project Types</h4>
 
-        {allProjectTypesWithCount.map(({ label, freq }) => (
+        {ptypeLabelFreqPairs.map(({ label, freq }) => (
           <div key={label}>
             <input
               type="checkbox"
               checked={typeFilter === label}
-              onChange={(e) =>
-                e.target.checked ? setTypeFilter(label) : setTypeFilter('')
-              }
+              onChange={(e) => setTypeFilter(e.target.checked ? label : '')}
             />
             &nbsp;{label} ({freq})
           </div>
@@ -122,7 +119,7 @@ export default function ProjectFilterPanel(props: Props) {
       <div className={styles.filterList}>
         <h4>Technologies</h4>
 
-        {allTechLabelsWithCount.map(({ label, freq }) => (
+        {techLabelFreqPairs.map(({ label, freq }) => (
           <div key={label}>
             <input
               type="checkbox"

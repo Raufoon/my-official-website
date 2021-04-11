@@ -10,15 +10,16 @@ export interface AboutMe {
   summary: string
 }
 
-export interface APIResponseWithList<T> {
+interface APIResponseAbstract {
   isFetching: boolean
   hasError: boolean
+}
+
+export interface APIResponseWithList<T> extends APIResponseAbstract {
   list: Array<T>
 }
 
-export interface APIResponse<T> {
-  isFetching: boolean
-  hasError: boolean
+export interface APIResponse<T> extends APIResponseAbstract {
   data: T
 }
 

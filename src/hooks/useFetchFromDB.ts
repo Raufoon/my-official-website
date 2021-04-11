@@ -30,6 +30,7 @@ export default function useFetchFromDB<T>(path: string): APIResponse<T> {
       try {
         const info = await read(path)
         setResponse(createSuccessResponse(info))
+        sessionStorage.setItem(path, JSON.stringify(info))
       } catch (err) {
         setResponse(errorResponse)
       }

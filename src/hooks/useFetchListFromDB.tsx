@@ -1,28 +1,41 @@
-import { useEffect, useState } from "react"
-import { readAsList } from "../database"
+import { useEffect, useState } from 'react'
+import { readAsList } from '../database'
 import { APIResponseWithList } from '../global-types'
 
 const responseFetching: APIResponseWithList<any> = {
   isFetching: true,
   hasError: false,
-  list: []
+  list: [],
+}
+
+const errorResponse: APIResponseWithList<any> = {
+  isFetching: false,
+  hasError: true,
+  list: [],
 }
 
 function createSuccessfulResponse<T>(list: Array<T>): APIResponseWithList<T> {
   return {
     isFetching: false,
     hasError: false,
-    list
+    list,
   }
 }
 
-export default function useFetchListFromDB<T>(path: string): APIResponseWithList<T> {
+export default function useFetchListFromDB<T>(
+  path: string
+): APIResponseWithList<T> {
   const [response, setResponse] = useState(responseFetching)
 
   useEffect(() => {
     async function fetchInfo() {
-      const data = await readAsList(path)
-      setResponse(createSuccessfulResponse(data))
+      try {
+        const data = await readAsList(path)
+        setResponse(createSuccessfulResponse(data))
+        sessionStorage.setItem(path, JSON.stringify(data))
+      } catch (err) {
+        setResponse(errorResponse)
+      }
     }
     fetchInfo()
   }, [path])

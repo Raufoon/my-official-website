@@ -5,7 +5,7 @@
   min-height: 200px;
   position: relative;
   border: var(--gap-1) solid;
-  border-color: var(--color-2);
+  border-color: var(--color-bg-2);
   background-position: left !important;
   border-radius: 0 !important;
 }

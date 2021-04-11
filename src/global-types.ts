@@ -3,11 +3,14 @@ export interface SocialLink {
   url: string
 }
 
+export type CareerInterests = Array<string>
+
 export interface AboutMe {
   subtitle: string
   personalInfo: string
   education: string
   summary: string
+  careerInterests: CareerInterests
 }
 
 interface APIResponseAbstract {

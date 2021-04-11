@@ -90,6 +90,6 @@ function getProjectThemeColor(projectType: string) {
       return '#003366'
 
     default:
-      return 'var(--color-2)'
+      return 'var(--color-bg-2)'
   }
 }

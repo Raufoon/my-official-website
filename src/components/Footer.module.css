@@ -5,7 +5,7 @@
   align-items: flex-start;
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
-  background-color: var(--color-2);
+  background-color: var(--color-bg-2);
 }
 @media screen and (min-width: 800px) {
   .Footer {
@@ -57,7 +57,7 @@
   padding: 0.5rem;
   margin: 5px;
   margin-left: 0;
-  background-color: var(--color-2);
+  background-color: var(--color-bg-2);
   text-transform: capitalize;
   display: flex;
   align-items: center;

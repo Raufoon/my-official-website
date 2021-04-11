@@ -1,5 +1,6 @@
 .Home {
   text-align: center;
+  letter-spacing: 1px;
 }
 @media screen and (min-width: 1001px) {
   .Home {
@@ -93,4 +94,13 @@
   font-size: 1rem !important;
   letter-spacing: 1px;
   font-weight: 100;
+}
+
+.skillEdSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skillEdSection article {
+  padding: var(--gap-1);
 }

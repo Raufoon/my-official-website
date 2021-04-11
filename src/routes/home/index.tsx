@@ -7,8 +7,6 @@ import { SettingsContext } from '../../contexts'
 import Loader from '../../components/Loader'
 import PosterSection from '../../components/PosterSection'
 import secBg1 from '../../assets/images/sec-bg1.jpg'
-import secBg2 from '../../assets/images/sec-bg2.jpg'
-import secBg3 from '../../assets/images/sec-bg3.jpg'
 import { AboutMe, AppSettings } from '../../global-types'
 
 export default function Home() {
@@ -26,7 +24,14 @@ export default function Home() {
 
   if (isAboutFetching || isPhotosFetching) return <Loader />
 
-  const { subtitle, personalInfo, education, summary }: AboutMe = aboutMe
+  const {
+    subtitle,
+    //personalInfo,
+    education,
+    summary,
+    careerInterests,
+  }: AboutMe = aboutMe
+
   const randomizedPhoto: string =
     photos[Math.floor(Math.random() * photos.length)]
 
@@ -45,11 +50,32 @@ export default function Home() {
         </div>
       </PosterSection>
 
-      <PosterSection imgSrc={secBg2}>
-        <h1>My academic life</h1>
-        <p className="tac" dangerouslySetInnerHTML={{ __html: education }}></p>
-      </PosterSection>
+      <section className={styles.skillEdSection}>
+        <article
+          className={`centerized atLeastFullHeight`}
+          style={{ backgroundColor: 'var(--color-bg-3)' }}
+        >
+          <h1>Career Interests</h1>
+          <ul>
+            {careerInterests.map((data) => (
+              <li key={data}>{data}</li>
+            ))}
+          </ul>
+        </article>
 
+        <article
+          className="centerized atLeastFullHeight"
+          style={{ backgroundColor: 'var(--color-bg-4)' }}
+        >
+          <h1>My academic life</h1>
+          <p
+            className="tac"
+            dangerouslySetInnerHTML={{ __html: education }}
+          ></p>
+        </article>
+      </section>
+
+      {/*
       <PosterSection imgSrc={secBg3}>
         <h1>More about me</h1>
         <p
@@ -57,6 +83,7 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: personalInfo }}
         ></p>
       </PosterSection>
+      */}
     </main>
   )
 }

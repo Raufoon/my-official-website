@@ -3,7 +3,11 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(var(--color-2), var(--color-2), transparent);
+  background: linear-gradient(
+    var(--color-bg-2),
+    var(--color-bg-2),
+    transparent
+  );
   position: sticky;
   top: 0;
   left: 0;

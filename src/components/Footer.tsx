@@ -10,7 +10,9 @@ import { ReactComponent as PhoneIcon } from '../assets/icons/phone.svg'
 import { SocialLink } from '../global-types'
 
 export default function Footer() {
-  const { list } = useFetchListFromDB<SocialLink>(`contact/socialLinks`)
+  const { list: socialLinks } = useFetchListFromDB<SocialLink>(
+    `contact/socialLinks`
+  )
 
   return (
     <footer className={styles.Footer}>
@@ -39,7 +41,7 @@ export default function Footer() {
         <h3 className={styles.headline}>Follow</h3>
 
         <div className={styles.socialLinks}>
-          {list.map((socialLink: SocialLink) => {
+          {socialLinks.map((socialLink: SocialLink) => {
             const Icon = getIconComponentBySocialLink(socialLink.type)
             return (
               <a

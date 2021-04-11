@@ -5,12 +5,22 @@ export interface SocialLink {
 
 export type CareerInterests = Array<string>
 
+export interface Education {
+  almaMater: string
+  color: string
+  dateRange: string
+  degree: string
+  location: string
+  major?: string
+}
+
 export interface AboutMe {
   subtitle: string
   personalInfo: string
   education: string
   summary: string
   careerInterests: CareerInterests
+  educationHistory: Array<Education>
 }
 
 interface APIResponseAbstract {

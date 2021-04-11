@@ -8,6 +8,7 @@ import Loader from '../../components/Loader'
 import PosterSection from '../../components/PosterSection'
 import secBg1 from '../../assets/images/sec-bg1.jpg'
 import { AboutMe, AppSettings } from '../../global-types'
+import EducationRecord from '../../components/EducationRecord'
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)
@@ -27,7 +28,7 @@ export default function Home() {
   const {
     subtitle,
     //personalInfo,
-    education,
+    educationHistory,
     summary,
     careerInterests,
   }: AboutMe = aboutMe
@@ -68,10 +69,11 @@ export default function Home() {
           style={{ backgroundColor: 'var(--color-bg-4)' }}
         >
           <h1>My academic life</h1>
-          <p
-            className="tac"
-            dangerouslySetInnerHTML={{ __html: education }}
-          ></p>
+          <div>
+            {educationHistory
+              .map((ed) => <EducationRecord key={ed.degree} {...ed} />)
+              .reverse()}
+          </div>
         </article>
       </section>
 

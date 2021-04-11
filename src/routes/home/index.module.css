@@ -109,6 +109,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+  .skillEdSection ul {
+    list-style-type: square;
+  }
 }
 
 .skillEdSection article {

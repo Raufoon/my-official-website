@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { SettingsContext } from '../../contexts'
-import { AppSettings } from '../../global-types'
+import { AppSettings, ProjectType } from '../../global-types'
 import useFetchFromDB from '../../hooks/useFetchFromDB'
-import { ProjectType } from '../../routes/projects/types'
 import ProjectCard from './ProjectCard'
 
 interface Props {

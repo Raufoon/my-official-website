@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import useFetchListFromDB from './useFetchListFromDB'
-import { ProjectType } from '../routes/projects/types'
 import { compareProjectsByPriority } from '../routes/projects/utils'
+import { ProjectType } from '../global-types'
 
 export default function useViewableProjects() {
   const { isFetching, list: projects } = useFetchListFromDB<ProjectType>(

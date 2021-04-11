@@ -79,10 +79,11 @@
 }
 
 .Home h1 {
-  font-weight: normal;
+  font-size: 2rem;
 }
 @media screen and (min-width: 1001px) {
   .Home h1 {
+    font-weight: normal;
     font-size: 2.5rem;
     margin-top: 0;
   }
@@ -97,8 +98,17 @@
 }
 
 .skillEdSection {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+}
+
+.skillEdSection ul {
+  list-style-type: none;
+}
+
+@media screen and (min-width: 950px) {
+  .skillEdSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .skillEdSection article {

@@ -26,7 +26,7 @@ export default function Home() {
 
   if (isAboutFetching || isPhotosFetching) return <Loader />
 
-  const { subtitle, about }: AboutMe = aboutMe
+  const { subtitle, personalInfo, education, summary }: AboutMe = aboutMe
   const randomizedPhoto: string =
     photos[Math.floor(Math.random() * photos.length)]
 
@@ -40,19 +40,22 @@ export default function Home() {
 
           <article className={styles.aboutMe}>
             <h1>{subtitle}</h1>
-            <p dangerouslySetInnerHTML={{ __html: about[0] }}></p>
+            <p dangerouslySetInnerHTML={{ __html: summary }}></p>
           </article>
         </div>
       </PosterSection>
 
       <PosterSection imgSrc={secBg2}>
         <h1>My academic life</h1>
-        <p className="tac" dangerouslySetInnerHTML={{ __html: about[1] }}></p>
+        <p className="tac" dangerouslySetInnerHTML={{ __html: education }}></p>
       </PosterSection>
 
       <PosterSection imgSrc={secBg3}>
         <h1>More about me</h1>
-        <p className="tac" dangerouslySetInnerHTML={{ __html: about[2] }}></p>
+        <p
+          className="tac"
+          dangerouslySetInnerHTML={{ __html: personalInfo }}
+        ></p>
       </PosterSection>
     </main>
   )

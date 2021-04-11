@@ -5,7 +5,9 @@ export interface SocialLink {
 
 export interface AboutMe {
   subtitle: string
-  about: Array<string>
+  personalInfo: string
+  education: string
+  summary: string
 }
 
 export interface APIResponseWithList<T> {

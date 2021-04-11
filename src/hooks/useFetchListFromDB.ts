@@ -26,9 +26,7 @@ function createSuccessfulResponse<T>(list: Array<T>): APIResponseWithList<T> {
 export default function useFetchListFromDB<T>(
   path: string
 ): APIResponseWithList<T> {
-  const [response, setResponse] = useState(
-    getSStorageItemAsJSON(path) || responseFetching
-  )
+  const [response, setResponse] = useState(responseFetching)
 
   useEffect(() => {
     async function fetchInfo() {
@@ -42,6 +40,7 @@ export default function useFetchListFromDB<T>(
       }
     }
     if (!sessionStorage.getItem(path)) fetchInfo()
+    else setResponse(getSStorageItemAsJSON(path))
   }, [path])
 
   return response

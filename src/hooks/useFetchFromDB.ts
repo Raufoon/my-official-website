@@ -24,9 +24,7 @@ function createSuccessResponse<T>(data: any): APIResponse<T> {
 }
 
 export default function useFetchFromDB<T>(path: string): APIResponse<T> {
-  const [response, setResponse] = useState(
-    getSStorageItemAsJSON(path) || fetchingResponse
-  )
+  const [response, setResponse] = useState(fetchingResponse)
 
   useEffect(() => {
     async function fetchInfo() {
@@ -40,6 +38,7 @@ export default function useFetchFromDB<T>(path: string): APIResponse<T> {
       }
     }
     if (!sessionStorage.getItem(path)) fetchInfo()
+    else setResponse(getSStorageItemAsJSON(path))
   }, [path])
 
   return response

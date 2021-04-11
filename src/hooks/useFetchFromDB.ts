@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { read } from '../database'
 import { APIResponse } from '../global-types'
+import { getSStorageItemAsJSON } from '../utils'
 
 const fetchingResponse: APIResponse<any> = {
   isFetching: true,
@@ -23,19 +24,22 @@ function createSuccessResponse<T>(data: any): APIResponse<T> {
 }
 
 export default function useFetchFromDB<T>(path: string): APIResponse<T> {
-  const [response, setResponse] = useState(fetchingResponse)
+  const [response, setResponse] = useState(
+    getSStorageItemAsJSON(path) || fetchingResponse
+  )
 
   useEffect(() => {
     async function fetchInfo() {
       try {
         const info = await read(path)
-        setResponse(createSuccessResponse(info))
-        sessionStorage.setItem(path, JSON.stringify(info))
+        const response = createSuccessResponse(info)
+        setResponse(response)
+        sessionStorage.setItem(path, JSON.stringify(response))
       } catch (err) {
         setResponse(errorResponse)
       }
     }
-    fetchInfo()
+    if (!sessionStorage.getItem(path)) fetchInfo()
   }, [path])
 
   return response

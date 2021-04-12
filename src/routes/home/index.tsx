@@ -66,8 +66,7 @@ export default function Home() {
           <ul className={styles.careerInterests}>
             {careerInterests.map((data) => (
               <li key={data.title}>
-                <b>{data.title}</b>
-                <br />
+                <h4 style={{ margin: '0 0 4px 0' }}>{data.title}</h4>
                 <small>{data.subtitle}</small>
               </li>
             ))}

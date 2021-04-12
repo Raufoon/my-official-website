@@ -1,12 +1,12 @@
 .EducationRecord {
   display: grid;
-  grid-template-rows: 1.5rem repeat(3, auto) 1.5rem;
+  grid-template-rows: 1.5rem repeat(4, auto) 1.5rem;
   grid-template-columns: 30% auto;
   font-size: small;
 }
 
 .dateRange {
-  grid-row: 1 / 6;
+  grid-row: 1 / 7;
   align-items: flex-end !important;
   padding-right: 1rem;
 }

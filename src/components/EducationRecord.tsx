@@ -14,13 +14,11 @@ export default function EducationRecord(props: Education) {
 
       <b style={{ gridRow: 2, color }}>{almaMater}</b>
 
-      <span style={{ gridRow: 3 }}>
-        {degree}
-        {!!major && ' in '}
-        {major}
-      </span>
+      <span style={{ gridRow: 3 }}>{degree}</span>
 
-      <span style={{ gridRow: 4 }}>{location}</span>
+      <span style={{ gridRow: 4 }}>{major}</span>
+
+      <span style={{ gridRow: 5 }}>{location}</span>
     </div>
   )
 }

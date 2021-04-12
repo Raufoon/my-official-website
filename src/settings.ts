@@ -29,7 +29,6 @@ export const lightThemeVariables: ThemeCSSVariables = [
   ['--color-text', '#0e1111'],
   ['--color-icon', '#0e1111'],
   ['--color-highlight', '#bf1932'],
-  ['--invert-bio-highlights', 'invert(100%)'],
 ]
 
 export const darkThemeVariables: ThemeCSSVariables = [
@@ -41,5 +40,4 @@ export const darkThemeVariables: ThemeCSSVariables = [
   ['--color-text', '#f1f1f1'],
   ['--color-icon', '#f1f1f1'],
   ['--color-highlight', '#f8db6e'],
-  ['--invert-bio-highlights', 'invert(0%)'],
 ]

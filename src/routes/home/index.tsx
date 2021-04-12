@@ -62,7 +62,7 @@ export default function Home() {
           className={`centerized atLeastFullHeightUnlessPortrait`}
           style={{ backgroundColor: 'var(--color-bg-3)' }}
         >
-          <h1>Career Interests</h1>
+          <h1>Career interests</h1>
           <ul className={styles.careerInterests}>
             {careerInterests.map((data) => (
               <li key={data.title}>

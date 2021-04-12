@@ -34,4 +34,4 @@ workflows:
       - build:
           filters:
             branches:
-              only: typescript
+              only: master

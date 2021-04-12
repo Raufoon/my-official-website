@@ -1,44 +1,39 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { read } from '../database'
 import { APIResponse } from '../global-types'
 import { getLStorageItemAsJSON, getSStorageItemAsJSON } from '../utils'
 
-const fetchingResponse: APIResponse<any> = {
-  isFetching: true,
-  hasError: false,
-  data: null,
-}
-
-const errorResponse: APIResponse<any> = {
-  isFetching: false,
-  hasError: true,
-  data: null,
-}
-
-function createSuccessResponse<T>(data: any): APIResponse<T> {
-  return {
-    isFetching: false,
-    hasError: false,
-    data,
-  }
-}
-
 export default function useFetchFromDB<T>(path: string): APIResponse<T> {
-  const [response, setResponse] = useState(
-    getLStorageItemAsJSON(path) || fetchingResponse
-  )
+  const initialResponse = useMemo(() => {
+    return (
+      getLStorageItemAsJSON(path) || {
+        isFetching: true,
+        hasError: false,
+        data: null,
+      }
+    )
+  }, [path])
+
+  const [response, setResponse] = useState(initialResponse)
 
   useEffect(() => {
     async function fetchInfo() {
       try {
-        const info = await read(path)
-        const response = createSuccessResponse(info)
+        const data = await read(path)
+        const response = {
+          isFetching: false,
+          hasError: false,
+          data,
+        }
         setResponse(response)
-
         sessionStorage.setItem(path, JSON.stringify(response))
         localStorage.setItem(path, JSON.stringify(response))
       } catch (err) {
-        setResponse(errorResponse)
+        setResponse({
+          isFetching: false,
+          hasError: true,
+          data: null,
+        })
       }
     }
     if (!sessionStorage.getItem(path)) fetchInfo()

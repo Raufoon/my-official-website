@@ -6,6 +6,7 @@
   padding-left: var(--gap-1);
   padding-right: var(--gap-1);
   background-color: var(--color-bg-2);
+  font-size: small;
 }
 @media screen and (min-width: 800px) {
   .Footer {

@@ -1,46 +1,41 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { readAsList } from '../database'
 import { APIResponseWithList } from '../global-types'
 import { getLStorageItemAsJSON, getSStorageItemAsJSON } from '../utils'
 
-const responseFetching: APIResponseWithList<any> = {
-  isFetching: true,
-  hasError: false,
-  list: [],
-}
-
-const errorResponse: APIResponseWithList<any> = {
-  isFetching: false,
-  hasError: true,
-  list: [],
-}
-
-function createSuccessfulResponse<T>(list: Array<T>): APIResponseWithList<T> {
-  return {
-    isFetching: false,
-    hasError: false,
-    list,
-  }
-}
-
 export default function useFetchListFromDB<T>(
   path: string
 ): APIResponseWithList<T> {
-  const [response, setResponse] = useState(
-    getLStorageItemAsJSON(path) || responseFetching
-  )
+  const initialResponse = useMemo(() => {
+    return (
+      getLStorageItemAsJSON(path) || {
+        isFetching: true,
+        hasError: false,
+        list: [],
+      }
+    )
+  }, [path])
+
+  const [response, setResponse] = useState(initialResponse)
 
   useEffect(() => {
     async function fetchInfo() {
       try {
-        const data = await readAsList(path)
-        const response = createSuccessfulResponse(data)
+        const list = await readAsList(path)
+        const response = {
+          isFetching: false,
+          hasError: false,
+          list,
+        }
         setResponse(response)
-
         sessionStorage.setItem(path, JSON.stringify(response))
         localStorage.setItem(path, JSON.stringify(response))
       } catch (err) {
-        setResponse(errorResponse)
+        setResponse({
+          isFetching: false,
+          hasError: true,
+          list: [],
+        })
       }
     }
     if (!sessionStorage.getItem(path)) fetchInfo()

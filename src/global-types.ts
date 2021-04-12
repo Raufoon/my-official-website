@@ -3,7 +3,7 @@ export interface SocialLink {
   url: string
 }
 
-export type CareerInterests = Array<string>
+export type CareerInterests = Array<{ title: string; subtitle: string }>
 
 export interface Education {
   almaMater: string

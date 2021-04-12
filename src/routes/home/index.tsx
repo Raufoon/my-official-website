@@ -63,9 +63,13 @@ export default function Home() {
           style={{ backgroundColor: 'var(--color-bg-3)' }}
         >
           <h1>Career Interests</h1>
-          <ul>
+          <ul className={styles.careerInterests}>
             {careerInterests.map((data) => (
-              <li key={data}>{data}</li>
+              <li key={data.title}>
+                <b>{data.title}</b>
+                <br />
+                <small>{data.subtitle}</small>
+              </li>
             ))}
           </ul>
         </article>

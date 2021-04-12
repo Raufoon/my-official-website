@@ -51,9 +51,15 @@ export default function Home() {
         </div>
       </PosterSection>
 
+      {/**
+       * <section className="centerized" style={{ padding: 'var(--gap-1)' }}>
+        <h1>My Expertise</h1>
+      </section>
+       */}
+
       <section className={styles.skillEdSection}>
         <article
-          className={`centerized atLeastFullHeight`}
+          className={`centerized atLeastFullHeightUnlessPortrait`}
           style={{ backgroundColor: 'var(--color-bg-3)' }}
         >
           <h1>Career Interests</h1>
@@ -65,7 +71,7 @@ export default function Home() {
         </article>
 
         <article
-          className="centerized atLeastFullHeight"
+          className="centerized atLeastFullHeightUnlessPortrait"
           style={{ backgroundColor: 'var(--color-bg-4)' }}
         >
           <h1>My academic life</h1>
@@ -76,16 +82,6 @@ export default function Home() {
           </div>
         </article>
       </section>
-
-      {/*
-      <PosterSection imgSrc={secBg3}>
-        <h1>More about me</h1>
-        <p
-          className="tac"
-          dangerouslySetInnerHTML={{ __html: personalInfo }}
-        ></p>
-      </PosterSection>
-      */}
     </main>
   )
 }

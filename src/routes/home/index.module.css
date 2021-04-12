@@ -70,7 +70,6 @@
 .aboutMe {
   flex: 1;
   font-size: 1rem !important;
-  padding: 2rem;
 }
 @media screen and (min-width: 1001px) {
   .aboutMe {

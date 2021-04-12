@@ -1,5 +1,4 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import VideoPoster from './VideoPoster'
 
 test('displays youtube video in <iframe/>', () => {

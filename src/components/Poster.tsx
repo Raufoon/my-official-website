@@ -39,6 +39,7 @@ export default function Poster(props: Props) {
       className={`${styles.Poster} ${className}`}
       style={customStyle}
       onClick={zoom}
+      data-testid="poster-container"
     >
       {children || <>&nbsp;</>}
     </div>

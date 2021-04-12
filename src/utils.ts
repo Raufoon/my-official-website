@@ -14,3 +14,8 @@ export function getSStorageItemAsJSON(key: string): any {
   const item = sessionStorage.getItem(key)
   return item ? JSON.parse(item) : null
 }
+
+export function getLStorageItemAsJSON(key: string): any {
+  const item = localStorage.getItem(key)
+  return item ? JSON.parse(item) : null
+}

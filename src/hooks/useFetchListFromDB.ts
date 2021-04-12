@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { readAsList } from '../database'
 import { APIResponseWithList } from '../global-types'
-import { getSStorageItemAsJSON } from '../utils'
+import { getLStorageItemAsJSON, getSStorageItemAsJSON } from '../utils'
 
 const responseFetching: APIResponseWithList<any> = {
   isFetching: true,
@@ -26,7 +26,9 @@ function createSuccessfulResponse<T>(list: Array<T>): APIResponseWithList<T> {
 export default function useFetchListFromDB<T>(
   path: string
 ): APIResponseWithList<T> {
-  const [response, setResponse] = useState(responseFetching)
+  const [response, setResponse] = useState(
+    getLStorageItemAsJSON(path) || responseFetching
+  )
 
   useEffect(() => {
     async function fetchInfo() {
@@ -34,7 +36,9 @@ export default function useFetchListFromDB<T>(
         const data = await readAsList(path)
         const response = createSuccessfulResponse(data)
         setResponse(response)
+
         sessionStorage.setItem(path, JSON.stringify(response))
+        localStorage.setItem(path, JSON.stringify(response))
       } catch (err) {
         setResponse(errorResponse)
       }

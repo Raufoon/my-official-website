@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 import closeLastModal from './close-last-modal'
 import createModal from './create-modal'
 

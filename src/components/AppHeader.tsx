@@ -36,16 +36,16 @@ export default function AppHeader() {
     return (
       <>
         <button
-          className={settings.lang === 'en' ? 'active' : ''}
-          onClick={() => setLang('en')}
-        >
-          EN
-        </button>
-        <button
           className={settings.lang === 'de' ? 'active' : ''}
           onClick={() => setLang('de')}
         >
           DE
+        </button>
+        <button
+          className={settings.lang === 'en' ? 'active' : ''}
+          onClick={() => setLang('en')}
+        >
+          EN
         </button>
       </>
     )

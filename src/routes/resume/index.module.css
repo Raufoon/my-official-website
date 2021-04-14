@@ -8,3 +8,23 @@
   width: 80vw;
   min-height: 80vh;
 }
+
+.Resume button {
+  padding: 0.5rem;
+  background-color: var(--color-bg-2);
+}
+
+.Resume button.active {
+  color: var(--color-bg-1);
+  background-color: var(--color-text);
+}
+
+.Resume nav {
+  padding: 1rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.Resume iframe {
+  max-width: 23cm;
+}

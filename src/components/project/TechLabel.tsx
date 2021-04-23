@@ -24,6 +24,7 @@ export default function TechLabel({ type, children }: Props) {
 
       case 'graphql':
       case 'firebase':
+      case 'docker':
       case 'postgresql':
         color = '#9c5f4b'
         break

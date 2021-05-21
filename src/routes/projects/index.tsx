@@ -1,12 +1,13 @@
-import { useCallback } from 'react'
-import Loader from '../../components/Loader'
-import styles from './index.module.css'
-import ProjectFilterPanel from './ProjectFilterPanel'
-import { ReactComponent as FilterIcon } from '../../assets/icons/equalizer.svg'
-import { createModal } from '../../components/modal'
-import IconButton from '../../components/IconButton'
-import useViewableProjects from '../../hooks/useViewableProjects'
-import Project from '../../components/project'
+import { useCallback } from "react"
+import Loader from "../../components/Loader"
+import styles from "./index.module.css"
+import ProjectFilterPanel from "./ProjectFilterPanel"
+import { ReactComponent as FilterIcon } from "../../assets/icons/equalizer.svg"
+import { createModal } from "../../components/modal"
+import IconButton from "../../components/IconButton"
+import useViewableProjects from "../../hooks/useViewableProjects"
+import Project from "../../components/project"
+import ErrorBoundary from "../../components/ErrorBoundary"
 
 export default function Projects() {
   const {
@@ -44,7 +45,7 @@ export default function Projects() {
         btnClassName={styles.filterPanelMobileOpener}
         onClick={openFilterModal}
         Icon={FilterIcon}
-        iconProps={{ width: '2rem', height: '2rem' }}
+        iconProps={{ width: "2rem", height: "2rem" }}
         label="Filters"
       />
 
@@ -53,11 +54,12 @@ export default function Projects() {
           <h3 className={styles.filterDesc}>{filterDescription}</h3>
         )}
         {visibleProjects.map((project, index) => (
-          <Project
+          <ErrorBoundary
             key={project.id}
-            project={project}
-            invertLayout={index % 2 === 1}
-          />
+            errorMsg={`Failed to display project ${project.id}`}
+          >
+            <Project project={project} invertLayout={index % 2 === 1} />
+          </ErrorBoundary>
         ))}
       </section>
     </main>

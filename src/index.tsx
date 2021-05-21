@@ -1,30 +1,33 @@
-import { StrictMode } from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
-import firebase from 'firebase/app'
-import HighlightedText from './components/web-components/highlighted-text'
-import { BrowserRouter } from 'react-router-dom'
+import { StrictMode } from "react"
+import ReactDOM from "react-dom"
+import "./index.css"
+import App from "./App"
+import reportWebVitals from "./reportWebVitals"
+import firebase from "firebase/app"
+import HighlightedText from "./components/web-components/highlighted-text"
+import { BrowserRouter } from "react-router-dom"
+import ErrorBoundary from "./components/ErrorBoundary"
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyBX_gN0xhvNTQ8mRLD-BB8G2-Hly6DUYno',
-  authDomain: 'minhaz-raufoon.firebaseapp.com',
-  databaseURL: 'https://minhaz-raufoon.firebaseio.com',
-  projectId: 'minhaz-raufoon',
-  storageBucket: 'minhaz-raufoon.appspot.com',
-  messagingSenderId: '424916751339',
+  apiKey: "AIzaSyBX_gN0xhvNTQ8mRLD-BB8G2-Hly6DUYno",
+  authDomain: "minhaz-raufoon.firebaseapp.com",
+  databaseURL: "https://minhaz-raufoon.firebaseio.com",
+  projectId: "minhaz-raufoon",
+  storageBucket: "minhaz-raufoon.appspot.com",
+  messagingSenderId: "424916751339",
 })
 
-window.customElements.define('hl-txt', HighlightedText)
+window.customElements.define("hl-txt", HighlightedText)
 
 ReactDOM.render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ErrorBoundary errorMsg={"Could not load the app :("}>
+        <App />
+      </ErrorBoundary>
     </BrowserRouter>
   </StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 )
 
 // If you want to start measuring performance in your app, pass a function

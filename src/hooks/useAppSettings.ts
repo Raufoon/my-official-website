@@ -13,6 +13,7 @@ export default function useAppSettings() {
           ...prev,
           [property]: e.detail[property],
         }))
+        localStorage.setItem(property, e.detail[property])
       }
     }
 
@@ -29,20 +30,6 @@ export default function useAppSettings() {
       window.removeEventListener(TOGGLE_THEME, onThemeChange as EventListener)
     }
   }, [])
-
-  useEffect(
-    function onLanguageChange() {
-      localStorage.setItem("lang", settings.lang)
-    },
-    [settings.lang]
-  )
-
-  useEffect(
-    function onThemeChange() {
-      localStorage.setItem("theme", settings.theme)
-    },
-    [settings.theme]
-  )
 
   return settings
 }

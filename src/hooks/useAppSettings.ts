@@ -6,6 +6,7 @@ export default function useAppSettings() {
   const [settings, setSettings] = useState(getSavedSettings())
 
   useEffect(function onSettingsEvents() {
+    /* To create a change handler for settings[property] */
     function getHandler(property: string) {
       return (e: CustomEvent) => {
         setSettings((prev) => ({
@@ -18,15 +19,14 @@ export default function useAppSettings() {
     const onThemeChange = getHandler("theme")
     const onLangChange = getHandler("lang")
 
-    window.addEventListener(EVENTS.SET_LANG, onLangChange as EventListener)
-    window.addEventListener(EVENTS.TOGGLE_THEME, onThemeChange as EventListener)
+    const { SET_LANG, TOGGLE_THEME } = EVENTS
+
+    window.addEventListener(SET_LANG, onLangChange as EventListener)
+    window.addEventListener(TOGGLE_THEME, onThemeChange as EventListener)
 
     return function () {
-      window.removeEventListener(EVENTS.SET_LANG, onLangChange as EventListener)
-      window.removeEventListener(
-        EVENTS.TOGGLE_THEME,
-        onThemeChange as EventListener
-      )
+      window.removeEventListener(SET_LANG, onLangChange as EventListener)
+      window.removeEventListener(TOGGLE_THEME, onThemeChange as EventListener)
     }
   }, [])
 

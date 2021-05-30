@@ -1,11 +1,6 @@
-import { useEffect, useState } from 'react'
-import { EVENTS } from '../constants'
-import { ThemeCSSVariables } from '../global-types'
-import {
-  darkThemeVariables,
-  getSavedSettings,
-  lightThemeVariables,
-} from '../settings'
+import { useEffect, useState } from "react"
+import { EVENTS } from "../constants"
+import { getSavedSettings } from "../settings"
 
 export default function useAppSettings() {
   const [settings, setSettings] = useState(getSavedSettings())
@@ -14,15 +9,17 @@ export default function useAppSettings() {
     function toggleTheme() {
       setSettings((prev) => ({
         ...prev,
-        theme: prev.theme === 'dark' ? 'light' : 'dark',
+        theme: prev.theme === "dark" ? "light" : "dark",
       }))
     }
+
     function setLang(e: CustomEvent) {
       setSettings((prev) => ({
         ...prev,
         lang: e.detail.lang,
       }))
     }
+
     window.addEventListener(EVENTS.SET_LANG, setLang as EventListener)
     window.addEventListener(EVENTS.TOGGLE_THEME, toggleTheme as EventListener)
 
@@ -36,24 +33,17 @@ export default function useAppSettings() {
   }, [])
 
   useEffect(
-    function onThemeChange() {
-      const themeCSSvariables: ThemeCSSVariables =
-        settings.theme === 'light' ? lightThemeVariables : darkThemeVariables
-
-      themeCSSvariables.forEach(([key, value]) =>
-        document.body.style.setProperty(key, value)
-      )
-
-      localStorage.setItem('theme', settings.theme)
+    function onLanguageChange() {
+      localStorage.setItem("lang", settings.lang)
     },
-    [settings.theme]
+    [settings.lang]
   )
 
   useEffect(
-    function onLanguageChange() {
-      localStorage.setItem('lang', settings.lang)
+    function onThemeChange() {
+      localStorage.setItem("theme", settings.theme)
     },
-    [settings.lang]
+    [settings.theme]
   )
 
   return settings

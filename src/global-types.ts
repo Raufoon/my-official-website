@@ -36,16 +36,14 @@ export interface APIResponse<T> extends APIResponseAbstract {
   data: T
 }
 
-export type AppTheme = 'light' | 'dark'
+export type AppTheme = "light" | "dark"
 
-export type AppLang = 'en' | 'de'
+export type AppLang = "en" | "de"
 
 export interface AppSettings {
   lang: AppLang
   theme: AppTheme
 }
-
-export type ThemeCSSVariables = Array<[string, string]>
 
 export interface ProjectType {
   id: string

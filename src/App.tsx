@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom"
 import { SettingsContext } from "./contexts"
 import AppHeader from "./components/AppHeader"
 import Footer from "./components/Footer"
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useEffect } from "react"
 import Loader from "./components/Loader"
 import ErrorBoundary from "./components/ErrorBoundary"
 
@@ -14,6 +14,16 @@ const Projects = lazy(() => import("./routes/projects"))
 
 function App() {
   const appSettings = useAppSettings()
+
+  useEffect(
+    function initAppFromSettings() {
+      document.body.classList.remove(
+        appSettings.theme === "dark" ? "light" : "dark"
+      )
+      document.body.classList.add(appSettings.theme)
+    },
+    [appSettings.theme]
+  )
 
   return (
     <SettingsContext.Provider value={appSettings}>

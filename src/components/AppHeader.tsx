@@ -1,49 +1,48 @@
-import { useCallback, useContext, useMemo, useRef, useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import { ReactComponent as ExpandIcon } from '../assets/icons/menu.svg'
-import { ReactComponent as ShrinkIcon } from '../assets/icons/arrow-up.svg'
-import { SettingsContext } from '../contexts'
-import ThemePicker from './ThemePicker'
-import { setLang } from '../utils'
-import './AppHeader.css'
-import { AppSettings } from '../global-types'
+import { useCallback, useContext, useMemo, useRef } from "react"
+import { NavLink, Link } from "react-router-dom"
+import { ReactComponent as MenuIcon } from "../assets/icons/menu.svg"
+import { SettingsContext } from "../contexts"
+import ThemePicker from "./ThemePicker"
+import { setLang } from "../utils"
+import { AppSettings } from "../global-types"
+import "./AppHeader.css"
 
 export default function AppHeader() {
   const navBarRef = useRef<HTMLDivElement>(null)
 
-  const [isMobileNavVisible, setMobileNavVisible] = useState(false)
-
   const settings: AppSettings = useContext(SettingsContext)
 
   const toggleMobileNav = useCallback(() => {
-    setMobileNavVisible((prev) => {
-      const { current } = navBarRef
-      if (current) {
-        const { classList } = current
-        if (prev) {
-          classList.remove('expanded')
-          classList.add('collapsed')
-        } else {
-          classList.remove('collapsed')
-          classList.add('expanded')
-        }
+    const { current } = navBarRef
+    if (current) {
+      const { classList } = current
+      if (classList.contains("expanded")) {
+        classList.remove("expanded")
+        classList.add("collapsed")
+      } else {
+        classList.remove("collapsed")
+        classList.add("expanded")
       }
-      return !prev
-    })
+    }
   }, [])
+
+  const themePicker = useMemo(
+    () => <ThemePicker currentTheme={settings.theme} />,
+    [settings.theme]
+  )
 
   const langButtons = useMemo(() => {
     return (
       <>
         <button
-          className={settings.lang === 'de' ? 'active' : ''}
-          onClick={() => setLang('de')}
+          className={settings.lang === "de" ? "active" : ""}
+          onClick={() => setLang("de")}
         >
           DE
         </button>
         <button
-          className={settings.lang === 'en' ? 'active' : ''}
-          onClick={() => setLang('en')}
+          className={settings.lang === "en" ? "active" : ""}
+          onClick={() => setLang("en")}
         >
           EN
         </button>
@@ -53,12 +52,12 @@ export default function AppHeader() {
 
   return (
     <header className="AppHeader">
-      <Link className={'webtitle'} to="/">
+      <Link className={"webtitle"} to="/">
         <h2>Minhaz Raufoon</h2>
       </Link>
 
       <button className="navCollapseButton" onClick={toggleMobileNav}>
-        {isMobileNavVisible ? <ShrinkIcon /> : <ExpandIcon />}
+        <MenuIcon />
       </button>
 
       <nav ref={navBarRef}>
@@ -74,14 +73,14 @@ export default function AppHeader() {
           Resume
         </NavLink>
 
-        <div className={'languageButtons forMobile'} onClick={toggleMobileNav}>
-          <ThemePicker currentTheme={settings.theme} />
+        <div className={"languageButtons forMobile"} onClick={toggleMobileNav}>
+          {themePicker}
           {langButtons}
         </div>
       </nav>
 
-      <div className={'languageButtons'}>
-        <ThemePicker currentTheme={settings.theme} />
+      <div className={"languageButtons"}>
+        {themePicker}
         {langButtons}
       </div>
     </header>

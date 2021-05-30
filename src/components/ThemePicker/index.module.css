@@ -16,6 +16,7 @@
   border-radius: 100%;
 }
 
+/* stylelint-disable-next-line */
 :global(.light) .ThemePicker svg {
   left: unset;
   right: 0;
@@ -24,6 +25,7 @@
   fill: black;
 }
 
+/* stylelint-disable-next-line */
 :global(.dark) .ThemePicker svg {
   left: 0;
   right: unset;

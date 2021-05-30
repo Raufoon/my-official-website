@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
 }
+
 @media screen and (min-width: 1000px) {
   .Projects {
     flex-direction: row;
@@ -12,6 +13,7 @@
 .filterPanel {
   display: none;
 }
+
 @media screen and (min-width: 1000px) {
   .filterPanel {
     display: block;
@@ -31,6 +33,7 @@
   padding: var(--gap-0);
   align-self: flex-start;
 }
+
 @media screen and (min-width: 1000px) {
   .filterPanelMobileOpener {
     display: none;
@@ -48,6 +51,7 @@
   display: flex;
   flex-direction: column;
 }
+
 @media screen and (min-width: 1000px) {
   .projectList {
     flex: 3;

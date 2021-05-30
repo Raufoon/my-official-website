@@ -35,7 +35,7 @@
   justify-content: center;
   font-weight: bold;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   cursor: pointer;
 }
 
@@ -59,13 +59,16 @@
 .blink {
   animation: blink 500ms infinite;
 }
+
 @keyframes blink {
   0% {
     background-color: #efefef;
   }
+
   50% {
     background-color: #ffe99b;
   }
+
   100% {
     background-color: #efefef;
   }
@@ -79,11 +82,13 @@
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
 @-webkit-keyframes zoomin {
   100% {
     -webkit-transform: scale(1, 1);
   }
 }
+
 @keyframes zoomin {
   100% {
     transform: scale(1, 1);

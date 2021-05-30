@@ -5,6 +5,7 @@
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--color-bg-2);
 }
+
 @media screen and (min-width: 900px) {
   .Project {
     margin: 1rem;
@@ -13,14 +14,12 @@
     grid-template-rows: [r0] auto [r1] 50vh [r2];
   }
 }
+
 @media screen and (min-width: 1100px) {
   .Project {
     display: flex;
     flex-direction: row;
   }
-}
-
-.Project.inverted {
 }
 
 .monolith {
@@ -33,6 +32,7 @@
   font-weight: bold;
   letter-spacing: 5px;
 }
+
 @media screen and (min-width: 900px) {
   .monolith {
     grid-row-start: r0;
@@ -41,11 +41,13 @@
     grid-column-end: c2;
     height: inherit;
   }
+
   .monolith h3 {
     transform: rotate(90deg);
     white-space: nowrap;
   }
 }
+
 @media screen and (min-width: 1100px) {
   .monolith {
     order: 3;
@@ -61,6 +63,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 @media screen and (min-width: 900px) {
   .details {
     grid-row-start: r0;
@@ -71,11 +74,13 @@
     grid-column-end: c1;
   }
 }
+
 @media screen and (min-width: 1100px) {
   .details {
     min-height: unset;
     flex: 2;
   }
+
   .Project.inverted .details {
     order: 2;
   }
@@ -87,10 +92,6 @@
   flex-wrap: wrap;
   font-weight: bold;
   color: #000080;
-}
-@media screen and (min-width: 1100px) {
-  .technologies {
-  }
 }
 
 .technologies > * {
@@ -104,6 +105,7 @@
   align-items: center;
   margin-top: 2rem;
 }
+
 @media screen and (min-width: 1100px) {
   .links {
     margin-top: 4rem;
@@ -140,6 +142,7 @@
   background-repeat: no-repeat;
   background-position: center !important;
 }
+
 @media screen and (min-width: 900px) {
   .photoSlider {
     border: 3rem solid transparent !important;
@@ -149,6 +152,7 @@
     grid-column-end: c1;
   }
 }
+
 @media screen and (min-width: 1100px) {
   .photoSlider {
     height: unset;

@@ -1,23 +1,16 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-family: "Raleway", sans-serif;
-
   width: 100%;
   overflow-x: hidden;
 
   --header-height: 5rem;
-
   --gap-0: 1rem;
   --gap-h: 1.5rem;
   --gap-1: 2rem;
   --font-size: 1rem;
-
   --z-index-highest: 2000;
 }
 
@@ -58,11 +51,6 @@ body.dark {
   background-color: var(--color-bg-1);
   color: var(--color-text);
   letter-spacing: 1px;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 #app-main {

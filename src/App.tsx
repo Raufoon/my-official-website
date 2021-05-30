@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom"
 import { SettingsContext } from "./contexts"
 import AppHeader from "./components/AppHeader"
 import Footer from "./components/Footer"
-import { lazy, Suspense, useEffect } from "react"
+import { lazy, Suspense, useLayoutEffect } from "react"
 import Loader from "./components/Loader"
 import ErrorBoundary from "./components/ErrorBoundary"
 
@@ -15,8 +15,8 @@ const Projects = lazy(() => import("./routes/projects"))
 function App() {
   const appSettings = useAppSettings()
 
-  useEffect(
-    function initAppFromSettings() {
+  useLayoutEffect(
+    function initAppVisualFromSettings() {
       document.body.classList.remove(
         appSettings.theme === "dark" ? "light" : "dark"
       )

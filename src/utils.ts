@@ -1,7 +1,11 @@
-import { EVENTS } from './constants'
+import { EVENTS } from "./constants"
 
 export function toggleTheme() {
-  var event = new CustomEvent(EVENTS.TOGGLE_THEME)
+  var event = new CustomEvent(EVENTS.TOGGLE_THEME, {
+    detail: {
+      theme: localStorage.getItem("theme") === "dark" ? "light" : "dark",
+    },
+  })
   window.dispatchEvent(event)
 }
 

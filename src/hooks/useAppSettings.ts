@@ -6,28 +6,26 @@ export default function useAppSettings() {
   const [settings, setSettings] = useState(getSavedSettings())
 
   useEffect(function onSettingsEvents() {
-    function toggleTheme() {
-      setSettings((prev) => ({
-        ...prev,
-        theme: prev.theme === "dark" ? "light" : "dark",
-      }))
+    function getHandler(property: string) {
+      return (e: CustomEvent) => {
+        setSettings((prev) => ({
+          ...prev,
+          [property]: e.detail[property],
+        }))
+      }
     }
 
-    function setLang(e: CustomEvent) {
-      setSettings((prev) => ({
-        ...prev,
-        lang: e.detail.lang,
-      }))
-    }
+    const onThemeChange = getHandler("theme")
+    const onLangChange = getHandler("lang")
 
-    window.addEventListener(EVENTS.SET_LANG, setLang as EventListener)
-    window.addEventListener(EVENTS.TOGGLE_THEME, toggleTheme as EventListener)
+    window.addEventListener(EVENTS.SET_LANG, onLangChange as EventListener)
+    window.addEventListener(EVENTS.TOGGLE_THEME, onThemeChange as EventListener)
 
     return function () {
-      window.removeEventListener(EVENTS.SET_LANG, setLang as EventListener)
+      window.removeEventListener(EVENTS.SET_LANG, onLangChange as EventListener)
       window.removeEventListener(
         EVENTS.TOGGLE_THEME,
-        toggleTheme as EventListener
+        onThemeChange as EventListener
       )
     }
   }, [])

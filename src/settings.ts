@@ -2,7 +2,9 @@ import { AppSettings } from "./global-types"
 
 const defaultSettings: AppSettings = {
   lang: "en",
-  theme: "dark",
+
+  // Past 6pm, dark mode will be enabled if user didn't set any mode explicitly
+  theme: new Date(Date.now()).getHours() > 18 ? "dark" : "light",
 }
 
 export function getDefaultSettings(): AppSettings {

@@ -13,7 +13,7 @@ export default function CareerInterest(props: Props) {
       className={`centerized atLeastFullHeightUnlessPortrait`}
       style={{ backgroundColor: "var(--color-bg-3)" }}
     >
-      <h1>Career interests</h1>
+      <h1>Career Interests</h1>
 
       <ul className={styles.careerInterests}>
         {interests.map((data) => (

@@ -12,7 +12,7 @@ export default function EducationHistory(props: Props) {
       className="centerized atLeastFullHeightUnlessPortrait"
       style={{ backgroundColor: "var(--color-bg-4)" }}
     >
-      <h1>My academic life</h1>
+      <h1>Education History</h1>
 
       <div>
         {history

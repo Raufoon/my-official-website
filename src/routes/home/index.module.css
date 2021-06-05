@@ -8,51 +8,6 @@
   }
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (min-width: 1001px) {
-  .intro {
-    flex-direction: row;
-  }
-}
-
-.photoContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-@media screen and (min-width: 1001px) {
-  .photoContainer {
-    flex: 1;
-  }
-}
-
-.poster {
-  width: 100vw;
-  height: 50vh;
-}
-
-@media screen and (min-width: 501px) {
-  .poster {
-    width: 60vh;
-    height: 60vh;
-  }
-}
-
-@media screen and (min-width: 1001px) {
-  .poster {
-    width: 30vw;
-    height: 30vw;
-    align-self: center;
-  }
-}
-
 .socialLinks {
   display: flex;
   flex-direction: row;
@@ -69,17 +24,6 @@
   transform: scale(1.5, 1.5);
   transition: transform 300ms;
   fill: var(--color-highlight);
-}
-
-.aboutMe {
-  flex: 1;
-  font-size: 1rem !important;
-}
-
-@media screen and (min-width: 1001px) {
-  .aboutMe {
-    flex: 1;
-  }
 }
 
 .Home h1 {
@@ -102,22 +46,22 @@
   font-weight: 100;
 }
 
-.skillEdSection ul {
+.qualificationSection ul {
   list-style-type: none;
 }
 
 @media screen and (min-width: 950px) {
-  .skillEdSection {
+  .qualificationSection {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .skillEdSection ul {
+  .qualificationSection ul {
     list-style-type: square;
   }
 }
 
-.skillEdSection article {
+.qualificationSection article {
   padding: var(--gap-1);
 }
 

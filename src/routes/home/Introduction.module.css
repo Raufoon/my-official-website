@@ -1,0 +1,55 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1001px) {
+  .intro {
+    flex-direction: row;
+  }
+}
+
+.photoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1001px) {
+  .photoContainer {
+    flex: 1;
+  }
+}
+
+.poster {
+  width: 100vw;
+  height: 50vh;
+}
+
+@media screen and (min-width: 501px) {
+  .poster {
+    width: 60vh;
+    height: 60vh;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .poster {
+    width: 30vw;
+    height: 30vw;
+    align-self: center;
+  }
+}
+
+.aboutMe {
+  flex: 1;
+  font-size: 1rem !important;
+}
+
+@media screen and (min-width: 1001px) {
+  .aboutMe {
+    flex: 1;
+  }
+}

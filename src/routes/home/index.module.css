@@ -64,7 +64,3 @@
 .qualificationSection article {
   padding: var(--gap-1);
 }
-
-.careerInterests {
-  max-width: 60%;
-}

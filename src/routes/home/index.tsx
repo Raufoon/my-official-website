@@ -5,8 +5,9 @@ import { useContext } from "react"
 import { SettingsContext } from "../../contexts"
 import Loader from "../../components/Loader"
 import { AboutMe, AppSettings } from "../../global-types"
-import EducationRecord from "../../components/EducationRecord"
 import Introduction from "./Introduction"
+import CareerInterest from "./CareerInterest"
+import EducationHistory from "./EducationHistory"
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)
@@ -27,32 +28,9 @@ export default function Home() {
       <Introduction subtitle={subtitle} photos={photos} summary={summary} />
 
       <section className={styles.qualificationSection}>
-        <article
-          className={`centerized atLeastFullHeightUnlessPortrait`}
-          style={{ backgroundColor: "var(--color-bg-3)" }}
-        >
-          <h1>Career interests</h1>
-          <ul className={styles.careerInterests}>
-            {careerInterests.map((data) => (
-              <li key={data.title}>
-                <h4 style={{ margin: "0 0 4px 0" }}>{data.title}</h4>
-                <small>{data.subtitle}</small>
-              </li>
-            ))}
-          </ul>
-        </article>
+        <CareerInterest interests={careerInterests} />
 
-        <article
-          className="centerized atLeastFullHeightUnlessPortrait"
-          style={{ backgroundColor: "var(--color-bg-4)" }}
-        >
-          <h1>My academic life</h1>
-          <div>
-            {educationHistory
-              .map((ed) => <EducationRecord key={ed.degree} {...ed} />)
-              .reverse()}
-          </div>
-        </article>
+        <EducationHistory history={educationHistory} />
       </section>
     </main>
   )

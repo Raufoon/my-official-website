@@ -1,9 +1,21 @@
 import { EVENTS } from "./constants"
+import { AppTheme } from "./global-types"
+
+export function getAppThemeFromDayTime(): AppTheme {
+  return new Date(Date.now()).getHours() > 18 ? "dark" : "light"
+}
+
+export function getAppTheme(): AppTheme {
+  const themeFromStorage = localStorage.getItem("theme")
+  return themeFromStorage
+    ? (themeFromStorage as AppTheme)
+    : getAppThemeFromDayTime()
+}
 
 export function toggleTheme() {
   var event = new CustomEvent(EVENTS.TOGGLE_THEME, {
     detail: {
-      theme: localStorage.getItem("theme") === "dark" ? "light" : "dark",
+      theme: getAppTheme() === "dark" ? "light" : "dark",
     },
   })
   window.dispatchEvent(event)

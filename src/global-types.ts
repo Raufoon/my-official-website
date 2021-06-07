@@ -20,6 +20,15 @@ export interface Skill {
   importance: number
 }
 
+export interface JobExperience {
+  company: string
+  end: string
+  start: string
+  role: string
+  title: string
+  website: string
+}
+
 export interface AboutMe {
   subtitle: string
   personalInfo: string
@@ -27,7 +36,7 @@ export interface AboutMe {
   summary: string
   careerInterests: CareerInterests
   educationHistory: Array<Education>
-  skills: Array<Skill>
+  workHistory: Array<JobExperience>
 }
 
 interface APIResponseAbstract {

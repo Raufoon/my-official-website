@@ -19,7 +19,6 @@ export default function CareerInterest(props: Props) {
         {interests.map((data) => (
           <li key={data.title}>
             <h4 style={{ margin: "0 0 4px 0" }}>{data.title}</h4>
-            <small>{data.subtitle}</small>
           </li>
         ))}
       </ul>

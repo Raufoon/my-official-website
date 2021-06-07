@@ -9,6 +9,7 @@ import Introduction from "./Introduction"
 import CareerInterest from "./CareerInterest"
 import EducationHistory from "./EducationHistory"
 import SkillSection from "./SkillSection"
+import JobExperiences from "./JobExperiences"
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)
@@ -24,16 +25,24 @@ export default function Home() {
 
   if (isAboutFetching || isPhotosFetching || isSkillsFetching) return <Loader />
 
-  const { subtitle, educationHistory, summary, careerInterests }: AboutMe =
-    aboutMe
+  const {
+    subtitle,
+    educationHistory,
+    summary,
+    careerInterests,
+    workHistory,
+  }: AboutMe = aboutMe
+
+  console.log(aboutMe)
 
   return (
     <main className={styles.Home}>
       <Introduction subtitle={subtitle} photos={photos} summary={summary} />
 
       <section className={styles.qualificationSection}>
-        <SkillSection skills={skills} />
+        <JobExperiences history={workHistory} />
         <EducationHistory history={educationHistory} />
+        <SkillSection skills={skills} />
         <CareerInterest interests={careerInterests} />
       </section>
     </main>

@@ -13,7 +13,7 @@ export default function SkillSection(props: Props) {
   const { skills } = props
 
   return (
-    <article className={styles.SkillSection}>
+    <article className={`centerized atLeastFullHeightUnlessPortrait`}>
       <h1>Skills</h1>
 
       <div className={styles.container}>

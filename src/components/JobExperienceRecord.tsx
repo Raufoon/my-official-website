@@ -14,7 +14,7 @@ export default function JobExperienceRecord(props: JobExperience) {
 
       <b style={{ gridRow: 2 }}>{title}</b>
 
-      <a href={website} style={{ gridRow: 3 }}>
+      <a href={website} style={{ gridRow: 3 }} target="_blank" rel="noreferrer">
         {company}
       </a>
 

@@ -33,8 +33,6 @@ export default function Home() {
     workHistory,
   }: AboutMe = aboutMe
 
-  console.log(aboutMe)
-
   return (
     <main className={styles.Home}>
       <Introduction subtitle={subtitle} photos={photos} summary={summary} />

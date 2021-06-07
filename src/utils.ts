@@ -23,3 +23,13 @@ export function getLStorageItemAsJSON(key: string): any {
   const item = localStorage.getItem(key)
   return item ? JSON.parse(item) : null
 }
+
+export function rand(min: number, max: number) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+export function lightColor(): string {
+  return `hsl(${rand(0, 360)}, ${rand(1, 100)}%, 60%)`
+}

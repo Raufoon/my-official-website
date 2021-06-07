@@ -4,10 +4,11 @@ import useFetchListFromDB from "../../hooks/useFetchListFromDB"
 import { useContext } from "react"
 import { SettingsContext } from "../../contexts"
 import Loader from "../../components/Loader"
-import { AboutMe, AppSettings } from "../../global-types"
+import { AboutMe, AppSettings, Skill } from "../../global-types"
 import Introduction from "./Introduction"
 import CareerInterest from "./CareerInterest"
 import EducationHistory from "./EducationHistory"
+import SkillSection from "./SkillSection"
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)
@@ -18,7 +19,10 @@ export default function Home() {
   const { list: photos, isFetching: isPhotosFetching } =
     useFetchListFromDB<string>(`photos`)
 
-  if (isAboutFetching || isPhotosFetching) return <Loader />
+  const { list: skills, isFetching: isSkillsFetching } =
+    useFetchListFromDB<Skill>(`skills`)
+
+  if (isAboutFetching || isPhotosFetching || isSkillsFetching) return <Loader />
 
   const { subtitle, educationHistory, summary, careerInterests }: AboutMe =
     aboutMe
@@ -28,9 +32,9 @@ export default function Home() {
       <Introduction subtitle={subtitle} photos={photos} summary={summary} />
 
       <section className={styles.qualificationSection}>
-        <CareerInterest interests={careerInterests} />
-
+        <SkillSection skills={skills} />
         <EducationHistory history={educationHistory} />
+        <CareerInterest interests={careerInterests} />
       </section>
     </main>
   )

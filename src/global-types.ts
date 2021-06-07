@@ -14,6 +14,12 @@ export interface Education {
   major?: string
 }
 
+export interface Skill {
+  name: string
+  score: number
+  importance: number
+}
+
 export interface AboutMe {
   subtitle: string
   personalInfo: string
@@ -21,6 +27,7 @@ export interface AboutMe {
   summary: string
   careerInterests: CareerInterests
   educationHistory: Array<Education>
+  skills: Array<Skill>
 }
 
 interface APIResponseAbstract {

@@ -19,10 +19,19 @@ firebase.initializeApp({
 
 window.customElements.define("hl-txt", HighlightedText)
 
+function cleanupOnError() {
+  localStorage.clear()
+  sessionStorage.clear()
+  window.location.reload()
+}
+
 ReactDOM.render(
   <StrictMode>
     <BrowserRouter>
-      <ErrorBoundary errorMsg={"Could not load the app :("}>
+      <ErrorBoundary
+        errorMsg={"Could not load the app :("}
+        recover={cleanupOnError}
+      >
         <App />
       </ErrorBoundary>
     </BrowserRouter>

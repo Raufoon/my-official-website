@@ -7,6 +7,7 @@ type EBState = {
 
 type EBProps = {
   errorMsg?: string
+  recover?: Function
 }
 
 const errorCardStyle = {
@@ -32,6 +33,10 @@ export default class ErrorBoundary extends Component<EBProps, EBState> {
       hasError: true,
       error,
     }
+  }
+
+  componentDidCatch() {
+    if (this.props.recover) this.props.recover()
   }
 
   render() {

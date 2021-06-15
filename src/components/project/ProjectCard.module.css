@@ -113,9 +113,9 @@
 }
 
 .links svg {
-  width: 12px;
+  width: 1rem;
   fill: var(--color-text);
-  height: 12px;
+  height: 1rem;
 }
 
 .links a {

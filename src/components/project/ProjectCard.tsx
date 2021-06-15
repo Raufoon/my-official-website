@@ -1,11 +1,11 @@
-import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
-import { ProjectVisualType } from '../../global-types'
-import PhotoSlider from '../PhotoSlider'
-import VideoPoster from '../VideoPoster'
-import styles from './ProjectCard.module.css'
-import ProjectLinkIcon from './ProjectLinkIcon'
-import TechLabel from './TechLabel'
+import { useMemo } from "react"
+import { Link } from "react-router-dom"
+import { ProjectVisualType } from "../../global-types"
+import PhotoSlider from "../PhotoSlider"
+import VideoPoster from "../VideoPoster"
+import styles from "./ProjectCard.module.css"
+import ProjectLinkIcon from "./ProjectLinkIcon"
+import TechLabel from "./TechLabel"
 
 export default function ProjectCard(props: ProjectVisualType) {
   const {
@@ -29,7 +29,7 @@ export default function ProjectCard(props: ProjectVisualType) {
 
   return (
     <section
-      className={`${styles.Project} ${invertLayout ? styles.inverted : ''}`}
+      className={`${styles.Project} ${invertLayout ? styles.inverted : ""}`}
     >
       <div className={styles.monolith} style={projectTypeLabelStyle}>
         <h3 data-testid="project-type">{type}</h3>
@@ -49,7 +49,7 @@ export default function ProjectCard(props: ProjectVisualType) {
           {links.map((link) => (
             <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
               <ProjectLinkIcon type={link.type} />
-              &nbsp;&nbsp;{link.type}
+              {!link.type.includes("download") && <>&nbsp;&nbsp;{link.type}</>}
             </a>
           ))}
           <Link to={`/projects/${id}`}>more</Link>
@@ -65,7 +65,7 @@ export default function ProjectCard(props: ProjectVisualType) {
       ) : (
         <PhotoSlider
           className={styles.photoSlider}
-          frameColor={'lightgray'}
+          frameColor={"lightgray"}
           photos={photos || []}
           data-testid="project-photos"
         />
@@ -76,25 +76,25 @@ export default function ProjectCard(props: ProjectVisualType) {
 
 function getProjectThemeColor(projectType: string) {
   switch (projectType) {
-    case 'Frontend Web':
-      return '#3b9ed6'
+    case "Frontend Web":
+      return "#3b9ed6"
 
-    case 'Desktop App':
-      return '#cc6540'
+    case "Desktop App":
+      return "#cc6540"
 
-    case 'Desktop Game':
-      return '#f6546a'
+    case "Desktop Game":
+      return "#f6546a"
 
-    case 'Full Stack Web':
-      return '#6f549a'
+    case "Full Stack Web":
+      return "#6f549a"
 
-    case 'Assembly':
-      return '#ff6367'
+    case "Assembly":
+      return "#ff6367"
 
-    case 'Research and Development':
-      return '#003366'
+    case "Research and Development":
+      return "#003366"
 
     default:
-      return 'var(--color-bg-2)'
+      return "var(--color-bg-2)"
   }
 }

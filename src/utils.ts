@@ -2,7 +2,8 @@ import { EVENTS } from "./constants"
 import { AppTheme } from "./global-types"
 
 export function getAppThemeFromDayTime(): AppTheme {
-  return new Date(Date.now()).getHours() > 18 ? "dark" : "light"
+  const currentHour = new Date(Date.now()).getHours()
+  return currentHour > 18 || currentHour < 6 ? "dark" : "light"
 }
 
 export function getAppTheme(): AppTheme {

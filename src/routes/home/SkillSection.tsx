@@ -1,5 +1,5 @@
 import { Skill } from "../../global-types"
-import styles from "./SkillSection.module.css"
+import styles from "./SkillSection.module.scss"
 import { lightColor } from "../../utils"
 
 type Props = {

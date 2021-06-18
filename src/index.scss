@@ -60,7 +60,9 @@ body.dark {
 
 .atLeastFullHeight {
   min-height: calc(100vh - var(--header-height));
+}
 
+.atLeastFullHeightUnlessPortrait {
   @media screen and (min-width: 900px) {
     min-height: calc(100vh - var(--header-height));
   }

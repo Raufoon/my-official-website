@@ -1,6 +1,6 @@
 import PosterSection from "../../components/PosterSection"
 import secBg1 from "../../assets/images/sec-bg1.jpg"
-import styles from "./Introduction.module.css"
+import styles from "./Introduction.module.scss"
 import Poster from "../../components/Poster"
 
 type Props = {

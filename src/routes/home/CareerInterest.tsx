@@ -1,5 +1,5 @@
 import { CareerInterests } from "../../global-types"
-import styles from "./CareerInterest.module.css"
+import styles from "./CareerInterest.module.scss"
 
 type Props = {
   interests: CareerInterests

@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import styles from './ProjectFilterPanel.module.css'
-import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg'
-import { getSortedLabelFreqPairs, intersects } from './utils'
-import IconButton from '../../components/IconButton'
-import { ProjectType } from '../../global-types'
+import { useCallback, useEffect, useMemo, useState } from "react"
+import styles from "./ProjectFilterPanel.module.scss"
+import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
+import { getSortedLabelFreqPairs, intersects } from "./utils"
+import IconButton from "../../components/IconButton"
+import { ProjectType } from "../../global-types"
 
 interface Props {
   className: string
@@ -13,24 +13,20 @@ interface Props {
 }
 
 export default function ProjectFilterPanel(props: Props) {
-  const {
-    className,
-    projects,
-    setVisibleProjects,
-    setFilterDescription,
-  } = props
+  const { className, projects, setVisibleProjects, setFilterDescription } =
+    props
 
   const [techFilters, setTechFilters] = useState([] as Array<string>)
-  const [typeFilter, setTypeFilter] = useState('')
+  const [typeFilter, setTypeFilter] = useState("")
 
   useEffect(
     function setFilterDescFromFilters() {
-      let desc = ''
+      let desc = ""
       if (typeFilter) {
         desc = `${typeFilter} Projects`
       }
       if (techFilters && techFilters.length > 0) {
-        desc = `${desc || 'Projects'} with ${techFilters.join(' + ')}`
+        desc = `${desc || "Projects"} with ${techFilters.join(" + ")}`
       }
       setFilterDescription(desc)
     },
@@ -64,7 +60,7 @@ export default function ProjectFilterPanel(props: Props) {
 
   const clearAllFilters = useCallback(() => {
     setTechFilters([])
-    setTypeFilter('')
+    setTypeFilter("")
   }, [])
 
   const techLabelFreqPairs = useMemo(() => {
@@ -102,7 +98,7 @@ export default function ProjectFilterPanel(props: Props) {
             <input
               type="checkbox"
               checked={typeFilter === label}
-              onChange={(e) => setTypeFilter(e.target.checked ? label : '')}
+              onChange={(e) => setTypeFilter(e.target.checked ? label : "")}
             />
             &nbsp;{label} ({freq})
           </div>

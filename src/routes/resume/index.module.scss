@@ -1,0 +1,29 @@
+.Resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    padding: 0.5rem;
+
+    &.active {
+      color: var(--color-bg-1);
+      background-color: var(--color-text);
+    }
+  }
+
+  nav {
+    padding: 1rem;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  iframe {
+    max-width: 23cm;
+  }
+}
+
+.content {
+  width: 80vw;
+  min-height: 80vh;
+}

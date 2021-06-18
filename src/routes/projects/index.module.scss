@@ -1,10 +1,8 @@
 .Projects {
   display: flex;
   flex-direction: column;
-}
 
-@media screen and (min-width: 1000px) {
-  .Projects {
+  @media screen and (min-width: 1000px) {
     flex-direction: row;
     padding-left: 25vw;
   }
@@ -12,10 +10,8 @@
 
 .filterPanel {
   display: none;
-}
 
-@media screen and (min-width: 1000px) {
-  .filterPanel {
+  @media screen and (min-width: 1000px) {
     display: block;
     top: var(--header-height);
     flex: 1;
@@ -32,10 +28,8 @@
 .filterPanelMobileOpener {
   padding: var(--gap-0);
   align-self: flex-start;
-}
 
-@media screen and (min-width: 1000px) {
-  .filterPanelMobileOpener {
+  @media screen and (min-width: 1000px) {
     display: none;
   }
 }
@@ -50,17 +44,15 @@
 .projectList {
   display: flex;
   flex-direction: column;
-}
 
-@media screen and (min-width: 1000px) {
-  .projectList {
+  @media screen and (min-width: 1000px) {
     flex: 3;
     overflow-y: auto;
   }
-}
 
-.projectList > * {
-  margin-top: 1rem;
+  & > * {
+    margin-top: 1rem;
+  }
 }
 
 .filterDesc {

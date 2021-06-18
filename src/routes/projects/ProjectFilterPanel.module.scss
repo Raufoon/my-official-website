@@ -23,8 +23,8 @@
 .filterList {
   display: flex;
   flex-direction: column;
-}
 
-.filterList > * {
-  margin-bottom: 1rem;
+  & > * {
+    margin-bottom: 1rem;
+  }
 }

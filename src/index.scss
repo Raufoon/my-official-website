@@ -60,35 +60,33 @@ body.dark {
 
 .atLeastFullHeight {
   min-height: calc(100vh - var(--header-height));
-}
 
-@media screen and (min-width: 900px) {
-  .atLeastFullHeightUnlessPortrait {
+  @media screen and (min-width: 900px) {
     min-height: calc(100vh - var(--header-height));
   }
 }
 
-a {
-  text-decoration: none;
+a,
+button {
   color: var(--color-text);
-  text-transform: uppercase;
   font-weight: bold;
   padding: var(--gap-1);
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
   text-align: center;
 }
 
 button {
   border: unset;
   background-color: unset;
-  color: var(--color-text);
-  font-weight: bold;
-  padding: var(--gap-1);
   font-size: var(--font-size);
-  text-transform: uppercase;
-}
 
-button:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 svg {
@@ -133,10 +131,10 @@ p {
 ul {
   list-style-type: square;
   padding-left: 0;
-}
 
-ul li {
-  padding: 1rem;
+  li {
+    padding: 1rem;
+  }
 }
 
 .centerized {

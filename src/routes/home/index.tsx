@@ -1,4 +1,4 @@
-import styles from "./index.module.css"
+import styles from "./index.module.scss"
 import useFetchFromDB from "../../hooks/useFetchFromDB"
 import useFetchListFromDB from "../../hooks/useFetchListFromDB"
 import { useContext } from "react"

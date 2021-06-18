@@ -46,12 +46,22 @@ export default function ProjectCard(props: ProjectVisualType) {
         </div>
 
         <div className={styles.links} data-testid="project-links">
-          {links.map((link) => (
-            <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
-              <ProjectLinkIcon type={link.type} />
-              {!link.type.includes("download") && <>&nbsp;&nbsp;{link.type}</>}
-            </a>
-          ))}
+          {links.map((link) => {
+            const showLabel =
+              !link.type.includes("download") && !link.type.includes("docker")
+
+            return (
+              <a
+                key={link.type}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ProjectLinkIcon type={link.type} />
+                {showLabel && <>&nbsp;&nbsp;{link.type}</>}
+              </a>
+            )
+          })}
           <Link to={`/projects/${id}`}>more</Link>
         </div>
       </article>

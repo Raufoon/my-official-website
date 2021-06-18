@@ -1,7 +1,7 @@
-import React from 'react'
-import { useCallback, useState } from 'react'
-import closeLastModal from './close-last-modal'
-const styles = require('./ConfirmationModal.module.css')
+import React from "react"
+import { useCallback, useState } from "react"
+import closeLastModal from "./close-last-modal"
+const styles = require("./ConfirmationModal.module.scss")
 
 interface Props {
   text?: string
@@ -30,7 +30,7 @@ export default function ConfirmationModal(props: Props) {
   return (
     <section className={styles.ConfirmationModal}>
       <label>{text || `Are you sure?`}</label>
-      <div style={{ display: 'flex', flexDirection: 'row', marginTop: `10px` }}>
+      <div style={{ display: "flex", flexDirection: "row", marginTop: `10px` }}>
         <button onClick={closeLastModal}>No</button>
         <button className={styles.confirmBtn} onClick={onConfirm}>
           Yes

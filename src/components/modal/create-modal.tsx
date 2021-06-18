@@ -1,9 +1,9 @@
-import ReactDOM from 'react-dom'
-import { getHighestAvailableZIndex, getModalRootElement } from './utils'
-import closeLastModal from './close-last-modal'
-import { ReactComponent as CloseIcon } from './close-icon.svg'
-import IconButton from '../IconButton'
-import styles from './styles.module.css'
+import ReactDOM from "react-dom"
+import { getHighestAvailableZIndex, getModalRootElement } from "./utils"
+import closeLastModal from "./close-last-modal"
+import { ReactComponent as CloseIcon } from "./close-icon.svg"
+import IconButton from "../IconButton"
+import styles from "./styles.module.scss"
 
 export interface ModalSettings {
   onlyCloseByButton?: boolean
@@ -20,7 +20,7 @@ export default function createModal(
   const mroot: HTMLElement = getModalRootElement()
   const zIndex = getHighestAvailableZIndex()
 
-  const modal: HTMLElement = document.createElement('div')
+  const modal: HTMLElement = document.createElement("div")
   mroot.appendChild(modal)
 
   ReactDOM.render(
@@ -40,7 +40,7 @@ export default function createModal(
 
         <div
           className={styles.children}
-          style={{ overflow: settings.noScroll ? 'hidden' : 'auto' }}
+          style={{ overflow: settings.noScroll ? "hidden" : "auto" }}
         >
           {content}
         </div>

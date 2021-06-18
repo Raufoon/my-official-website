@@ -1,5 +1,5 @@
 import { toggleTheme } from "../../utils"
-import style from "./index.module.css"
+import style from "./index.module.scss"
 import { ReactComponent as MoonIcon } from "./moon-fill.svg"
 import { ReactComponent as SunIcon } from "./sun.svg"
 import { AppTheme } from "../../global-types"

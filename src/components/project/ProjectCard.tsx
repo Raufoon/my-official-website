@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { ProjectVisualType } from "../../global-types"
 import PhotoSlider from "../PhotoSlider"
 import VideoPoster from "../VideoPoster"
-import styles from "./ProjectCard.module.css"
+import styles from "./ProjectCard.module.scss"
 import ProjectLinkIcon from "./ProjectLinkIcon"
 import TechLabel from "./TechLabel"
 

@@ -1,7 +1,7 @@
-import Poster from './Poster'
-import { ReactComponent as DashIcon } from '../assets/icons/minus.svg'
-import { useEffect, useMemo, useState } from 'react'
-import styles from './PhotoSlider.module.css'
+import Poster from "./Poster"
+import { ReactComponent as DashIcon } from "../assets/icons/minus.svg"
+import { useEffect, useMemo, useState } from "react"
+import styles from "./PhotoSlider.module.scss"
 
 interface Props {
   className?: string
@@ -14,7 +14,7 @@ export default function PhotoSlider(props: Props) {
 
   const style = useMemo(
     () => ({
-      borderColor: frameColor || 'inherit',
+      borderColor: frameColor || "inherit",
     }),
     [frameColor]
   )
@@ -46,9 +46,9 @@ export default function PhotoSlider(props: Props) {
             &nbsp;
             <DashIcon
               style={{
-                fill: index === currentImageIdx ? '#222' : 'var(--color-text)',
+                fill: index === currentImageIdx ? "#222" : "var(--color-text)",
               }}
-              stroke={'#000'}
+              stroke={"#000"}
             />
             &nbsp;
           </div>

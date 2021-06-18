@@ -1,4 +1,4 @@
-import styles from './VideoPoster.module.css'
+import styles from "./VideoPoster.module.scss"
 
 interface Props {
   className?: string
@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function VideoPoster({ className, src }: Props) {
-  const isYoutubeLink = src.indexOf('youtube.com') !== -1
+  const isYoutubeLink = src.indexOf("youtube.com") !== -1
 
   return (
     <div className={`${styles.VideoPoster} ${className}`}>

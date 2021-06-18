@@ -7,10 +7,8 @@
   padding-right: var(--gap-1);
   background-color: var(--color-bg-2);
   font-size: small;
-}
 
-@media screen and (min-width: 800px) {
-  .Footer {
+  @media screen and (min-width: 800px) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -24,47 +22,45 @@
 .section {
   display: flex;
   flex-direction: column;
-}
 
-.section > * {
-  padding: 5px;
-}
-
-.section a {
-  text-align: left;
-  text-transform: none;
-  font-weight: normal;
-}
-
-@media screen and (min-width: 800px) {
-  .section a {
-    text-align: left;
+  & > * {
+    padding: 5px;
   }
-}
 
-.section button {
-  text-transform: none;
-  font-weight: normal;
-  display: flex;
-  align-items: center;
+  a {
+    text-align: left;
+    text-transform: none;
+    font-weight: normal;
+
+    @media screen and (min-width: 800px) {
+      text-align: left;
+    }
+  }
+
+  button {
+    text-transform: none;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .socialLinks {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-}
 
-.socialLinks a {
-  padding: 0.5rem;
-  margin: 5px;
-  margin-left: 0;
-  background-color: var(--color-bg-2);
-  text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  a {
+    padding: 0.5rem;
+    margin: 5px;
+    margin-left: 0;
+    background-color: var(--color-bg-2);
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .contactInfo {

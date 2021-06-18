@@ -1,5 +1,5 @@
-import { Education } from '../global-types'
-import styles from './EducationRecord.module.css'
+import { Education } from "../global-types"
+import styles from "./EducationRecord.module.scss"
 
 export default function EducationRecord(props: Education) {
   const { almaMater, dateRange, degree, location, major, color } = props

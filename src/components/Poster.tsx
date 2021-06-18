@@ -1,6 +1,6 @@
-import { useCallback, useMemo } from 'react'
-import { createModal } from './modal'
-import styles from './Poster.module.css'
+import { useCallback, useMemo } from "react"
+import { createModal } from "./modal"
+import styles from "./Poster.module.scss"
 
 interface Props {
   className?: string
@@ -18,7 +18,7 @@ export default function Poster(props: Props) {
       createModal(
         <img
           src={src}
-          style={{ maxWidth: '80vw', maxHeight: '80vh' }}
+          style={{ maxWidth: "80vw", maxHeight: "80vh" }}
           alt="zoomed view"
         />
       )
@@ -28,7 +28,7 @@ export default function Poster(props: Props) {
   const customStyle = useMemo(
     () => ({
       backgroundImage: `url(${src})`,
-      cursor: zoomable ? 'pointer' : 'inherit',
+      cursor: zoomable ? "pointer" : "inherit",
       ...(style || {}),
     }),
     [src, style, zoomable]

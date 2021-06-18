@@ -1,4 +1,4 @@
-import styles from './PosterSection.module.css'
+import styles from "./PosterSection.module.scss"
 
 interface Props {
   imgSrc: string

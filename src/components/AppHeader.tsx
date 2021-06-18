@@ -5,7 +5,7 @@ import { SettingsContext } from "../contexts"
 import ThemePicker from "./ThemePicker"
 import { setLang } from "../utils"
 import { AppSettings } from "../global-types"
-import "./AppHeader.css"
+import "./AppHeader.scss"
 
 export default function AppHeader() {
   const navBarRef = useRef<HTMLDivElement>(null)

@@ -1,18 +1,17 @@
-import { Link } from 'react-router-dom'
-import { FunctionComponent } from 'react'
-import useFetchListFromDB from '../hooks/useFetchListFromDB'
-import styles from './Footer.module.css'
-import { ReactComponent as GithubIcon } from '../assets/icons/github.svg'
-import { ReactComponent as LinkedinIcon } from '../assets/icons/linkedin2.svg'
-import { ReactComponent as XingIcon } from '../assets/icons/xing2.svg'
-import { ReactComponent as EmailIcon } from '../assets/icons/envelop.svg'
-import { ReactComponent as PhoneIcon } from '../assets/icons/phone.svg'
-import { SocialLink } from '../global-types'
+import { Link } from "react-router-dom"
+import { FunctionComponent } from "react"
+import useFetchListFromDB from "../hooks/useFetchListFromDB"
+import styles from "./Footer.module.scss"
+import { ReactComponent as GithubIcon } from "../assets/icons/github.svg"
+import { ReactComponent as LinkedinIcon } from "../assets/icons/linkedin2.svg"
+import { ReactComponent as XingIcon } from "../assets/icons/xing2.svg"
+import { ReactComponent as EmailIcon } from "../assets/icons/envelop.svg"
+import { ReactComponent as PhoneIcon } from "../assets/icons/phone.svg"
+import { SocialLink } from "../global-types"
 
 export default function Footer() {
-  const { list: socialLinks } = useFetchListFromDB<SocialLink>(
-    `contact/socialLinks`
-  )
+  const { list: socialLinks } =
+    useFetchListFromDB<SocialLink>(`contact/socialLinks`)
 
   return (
     <footer className={styles.Footer}>
@@ -63,11 +62,11 @@ export default function Footer() {
 
 function getIconComponentBySocialLink(linkType: string): FunctionComponent {
   switch (linkType) {
-    case 'github':
+    case "github":
       return GithubIcon
-    case 'linkedin':
+    case "linkedin":
       return LinkedinIcon
-    case 'xing':
+    case "xing":
       return XingIcon
     default:
       return () => <></>

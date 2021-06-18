@@ -1,5 +1,5 @@
 import { JobExperience } from "../global-types"
-import styles from "./JobExperienceRecord.module.css"
+import styles from "./JobExperienceRecord.module.scss"
 
 export default function JobExperienceRecord(props: JobExperience) {
   const { start, end, company, title, role, website } = props

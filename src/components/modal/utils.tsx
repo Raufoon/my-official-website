@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom"
 import Modal from "./Modal"
+import ConfirmationModal from "./ConfirmationModal"
 import { ModalSettings } from "./types"
 
 function getLastUsedZIndex(): number {
@@ -60,4 +61,22 @@ export function closeLastModal(event?: any): void {
     elem.remove()
     releaseLastUsedZIndex()
   }
+}
+
+export function onConfirmationPopup(
+  text: string,
+  confirm: any,
+  settings: ModalSettings
+) {
+  createModal(
+    <ConfirmationModal
+      text={text}
+      confirm={confirm}
+      loader={settings.loader}
+    />,
+    {
+      ...settings,
+      hideClose: true,
+    }
+  )
 }

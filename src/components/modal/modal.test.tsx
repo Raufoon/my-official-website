@@ -1,6 +1,5 @@
 import { fireEvent } from "@testing-library/react"
-import closeLastModal from "./close-last-modal"
-import { createModal } from "./utils"
+import { createModal, closeLastModal } from "./utils"
 
 afterEach(() => {
   document.getElementById("modal-root")?.remove()

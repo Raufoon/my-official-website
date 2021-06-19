@@ -1,6 +1,5 @@
-import React from "react"
 import { useCallback, useState } from "react"
-import closeLastModal from "./close-last-modal"
+import { closeLastModal } from "./utils"
 const styles = require("./ConfirmationModal.module.scss")
 
 interface Props {

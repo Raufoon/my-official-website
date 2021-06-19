@@ -51,3 +51,13 @@ export function createModal(content: any, settings: ModalSettings = {}): void {
     modal
   )
 }
+
+export function closeLastModal(event?: any): void {
+  if (event) event.persist()
+  const elem = getLastModalElement()
+  if (elem) {
+    ReactDOM.unmountComponentAtNode(elem)
+    elem.remove()
+    releaseLastUsedZIndex()
+  }
+}

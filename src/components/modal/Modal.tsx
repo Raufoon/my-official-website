@@ -1,6 +1,6 @@
 import styles from "./Modal.module.scss"
 import IconButton from "../IconButton"
-import closeLastModal from "./close-last-modal"
+import { closeLastModal } from "./utils"
 import { ReactComponent as CloseIcon } from "./close-icon.svg"
 import { ModalSettings } from "./types"
 

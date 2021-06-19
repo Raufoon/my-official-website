@@ -4,12 +4,19 @@ import useFetchListFromDB from "../../hooks/useFetchListFromDB"
 import { useContext } from "react"
 import { SettingsContext } from "../../contexts"
 import Loader from "../../components/Loader"
-import { AboutMe, AppSettings, Skill } from "../../global-types"
+import {
+  AboutMe,
+  AppSettings,
+  Skill,
+  Education,
+  JobExperience,
+  CareerInterest,
+} from "../../global-types"
 import Introduction from "./Introduction"
-import CareerInterest from "./CareerInterest"
-import EducationHistory from "./EducationHistory"
+import CareerInterestSection from "./CareerInterest"
+import EducationHistorySection from "./EducationHistory"
 import SkillSection from "./SkillSection"
-import JobExperiences from "./JobExperiences"
+import JobExperiencesSection from "./JobExperiences"
 
 export default function Home() {
   const settings: AppSettings = useContext(SettingsContext)
@@ -23,25 +30,36 @@ export default function Home() {
   const { list: skills, isFetching: isSkillsFetching } =
     useFetchListFromDB<Skill>(`skills`)
 
-  if (isAboutFetching || isPhotosFetching || isSkillsFetching) return <Loader />
+  const { list: careerInterests, isFetching: isCareerInterestFetching } =
+    useFetchListFromDB<CareerInterest>(`${settings.lang}/careerInterests`)
 
-  const {
-    subtitle,
-    educationHistory,
-    summary,
-    careerInterests,
-    workHistory,
-  }: AboutMe = aboutMe
+  const { list: educationHistory, isFetching: isEducationHistoryFetching } =
+    useFetchListFromDB<Education>(`${settings.lang}/educationHistory`)
+
+  const { list: workHistory, isFetching: isWorkHistoryFetching } =
+    useFetchListFromDB<JobExperience>(`${settings.lang}/workHistory`)
+
+  if (
+    isAboutFetching ||
+    isPhotosFetching ||
+    isSkillsFetching ||
+    isCareerInterestFetching ||
+    isEducationHistoryFetching ||
+    isWorkHistoryFetching
+  )
+    return <Loader />
+
+  const { subtitle, summary }: AboutMe = aboutMe
 
   return (
     <main className={styles.Home}>
       <Introduction subtitle={subtitle} photos={photos} summary={summary} />
 
       <section className={styles.qualificationSection}>
-        <JobExperiences history={workHistory} />
-        <EducationHistory history={educationHistory} />
+        <JobExperiencesSection history={workHistory} />
+        <EducationHistorySection history={educationHistory} />
         <SkillSection skills={skills} />
-        <CareerInterest interests={careerInterests} />
+        <CareerInterestSection interests={careerInterests} />
       </section>
     </main>
   )

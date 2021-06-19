@@ -3,7 +3,7 @@ export interface SocialLink {
   url: string
 }
 
-export type CareerInterests = Array<{ title: string; subtitle: string }>
+export type CareerInterest = { title: string; subtitle: string }
 
 export interface Education {
   almaMater: string
@@ -34,9 +34,6 @@ export interface AboutMe {
   personalInfo: string
   education: string
   summary: string
-  careerInterests: CareerInterests
-  educationHistory: Array<Education>
-  workHistory: Array<JobExperience>
 }
 
 interface APIResponseAbstract {

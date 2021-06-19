@@ -1,11 +1,11 @@
-import { CareerInterests } from "../../global-types"
+import { CareerInterest } from "../../global-types"
 import styles from "./CareerInterest.module.scss"
 
 type Props = {
-  interests: CareerInterests
+  interests: Array<CareerInterest>
 }
 
-export default function CareerInterest(props: Props) {
+export default function CareerInterestSection(props: Props) {
   const { interests } = props
 
   return (

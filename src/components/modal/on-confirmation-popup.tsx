@@ -1,6 +1,6 @@
 import React from "react"
 import ConfirmationModal from "./ConfirmationModal"
-import createModal from "./create-modal"
+import { createModal } from "./utils"
 import { ModalSettings } from "./types"
 
 export default function onConfirmationPopup(

@@ -1,5 +1,5 @@
 import _closeLastModal from "./close-last-modal"
-import _createModal from "./create-modal"
+import { createModal as _createModal } from "./utils"
 import _onConfirmationPopup from "./on-confirmation-popup"
 
 export const closeLastModal = _closeLastModal

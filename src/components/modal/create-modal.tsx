@@ -1,17 +1,7 @@
 import ReactDOM from "react-dom"
 import { getHighestAvailableZIndex, getModalRootElement } from "./utils"
-import closeLastModal from "./close-last-modal"
-import { ReactComponent as CloseIcon } from "./close-icon.svg"
-import IconButton from "../IconButton"
-import styles from "./styles.module.scss"
-
-export interface ModalSettings {
-  onlyCloseByButton?: boolean
-  contentClassName?: string
-  hideClose?: boolean
-  noScroll?: boolean
-  loader?: any
-}
+import Modal from "./Modal"
+import { ModalSettings } from "./types"
 
 export default function createModal(
   content: any,
@@ -24,28 +14,9 @@ export default function createModal(
   mroot.appendChild(modal)
 
   ReactDOM.render(
-    <section className={styles.Modal} style={{ zIndex }}>
-      <div
-        className={`${styles.content} ${styles.zoomin}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {!settings.hideClose && (
-          <IconButton
-            btnClassName={styles.closeBtn}
-            onClick={closeLastModal}
-            btnStyle={{ zIndex }}
-            Icon={CloseIcon}
-          />
-        )}
-
-        <div
-          className={styles.children}
-          style={{ overflow: settings.noScroll ? "hidden" : "auto" }}
-        >
-          {content}
-        </div>
-      </div>
-    </section>,
+    <Modal zIndex={zIndex} settings={settings}>
+      {content}
+    </Modal>,
     modal
   )
 }

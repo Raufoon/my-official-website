@@ -1,8 +1,13 @@
-import React from 'react'
-import ConfirmationModal from './ConfirmationModal'
-import createModal, { ModalSettings } from './create-modal'
+import React from "react"
+import ConfirmationModal from "./ConfirmationModal"
+import createModal from "./create-modal"
+import { ModalSettings } from "./types"
 
-export default function onConfirmationPopup(text: string, confirm: any, settings: ModalSettings) {
+export default function onConfirmationPopup(
+  text: string,
+  confirm: any,
+  settings: ModalSettings
+) {
   createModal(
     <ConfirmationModal
       text={text}
@@ -11,7 +16,7 @@ export default function onConfirmationPopup(text: string, confirm: any, settings
     />,
     {
       ...settings,
-      hideClose: true
+      hideClose: true,
     }
   )
 }

@@ -10,7 +10,8 @@
   align-items: center;
 
   .content {
-    background-color: white;
+    background-color: var(--color-bg-1);
+    color: var(--color-text);
     border: 1px solid gray;
     padding: 15px;
     border-radius: 2px;

@@ -4,7 +4,6 @@
 
   @media screen and (min-width: 1000px) {
     flex-direction: row;
-    padding-left: 25vw;
   }
 }
 
@@ -19,7 +18,7 @@
     width: 25vw;
     left: 0;
     height: calc(100vh - var(--header-height));
-    position: fixed;
+    position: sticky;
     padding: var(--gap-1);
     overflow-y: auto;
   }

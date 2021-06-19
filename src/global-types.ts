@@ -12,6 +12,7 @@ export interface Education {
   degree: string
   location: string
   major?: string
+  website: string
 }
 
 export interface Skill {

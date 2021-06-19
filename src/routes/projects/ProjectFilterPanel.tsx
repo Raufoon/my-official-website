@@ -20,15 +20,16 @@ export default function ProjectFilterPanel(props: Props) {
   const [typeFilter, setTypeFilter] = useState("")
 
   useEffect(
-    function setFilterDescFromFilters() {
-      let desc = ""
-      if (typeFilter) {
-        desc = `${typeFilter} Projects`
-      }
-      if (techFilters && techFilters.length > 0) {
-        desc = `${desc || "Projects"} with ${techFilters.join(" + ")}`
-      }
-      setFilterDescription(desc)
+    function setFilterDescriptionFromFilters() {
+      const title = typeFilter ? `${typeFilter} Projects` : "Projects"
+      const titleWithDetails =
+        techFilters && techFilters.length > 0
+          ? `${title} with ${techFilters.join(" , ")}`
+          : title
+
+      setFilterDescription(
+        titleWithDetails === "Projects" ? "" : titleWithDetails
+      )
     },
     [setFilterDescription, techFilters, typeFilter]
   )

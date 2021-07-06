@@ -46,22 +46,12 @@ export default function ProjectCard(props: ProjectVisualType) {
         </div>
 
         <div className={styles.links} data-testid="project-links">
-          {links.map((link) => {
-            const showLabel =
-              !link.type.includes("download") && !link.type.includes("docker")
+          {links.map((link) => (
+            <a key={link.type} href={link.url} target="_blank" rel="noreferrer">
+              <ProjectLinkIcon type={link.type} />
+            </a>
+          ))}
 
-            return (
-              <a
-                key={link.type}
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ProjectLinkIcon type={link.type} />
-                {showLabel && <>&nbsp;&nbsp;{link.type}</>}
-              </a>
-            )
-          })}
           <Link to={`/projects/${id}`}>more</Link>
         </div>
       </article>
@@ -69,12 +59,12 @@ export default function ProjectCard(props: ProjectVisualType) {
       {video ? (
         <VideoPoster
           data-testid="project-video"
-          className={styles.photoSlider}
+          className={styles.demoView}
           src={video}
         />
       ) : (
         <PhotoSlider
-          className={styles.photoSlider}
+          className={styles.demoView}
           frameColor={"lightgray"}
           photos={photos || []}
           data-testid="project-photos"
@@ -101,7 +91,7 @@ function getProjectThemeColor(projectType: string) {
     case "Assembly":
       return "#ff6367"
 
-    case "Research and Development":
+    case "R & D":
       return "#003366"
 
     default:

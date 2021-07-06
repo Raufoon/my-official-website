@@ -1,8 +1,13 @@
+$ms_lower_bound: 900px;
+
+$breakpoint_large: 1500px;
+$breakpoint_xlarge: 2000px;
+
 .Projects {
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: $ms_lower_bound) {
     flex-direction: row;
   }
 }
@@ -10,12 +15,12 @@
 .filterPanel {
   display: none;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: $ms_lower_bound) {
     display: block;
     top: var(--header-height);
-    flex: 1;
+    // flex: 1;
     z-index: unset;
-    width: 25vw;
+    // width: 20vw;
     left: 0;
     height: calc(100vh - var(--header-height));
     position: sticky;
@@ -28,7 +33,7 @@
   padding: var(--gap-0);
   align-self: flex-start;
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: $ms_lower_bound) {
     display: none;
   }
 }
@@ -44,13 +49,20 @@
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 1000px) {
-    flex: 3;
+  @media screen and (min-width: $ms_lower_bound) {
+    flex: 1;
     overflow-y: auto;
   }
 
-  & > * {
-    margin-top: 1rem;
+  @media screen and (min-width: $breakpoint_large) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: $breakpoint_xlarge) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 

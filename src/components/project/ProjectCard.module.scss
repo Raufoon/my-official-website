@@ -1,80 +1,80 @@
+$GR: 1.62;
+$breakpoint_small: 950px;
+$breakpoint_med: 1200px;
+$breakpoint_large: 1500px;
+$breakpoint_xlarge: 2000px;
+
 .Project {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--color-bg-2);
+  font-size: 1rem;
+  padding: 1rem;
+  min-height: 250px;
+  border: 1px solid var(--color-bg-2);
 
-  @media screen and (min-width: 900px) {
-    margin: 1rem;
-    display: grid;
-    grid-template-columns: [c0] auto [c1] 3rem [c2];
-    grid-template-rows: [r0] auto [r1] 50vh [r2];
-  }
-
-  @media screen and (min-width: 1100px) {
-    display: flex;
+  @media screen and (min-width: $breakpoint_small) {
     flex-direction: row;
+    padding: 2rem;
   }
 
-  &.inverted {
-    @media screen and (min-width: 1100px) {
-      .details {
-        order: 2;
-      }
-    }
+  @media screen and (min-width: $breakpoint_med) {
+    min-height: 350px;
+  }
+
+  @media screen and (min-width: $breakpoint_large) {
+    min-height: 350px;
+  }
+
+  @media screen and (min-width: $breakpoint_xlarge) {
+    width: 700px;
+    height: 430px;
   }
 }
 
 .monolith {
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: capitalize;
-  margin: 0;
   font-weight: bold;
   letter-spacing: 5px;
+  font-size: small;
+  margin-bottom: 1rem;
 
-  @media screen and (min-width: 900px) {
-    grid-row-start: r0;
-    grid-row-end: r2;
-    grid-column-start: c1;
-    grid-column-end: c2;
-    height: inherit;
+  @media screen and (min-width: $breakpoint_small) {
+    order: 3;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 3rem;
+  }
 
-    h3 {
+  h3 {
+    @media screen and (min-width: $breakpoint_small) {
       transform: rotate(90deg);
       white-space: nowrap;
     }
   }
-
-  @media screen and (min-width: 1100px) {
-    order: 3;
-    width: 3rem;
-  }
 }
 
 .details {
-  background-color: var(--color-bg-1);
   color: var(--color-text);
-  padding: var(--gap-h);
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (min-width: 900px) {
-    grid-row-start: r0;
-    grid-row-end: r1;
-    min-height: 50vh;
-    padding: var(--gap-1);
-    grid-column-start: c0;
-    grid-column-end: c1;
+  @media screen and (min-width: $breakpoint_small) {
+    flex: 1;
   }
 
-  @media screen and (min-width: 1100px) {
-    min-height: unset;
-    flex: 2;
+  h2 {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: small;
+    line-height: normal;
   }
 }
 
@@ -84,10 +84,11 @@
   flex-wrap: wrap;
   font-weight: bold;
   color: #000080;
+  margin-top: 1rem;
 
   & > * {
-    margin-right: var(--gap-0);
-    margin-top: var(--gap-0);
+    font-size: small;
+    margin: 2px;
   }
 }
 
@@ -95,16 +96,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 2rem;
-
-  @media screen and (min-width: 1100px) {
-    margin-top: 4rem;
-  }
+  margin-top: 1rem;
 
   svg {
-    width: 1rem;
+    width: 12px;
     fill: var(--color-text);
-    height: 1rem;
+    height: 12px;
   }
 
   a {
@@ -114,10 +111,10 @@
     align-items: center;
     justify-content: center;
     color: var(--color-text);
-    margin: 5px;
+    margin: 2px;
     text-transform: uppercase;
     border-radius: 2px;
-    font-size: 13px;
+    font-size: small;
 
     &:hover {
       background-color: var(--color-bg-2);
@@ -125,23 +122,16 @@
   }
 }
 
-.photoSlider {
-  height: 40vh;
+.demoView {
+  margin-top: 1rem;
   transition: background-image 1s;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center !important;
+  min-height: 150px;
 
-  @media screen and (min-width: 900px) {
-    border: 3rem solid transparent !important;
-    grid-row-start: r1;
-    grid-row-end: r2;
-    grid-column-start: c0;
-    grid-column-end: c1;
-  }
-
-  @media screen and (min-width: 1100px) {
-    height: unset;
-    flex: 3;
+  @media screen and (min-width: $breakpoint_small) {
+    margin-left: 1rem;
+    flex: 1;
   }
 }

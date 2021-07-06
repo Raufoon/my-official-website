@@ -12,6 +12,7 @@ $breakpoint_xlarge: 2000px;
   padding: 1rem;
   min-height: 250px;
   border: 1px solid var(--color-bg-2);
+  max-height: 50vh;
 
   @media screen and (min-width: $breakpoint_small) {
     flex-direction: row;

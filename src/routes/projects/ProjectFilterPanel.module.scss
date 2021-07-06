@@ -14,7 +14,6 @@
 
 .clearFilterButton {
   padding: var(--gap-0);
-  font-size: 16px;
   font-weight: normal;
   margin-left: auto;
   text-transform: none;
@@ -24,7 +23,12 @@
   display: flex;
   flex-direction: column;
 
+  h4 {
+    color: var(--color-highlight);
+  }
+
   & > * {
-    margin-bottom: 1rem;
+    font-size: small;
+    margin-bottom: 8px;
   }
 }

@@ -9,12 +9,12 @@ interface Props {
   className: string
   projects: Array<ProjectType>
   setVisibleProjects: any
-  setFilterDescription: any
 }
 
 export default function ProjectFilterPanel(props: Props) {
-  const { className, projects, setVisibleProjects, setFilterDescription } =
-    props
+  const { className, projects, setVisibleProjects } = props
+
+  const [filterDescription, setFilterDescription] = useState("")
 
   const [techFilters, setTechFilters] = useState([] as Array<string>)
   const [typeFilter, setTypeFilter] = useState("")
@@ -80,6 +80,7 @@ export default function ProjectFilterPanel(props: Props) {
     <section className={`${styles.ProjectFilterPanel} ${className}`}>
       <header className={styles.header}>
         <h2>Filters</h2>
+        {!!filterDescription?.length && <span>{filterDescription}</span>}
 
         {shouldDisplayClearButton && (
           <IconButton

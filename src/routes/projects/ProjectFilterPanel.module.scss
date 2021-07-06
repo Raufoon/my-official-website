@@ -8,24 +8,38 @@
 
 .header {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: small;
+  align-items: flex-start;
+
+  span {
+    color: var(--color-highlight);
+  }
 }
 
 .clearFilterButton {
-  padding: var(--gap-0);
-  font-weight: normal;
-  margin-left: auto;
   text-transform: none;
+  font-size: x-small;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  border: 1px solid gray;
+  color: gray;
+  border-radius: 10px;
+
+  svg {
+    width: 10px;
+    height: 10px;
+    fill: gray;
+  }
 }
 
 .filterList {
   display: flex;
   flex-direction: column;
-
-  h4 {
-    color: var(--color-highlight);
-  }
 
   & > * {
     font-size: small;

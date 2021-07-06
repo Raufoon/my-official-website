@@ -10,25 +10,18 @@ import Project from "../../components/project"
 import ErrorBoundary from "../../components/ErrorBoundary"
 
 export default function Projects() {
-  const {
-    isFetching,
-    allProjects,
-    visibleProjects,
-    filterDescription,
-    setVisibleProjects,
-    setFilterDescription,
-  } = useViewableProjects()
+  const { isFetching, allProjects, visibleProjects, setVisibleProjects } =
+    useViewableProjects()
 
   const openFilterModal = useCallback(() => {
     createModal(
       <ProjectFilterPanel
         className={styles.filterPanelMobile}
-        setFilterDescription={setFilterDescription}
         projects={allProjects}
         setVisibleProjects={setVisibleProjects}
       />
     )
-  }, [allProjects, setVisibleProjects, setFilterDescription])
+  }, [allProjects, setVisibleProjects])
 
   if (isFetching) return <Loader center={true} />
 
@@ -38,7 +31,6 @@ export default function Projects() {
         className={styles.filterPanel}
         projects={allProjects}
         setVisibleProjects={setVisibleProjects}
-        setFilterDescription={setFilterDescription}
       />
 
       <IconButton
@@ -50,9 +42,6 @@ export default function Projects() {
       />
 
       <section className={styles.projectList}>
-        {filterDescription && (
-          <h3 className={styles.filterDesc}>{filterDescription}</h3>
-        )}
         {visibleProjects.map((project, index) => (
           <ErrorBoundary
             key={project.id}

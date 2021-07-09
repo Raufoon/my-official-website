@@ -1,11 +1,11 @@
 import { useMemo } from "react"
 import { Link } from "react-router-dom"
 import { ProjectVisualType } from "../../global-types"
+import { lightColor } from "../../utils"
 import PhotoSlider from "../PhotoSlider"
 import VideoPoster from "../VideoPoster"
 import styles from "./ProjectCard.module.scss"
 import ProjectLinkIcon from "./ProjectLinkIcon"
-import TechLabel from "./TechLabel"
 
 export default function ProjectCard(props: ProjectVisualType) {
   const {
@@ -41,7 +41,9 @@ export default function ProjectCard(props: ProjectVisualType) {
 
         <div className={styles.technologies} data-testid="project-techs">
           {technologies.map((tech) => (
-            <TechLabel key={tech} type={tech} />
+            <label key={tech} style={{ color: lightColor() }}>
+              {tech}
+            </label>
           ))}
         </div>
 

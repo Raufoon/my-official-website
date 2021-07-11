@@ -42,7 +42,7 @@ export default function Projects() {
       />
 
       <section className={styles.projectList}>
-        {visibleProjects.map((project, index) => (
+        {visibleProjects.map((project) => (
           <ErrorBoundary
             key={project.id}
             errorMsg={`Failed to display project ${project.id}`}

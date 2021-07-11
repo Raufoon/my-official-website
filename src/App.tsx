@@ -9,7 +9,7 @@ import ErrorBoundary from "./components/ErrorBoundary"
 
 const Home = lazy(() => import("./routes/home"))
 const Resume = lazy(() => import("./routes/resume"))
-const ProjectPage = lazy(() => import("./routes/projects/project-page"))
+const ProjectPage = lazy(() => import("./routes/project-page"))
 const Projects = lazy(() => import("./routes/projects"))
 
 function App() {

@@ -3,11 +3,11 @@ import styles from "./ProjectFilterPanel.module.scss"
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
 import { getSortedLabelFreqPairs, intersects } from "./utils"
 import IconButton from "../../components/IconButton"
-import { ProjectType } from "../../global-types"
+import { Project } from "../../global-types"
 
 interface Props {
   className: string
-  projects: Array<ProjectType>
+  projects: Array<Project>
   setVisibleProjects: any
 }
 

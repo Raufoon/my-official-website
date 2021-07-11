@@ -1,4 +1,4 @@
-import { ProjectType } from '../../global-types'
+import { Project } from "../../global-types"
 
 interface LabelFreqPair {
   label: string
@@ -43,7 +43,7 @@ export function getSortedLabelFreqPairs(
   return getLabelFreqPairs(labels).sort((a, b) => (a.label < b.label ? -1 : 1))
 }
 
-export function compareProjectsByPriority(a: ProjectType, b: ProjectType) {
+export function compareProjectsByPriority(a: Project, b: Project) {
   return a.priority > b.priority ? -1 : 1
 }
 

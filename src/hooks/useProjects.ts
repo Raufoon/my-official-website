@@ -42,8 +42,54 @@ export default function useProjects() {
 
   const [projects, setProjects] = useState([] as Project[])
 
+  const [availableTypes, setAvailableTypes] = useState([] as string[])
+
+  const [availableTechs, setAvailableTechs] = useState([] as string[])
+
+  const [typeFrequencies, setTypeFrequencies] = useState(
+    new Map<string, number>()
+  )
+
+  const [techFrequencies, setTechFrequencies] = useState(
+    new Map<string, number>()
+  )
+
   useEffect(() => {
     if (isReady) {
+      const typeOccurances = projectMetadatas.map((pm) => pm.type)
+
+      setTypeFrequencies((prevMap) => {
+        const map = new Map(prevMap)
+
+        typeOccurances.forEach((type) => {
+          const freq = map.get(type)
+          if (freq) map.set(type, freq + 1)
+          else map.set(type, 1)
+        })
+
+        return map
+      })
+
+      setAvailableTypes(Array.from(new Set(typeOccurances)))
+
+      const techOccurances = projectMetadatas
+        .map((pm) => pm.technologies)
+        .flat()
+
+      setTechFrequencies((prevMap) => {
+        const map = new Map(prevMap)
+
+        techOccurances.forEach((type) => {
+          const freq = map.get(type)
+          if (freq) map.set(type, freq + 1)
+          else map.set(type, 1)
+        })
+
+        return map
+      })
+
+      setAvailableTechs(Array.from(new Set(techOccurances)))
+
       setProjects(
         projectMetadatas.map((metadata: ProjectMetadata) => {
           const description = projectDescriptions.find(
@@ -67,8 +113,24 @@ export default function useProjects() {
   }, [isReady, projectMetadatas, projectDescriptions])
 
   const data = useMemo(
-    () => ({ isFetching, hasError, projects }),
-    [isFetching, hasError, projects]
+    () => ({
+      isFetching,
+      hasError,
+      projects,
+      availableTypes,
+      typeFrequencies,
+      availableTechs,
+      techFrequencies,
+    }),
+    [
+      isFetching,
+      hasError,
+      projects,
+      availableTypes,
+      typeFrequencies,
+      availableTechs,
+      techFrequencies,
+    ]
   )
 
   return data

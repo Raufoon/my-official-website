@@ -6,13 +6,27 @@ import ErrorBoundary from "../../components/ErrorBoundary"
 import useProjects from "../../hooks/useProjects"
 
 export default function Projects() {
-  const { isFetching, hasError, projects } = useProjects()
+  const {
+    isFetching,
+    hasError,
+    projects,
+    availableTypes,
+    typeFrequencies,
+    availableTechs,
+    techFrequencies,
+  } = useProjects()
 
   if (isFetching || hasError) return <Loader center={true} />
 
   return (
     <main className={styles.Projects}>
-      <ProjectFilterPanel className={styles.filterPanel} />
+      <ProjectFilterPanel
+        className={styles.filterPanel}
+        availableTypes={availableTypes}
+        typeFrequencies={typeFrequencies}
+        availableTechs={availableTechs}
+        techFrequencies={techFrequencies}
+      />
 
       <section className={styles.projectList}>
         {projects.map((project) => (

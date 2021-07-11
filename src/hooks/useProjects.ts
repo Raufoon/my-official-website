@@ -1,6 +1,7 @@
-import { useContext, useEffect, useMemo, useState } from "react"
+import { useCallback, useContext, useEffect, useMemo, useState } from "react"
 import { SettingsContext } from "../contexts"
 import { AppSettings, Project, SocialLink } from "../global-types"
+import { intersects } from "../routes/projects/utils"
 import useFetchListFromDB from "./useFetchListFromDB"
 
 type ProjectDescription = {
@@ -41,6 +42,8 @@ export default function useProjects() {
   const isReady = !(isFetching || hasError)
 
   const [projects, setProjects] = useState([] as Project[])
+
+  const [filteredProjects, setFilteredProjects] = useState([] as Project[])
 
   const [availableTypes, setAvailableTypes] = useState([] as string[])
 
@@ -90,27 +93,42 @@ export default function useProjects() {
 
       setAvailableTechs(Array.from(new Set(techOccurances)))
 
-      setProjects(
-        projectMetadatas.map((metadata: ProjectMetadata) => {
-          const description = projectDescriptions.find(
-            (desc) => desc.id === metadata.id
-          )
+      const allProjects = projectMetadatas.map((metadata: ProjectMetadata) => {
+        const description = projectDescriptions.find(
+          (desc) => desc.id === metadata.id
+        )
 
-          if (!description)
-            return {
-              ...metadata,
-              title: "",
-              subtitle: "",
-            }
-
+        if (!description)
           return {
             ...metadata,
-            ...description,
+            title: "",
+            subtitle: "",
           }
-        })
-      )
+
+        return {
+          ...metadata,
+          ...description,
+        }
+      })
+
+      setProjects(allProjects)
+
+      setFilteredProjects(allProjects)
     }
   }, [isReady, projectMetadatas, projectDescriptions])
+
+  const filter = useCallback(
+    (type, techs) => {
+      setFilteredProjects(
+        projects
+          .filter((p) => !type || p.type === type)
+          .filter(
+            (p) => techs.length === 0 || intersects(techs, p.technologies)
+          )
+      )
+    },
+    [projects]
+  )
 
   const data = useMemo(
     () => ({
@@ -121,6 +139,8 @@ export default function useProjects() {
       typeFrequencies,
       availableTechs,
       techFrequencies,
+      filteredProjects,
+      filter,
     }),
     [
       isFetching,
@@ -130,6 +150,8 @@ export default function useProjects() {
       typeFrequencies,
       availableTechs,
       techFrequencies,
+      filteredProjects,
+      filter,
     ]
   )
 

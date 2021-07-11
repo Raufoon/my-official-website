@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import styles from "./ProjectFilterPanel.module.scss"
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
-// import { intersects } from "./utils"
 import IconButton from "../../components/IconButton"
 
 interface Props {
@@ -10,6 +9,7 @@ interface Props {
   typeFrequencies: Map<string, number>
   availableTechs: string[]
   techFrequencies: Map<string, number>
+  filter: Function
 }
 
 export default function ProjectFilterPanel(props: Props) {
@@ -19,6 +19,7 @@ export default function ProjectFilterPanel(props: Props) {
     typeFrequencies,
     availableTechs,
     techFrequencies,
+    filter,
   } = props
 
   const [filterDescription, setFilterDescription] = useState("")
@@ -41,22 +42,12 @@ export default function ProjectFilterPanel(props: Props) {
     [setFilterDescription, techFilters, typeFilter]
   )
 
-  // useEffect(
-  //   function applyAllFilters() {
-  //     const filteredByType = typeFilter
-  //       ? projectFilterMetadata.filter((p) => p.type === typeFilter)
-  //       : projectFilterMetadata
-
-  //     const noTechFilters = techFilters.length === 0
-
-  //     const filteredByTech = noTechFilters
-  //       ? filteredByType
-  //       : filteredByType.filter((p) => intersects(p.technologies, techFilters))
-
-  //     // setVisibleProjectIds(filteredByTech.map((item) => item.id))
-  //   },
-  //   [techFilters, typeFilter, setVisibleProjectIds, projectFilterMetadata]
-  // )
+  useEffect(
+    function applyAllFilters() {
+      filter(typeFilter, techFilters)
+    },
+    [filter, techFilters, typeFilter]
+  )
 
   const addTechFilter = useCallback((tech) => {
     setTechFilters((state) => [...state, tech])

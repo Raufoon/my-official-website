@@ -4,12 +4,14 @@ import ProjectFilterPanel from "./ProjectFilterPanel"
 import Project from "../../components/project"
 import ErrorBoundary from "../../components/ErrorBoundary"
 import useProjects from "../../hooks/useProjects"
+import { compareProjectsByPriority } from "./utils"
 
 export default function Projects() {
   const {
     isFetching,
     hasError,
-    projects,
+    filter,
+    filteredProjects,
     availableTypes,
     typeFrequencies,
     availableTechs,
@@ -26,10 +28,11 @@ export default function Projects() {
         typeFrequencies={typeFrequencies}
         availableTechs={availableTechs}
         techFrequencies={techFrequencies}
+        filter={filter}
       />
 
       <section className={styles.projectList}>
-        {projects.map((project) => (
+        {filteredProjects.sort(compareProjectsByPriority).map((project) => (
           <ErrorBoundary
             key={project.id}
             errorMsg={`Failed to display project ${project.id}`}

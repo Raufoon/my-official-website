@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { SettingsContext } from "../../contexts"
 import { AppSettings, SocialLink } from "../../global-types"
 import useFetchFromDB from "../../hooks/useFetchFromDB"
@@ -40,13 +40,29 @@ export default function Project(props: Props) {
     data: metadata,
   } = useFetchFromDB<ProjectMetadata>(`projects/${id}`)
 
-  if (
+  const isNotLoadedYet =
     isDescriptionFetching ||
     hasDescriptionError ||
     isMetadataFetching ||
     hasMetadataError
-  )
-    return null
+
+  useEffect(() => {
+    if (isNotLoadedYet) return
+
+    const { id, technologies, type } = metadata
+
+    window.dispatchEvent(
+      new CustomEvent("new-project-loaded", {
+        detail: {
+          id,
+          technologies,
+          type,
+        },
+      })
+    )
+  }, [isNotLoadedYet, metadata])
+
+  if (isNotLoadedYet) return null
 
   const { title, subtitle } = description
   const { type, photos, technologies, links, video, priority } = metadata

@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import styles from "./ProjectFilterPanel.module.scss"
 import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg"
-import { getSortedLabelFreqPairs, intersects } from "./utils"
+import { intersects } from "./utils"
 import IconButton from "../../components/IconButton"
 import { Project } from "../../global-types"
 
@@ -14,10 +14,61 @@ interface Props {
 export default function ProjectFilterPanel(props: Props) {
   const { className, projects, setVisibleProjects } = props
 
+  const [typeCountMap, setTypeCountMap] = useState(new Map<string, number>())
+  const [availableTypes, setAvailableTypes] = useState([] as string[])
+
+  const [techCountMap, setTechCountMap] = useState(new Map<string, number>())
+  const [availableTechs, setAvailableTechs] = useState([] as string[])
+
   const [filterDescription, setFilterDescription] = useState("")
 
   const [techFilters, setTechFilters] = useState([] as Array<string>)
-  const [typeFilter, setTypeFilter] = useState("")
+  const [typeFilter, setTypeFilter] = useState("" as string)
+
+  useEffect(function onNewProjectLoaded() {
+    function onAddNewProject(event: CustomEvent) {
+      const { type, technologies }: { type: string; technologies: string[] } =
+        event.detail
+
+      setAvailableTypes((prev) => {
+        setTypeCountMap((map) => {
+          const freq = map.get(type)
+          if (freq) map.set(type, freq + 1)
+          else map.set(type, 1)
+          return map
+        })
+
+        return prev.includes(type) ? prev : [...prev, type]
+      })
+
+      setAvailableTechs((prev) => {
+        const techsNow = Array.from(new Set([...prev, ...technologies]))
+
+        setTechCountMap((map) => {
+          technologies.forEach((tech) => {
+            const freq = map.get(tech)
+            if (freq) map.set(tech, freq + 1)
+            else map.set(tech, 1)
+          })
+          return map
+        })
+
+        return techsNow
+      })
+    }
+
+    window.addEventListener(
+      "new-project-loaded",
+      onAddNewProject as EventListener
+    )
+
+    return () => {
+      window.removeEventListener(
+        "new-project-loaded",
+        onAddNewProject as EventListener
+      )
+    }
+  }, [])
 
   useEffect(
     function setFilterDescriptionFromFilters() {
@@ -64,16 +115,6 @@ export default function ProjectFilterPanel(props: Props) {
     setTypeFilter("")
   }, [])
 
-  const techLabelFreqPairs = useMemo(() => {
-    const techLabels = projects.flatMap((project) => project.technologies)
-    return getSortedLabelFreqPairs(techLabels)
-  }, [projects])
-
-  const ptypeLabelFreqPairs = useMemo(() => {
-    const types = projects.map((project) => project.type)
-    return getSortedLabelFreqPairs(types)
-  }, [projects])
-
   const shouldDisplayClearButton = !!typeFilter || techFilters.length > 0
 
   return (
@@ -95,14 +136,14 @@ export default function ProjectFilterPanel(props: Props) {
       <section className={styles.filterList}>
         <h4>Project Types</h4>
 
-        {ptypeLabelFreqPairs.map(({ label, freq }) => (
-          <div key={label}>
+        {availableTypes.map((type) => (
+          <div key={type}>
             <input
               type="checkbox"
-              checked={typeFilter === label}
-              onChange={(e) => setTypeFilter(e.target.checked ? label : "")}
+              checked={typeFilter === type}
+              onChange={(e) => setTypeFilter(e.target.checked ? type : "")}
             />
-            &nbsp;{label} ({freq})
+            &nbsp;{type} ({typeCountMap.get(type)})
           </div>
         ))}
       </section>
@@ -110,18 +151,16 @@ export default function ProjectFilterPanel(props: Props) {
       <section className={styles.filterList}>
         <h4>Technologies</h4>
 
-        {techLabelFreqPairs.map(({ label, freq }) => (
-          <div key={label}>
+        {availableTechs.map((tech) => (
+          <div key={tech}>
             <input
               type="checkbox"
-              checked={techFilters.indexOf(label) !== -1}
+              checked={techFilters.indexOf(tech) !== -1}
               onChange={(e) =>
-                e.target.checked
-                  ? addTechFilter(label)
-                  : removeTechFilter(label)
+                e.target.checked ? addTechFilter(tech) : removeTechFilter(tech)
               }
             />
-            &nbsp;{label} ({freq})
+            &nbsp;{tech} ({techCountMap.get(tech)})
           </div>
         ))}
       </section>

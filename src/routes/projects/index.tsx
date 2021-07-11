@@ -47,7 +47,7 @@ export default function Projects() {
             key={project.id}
             errorMsg={`Failed to display project ${project.id}`}
           >
-            <Project project={project} invertLayout={index % 2 === 1} />
+            <Project project={project} />
           </ErrorBoundary>
         ))}
       </section>

@@ -1,16 +1,15 @@
-import { useContext } from 'react'
-import { SettingsContext } from '../../contexts'
-import { AppSettings, ProjectType } from '../../global-types'
-import useFetchFromDB from '../../hooks/useFetchFromDB'
-import ProjectCard from './ProjectCard'
+import { useContext } from "react"
+import { SettingsContext } from "../../contexts"
+import { AppSettings, ProjectType } from "../../global-types"
+import useFetchFromDB from "../../hooks/useFetchFromDB"
+import ProjectCard from "./ProjectCard"
 
 interface Props {
   project: ProjectType
-  invertLayout?: boolean
 }
 
 export default function Project(props: Props) {
-  const { project, invertLayout } = props
+  const { project } = props
 
   const { id, type, photos, technologies, links, video, priority } = project
 
@@ -36,7 +35,6 @@ export default function Project(props: Props) {
       title={title}
       priority={priority}
       subtitle={subtitle}
-      invertLayout={invertLayout}
     />
   )
 }

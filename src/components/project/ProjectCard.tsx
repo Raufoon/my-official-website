@@ -8,17 +8,8 @@ import styles from "./ProjectCard.module.scss"
 import ProjectLinkIcon from "./ProjectLinkIcon"
 
 export default function ProjectCard(props: ProjectVisualType) {
-  const {
-    id,
-    title,
-    subtitle,
-    type,
-    invertLayout,
-    photos,
-    technologies,
-    links,
-    video,
-  } = props
+  const { id, title, subtitle, type, photos, technologies, links, video } =
+    props
 
   const projectTypeLabelStyle = useMemo(
     () => ({
@@ -28,9 +19,7 @@ export default function ProjectCard(props: ProjectVisualType) {
   )
 
   return (
-    <section
-      className={`${styles.Project} ${invertLayout ? styles.inverted : ""}`}
-    >
+    <section className={`${styles.Project}`}>
       <div className={styles.monolith} style={projectTypeLabelStyle}>
         <h3 data-testid="project-type">{type}</h3>
       </div>

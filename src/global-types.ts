@@ -72,5 +72,4 @@ export interface ProjectType {
 export interface ProjectVisualType extends ProjectType {
   title: string
   subtitle: string
-  invertLayout?: boolean
 }

@@ -33,6 +33,11 @@ $breakpoint_xlarge: 2000px;
   display: flex;
   flex-direction: column;
 
+  & > *:nth-child(even) {
+    background-color: var(--color-bg-2);
+    margin-top: 2rem;
+  }
+
   @media screen and (min-width: $ms_lower_bound) {
     flex: 1;
     overflow-y: auto;
@@ -41,6 +46,11 @@ $breakpoint_xlarge: 2000px;
   @media screen and (min-width: $breakpoint_large) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    & > *:nth-child(even) {
+      background-color: inherit;
+      margin-top: unset;
+    }
   }
 
   @media screen and (min-width: $breakpoint_xlarge) {

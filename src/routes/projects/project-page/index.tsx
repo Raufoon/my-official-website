@@ -19,7 +19,7 @@ export default function ProjectPage() {
 
   return (
     <main className={`${styles.ProjectPage} atLeastFullHeight`}>
-      <Project project={project} />
+      <Project id={project.id} />
     </main>
   )
 }

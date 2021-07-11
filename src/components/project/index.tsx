@@ -1,28 +1,55 @@
 import { useContext } from "react"
 import { SettingsContext } from "../../contexts"
-import { AppSettings, ProjectType } from "../../global-types"
+import { AppSettings, SocialLink } from "../../global-types"
 import useFetchFromDB from "../../hooks/useFetchFromDB"
 import ProjectCard from "./ProjectCard"
 
 interface Props {
-  project: ProjectType
+  id: string
+}
+
+type ProjectDescription = {
+  title: string
+  subtitle: string
+}
+
+type ProjectMetadata = {
+  id: string
+  type: string
+  priority: number
+  technologies: Array<string>
+  links: Array<SocialLink>
+  photos?: Array<string>
+  video?: string
 }
 
 export default function Project(props: Props) {
-  const { project } = props
-
-  const { id, type, photos, technologies, links, video, priority } = project
+  const { id } = props
 
   const settings: AppSettings = useContext(SettingsContext)
 
-  const { isFetching, hasError, data } = useFetchFromDB<{
-    title: string
-    subtitle: string
-  }>(`${settings.lang}/projects/${id}`)
+  const {
+    isFetching: isDescriptionFetching,
+    hasError: hasDescriptionError,
+    data: description,
+  } = useFetchFromDB<ProjectDescription>(`${settings.lang}/projects/${id}`)
 
-  if (isFetching || hasError) return <></>
+  const {
+    isFetching: isMetadataFetching,
+    hasError: hasMetadataError,
+    data: metadata,
+  } = useFetchFromDB<ProjectMetadata>(`projects/${id}`)
 
-  const { title, subtitle } = data
+  if (
+    isDescriptionFetching ||
+    hasDescriptionError ||
+    isMetadataFetching ||
+    hasMetadataError
+  )
+    return null
+
+  const { title, subtitle } = description
+  const { type, photos, technologies, links, video, priority } = metadata
 
   return (
     <ProjectCard

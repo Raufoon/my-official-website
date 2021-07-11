@@ -73,3 +73,15 @@ export interface ProjectVisualType extends ProjectType {
   title: string
   subtitle: string
 }
+
+export interface Project {
+  id: string
+  title: string
+  subtitle: string
+  type: string
+  priority: number
+  technologies: Array<string>
+  links: Array<SocialLink>
+  photos?: Array<string>
+  video?: string
+}

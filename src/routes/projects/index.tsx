@@ -47,7 +47,7 @@ export default function Projects() {
             key={project.id}
             errorMsg={`Failed to display project ${project.id}`}
           >
-            <Project project={project} />
+            <Project id={project.id} />
           </ErrorBoundary>
         ))}
       </section>

@@ -1,13 +1,13 @@
 import { useMemo } from "react"
 import { Link } from "react-router-dom"
-import { ProjectVisualType } from "../../global-types"
+import { Project } from "../../global-types"
 import { lightColor } from "../../utils"
 import PhotoSlider from "../PhotoSlider"
 import VideoPoster from "../VideoPoster"
 import styles from "./ProjectCard.module.scss"
 import ProjectLinkIcon from "./ProjectLinkIcon"
 
-export default function ProjectCard(props: ProjectVisualType) {
+export default function ProjectCard(props: Project) {
   const { id, title, subtitle, type, photos, technologies, links, video } =
     props
 

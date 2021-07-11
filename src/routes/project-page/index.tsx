@@ -2,24 +2,13 @@ import { useContext } from "react"
 import { useRouteMatch } from "react-router-dom"
 import ProjectCard from "../../components/project/ProjectCard"
 import { SettingsContext } from "../../contexts"
-import { AppSettings, SocialLink } from "../../global-types"
+import {
+  AppSettings,
+  ProjectMetadata,
+  ProjectDescription,
+} from "../../global-types"
 import useFetchFromDB from "../../hooks/useFetchFromDB"
 import styles from "./index.module.scss"
-
-type ProjectDescription = {
-  title: string
-  subtitle: string
-}
-
-type ProjectMetadata = {
-  id: string
-  type: string
-  priority: number
-  technologies: Array<string>
-  links: Array<SocialLink>
-  photos?: Array<string>
-  video?: string
-}
 
 export default function ProjectPage() {
   const { params } = useRouteMatch<{ id: string }>()

@@ -70,3 +70,19 @@ export interface Project {
   photos?: Array<string>
   video?: string
 }
+
+export interface ProjectDescription {
+  id: string
+  title: string
+  subtitle: string
+}
+
+export interface ProjectMetadata {
+  id: string
+  type: string
+  priority: number
+  technologies: Array<string>
+  links: Array<SocialLink>
+  photos?: Array<string>
+  video?: string
+}

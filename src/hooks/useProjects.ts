@@ -1,24 +1,13 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from "react"
 import { SettingsContext } from "../contexts"
-import { AppSettings, Project, SocialLink } from "../global-types"
+import {
+  AppSettings,
+  Project,
+  ProjectDescription,
+  ProjectMetadata,
+} from "../global-types"
 import { intersects } from "../routes/projects/utils"
 import useFetchListFromDB from "./useFetchListFromDB"
-
-type ProjectDescription = {
-  id: string
-  title: string
-  subtitle: string
-}
-
-type ProjectMetadata = {
-  id: string
-  type: string
-  priority: number
-  technologies: Array<string>
-  links: Array<SocialLink>
-  photos?: Array<string>
-  video?: string
-}
 
 export default function useProjects() {
   const {

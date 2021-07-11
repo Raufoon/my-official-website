@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
-import { read } from '../database'
-import { APIResponse } from '../global-types'
-import { getLStorageItemAsJSON, getSStorageItemAsJSON } from '../utils'
+import { useEffect, useMemo, useState } from "react"
+import { read } from "../database"
+import { APIResponse } from "../global-types"
+import { getLStorageItemAsJSON, getSStorageItemAsJSON } from "../utils"
 
 export default function useFetchFromDB<T>(path: string): APIResponse<T> {
   const initialResponse = useMemo(() => {
@@ -26,8 +26,10 @@ export default function useFetchFromDB<T>(path: string): APIResponse<T> {
           data,
         }
         setResponse(response)
-        sessionStorage.setItem(path, JSON.stringify(response))
-        localStorage.setItem(path, JSON.stringify(response))
+        if (process.env.NODE_ENV === "production") {
+          sessionStorage.setItem(path, JSON.stringify(response))
+          localStorage.setItem(path, JSON.stringify(response))
+        }
       } catch (err) {
         setResponse({
           isFetching: false,

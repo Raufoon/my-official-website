@@ -1,53 +1,31 @@
-import { useCallback } from "react"
 import Loader from "../../components/Loader"
 import styles from "./index.module.scss"
 import ProjectFilterPanel from "./ProjectFilterPanel"
-import { ReactComponent as FilterIcon } from "../../assets/icons/equalizer.svg"
-import { createModal } from "../../components/modal"
-import IconButton from "../../components/IconButton"
-import useViewableProjects from "../../hooks/useViewableProjects"
 import Project from "../../components/project"
 import ErrorBoundary from "../../components/ErrorBoundary"
+import useFetchListFromDB from "../../hooks/useFetchListFromDB"
 
 export default function Projects() {
-  const { isFetching, allProjects, visibleProjects, setVisibleProjects } =
-    useViewableProjects()
+  const { isFetching: isIdsFetching, list: projectIds } =
+    useFetchListFromDB<string>(`project-ids`)
 
-  const openFilterModal = useCallback(() => {
-    createModal(
-      <ProjectFilterPanel
-        className={styles.filterPanelMobile}
-        projects={allProjects}
-        setVisibleProjects={setVisibleProjects}
-      />
-    )
-  }, [allProjects, setVisibleProjects])
-
-  if (isFetching) return <Loader center={true} />
+  if (isIdsFetching) return <Loader center={true} />
 
   return (
     <main className={styles.Projects}>
       <ProjectFilterPanel
         className={styles.filterPanel}
-        projects={allProjects}
-        setVisibleProjects={setVisibleProjects}
-      />
-
-      <IconButton
-        btnClassName={styles.filterPanelMobileOpener}
-        onClick={openFilterModal}
-        Icon={FilterIcon}
-        iconProps={{ width: "2rem", height: "2rem" }}
-        label="Filters"
+        projects={[]}
+        setVisibleProjects={() => null}
       />
 
       <section className={styles.projectList}>
-        {visibleProjects.map((project) => (
+        {projectIds.map((projectId) => (
           <ErrorBoundary
-            key={project.id}
-            errorMsg={`Failed to display project ${project.id}`}
+            key={projectId}
+            errorMsg={`Failed to display project ${projectId}`}
           >
-            <Project id={project.id} />
+            <Project id={projectId} />
           </ErrorBoundary>
         ))}
       </section>

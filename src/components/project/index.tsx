@@ -1,71 +1,24 @@
-import { useContext, useEffect } from "react"
-import { SettingsContext } from "../../contexts"
-import { AppSettings, SocialLink } from "../../global-types"
-import useFetchFromDB from "../../hooks/useFetchFromDB"
+import { Project as ProjectType } from "../../global-types"
 import ProjectCard from "./ProjectCard"
 
 interface Props {
-  id: string
-}
-
-type ProjectDescription = {
-  title: string
-  subtitle: string
-}
-
-type ProjectMetadata = {
-  id: string
-  type: string
-  priority: number
-  technologies: Array<string>
-  links: Array<SocialLink>
-  photos?: Array<string>
-  video?: string
+  project: ProjectType
 }
 
 export default function Project(props: Props) {
-  const { id } = props
-
-  const settings: AppSettings = useContext(SettingsContext)
+  const { project } = props
 
   const {
-    isFetching: isDescriptionFetching,
-    hasError: hasDescriptionError,
-    data: description,
-  } = useFetchFromDB<ProjectDescription>(`${settings.lang}/projects/${id}`)
-
-  const {
-    isFetching: isMetadataFetching,
-    hasError: hasMetadataError,
-    data: metadata,
-  } = useFetchFromDB<ProjectMetadata>(`projects/${id}`)
-
-  const isNotLoadedYet =
-    isDescriptionFetching ||
-    hasDescriptionError ||
-    isMetadataFetching ||
-    hasMetadataError
-
-  useEffect(() => {
-    if (isNotLoadedYet) return
-
-    const { id, technologies, type } = metadata
-
-    window.dispatchEvent(
-      new CustomEvent("new-project-loaded", {
-        detail: {
-          id,
-          technologies,
-          type,
-        },
-      })
-    )
-  }, [isNotLoadedYet, metadata])
-
-  if (isNotLoadedYet) return null
-
-  const { title, subtitle } = description
-  const { type, photos, technologies, links, video, priority } = metadata
+    id,
+    title,
+    subtitle,
+    type,
+    photos,
+    technologies,
+    links,
+    video,
+    priority,
+  } = project
 
   return (
     <ProjectCard

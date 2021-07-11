@@ -3,25 +3,24 @@ import styles from "./index.module.scss"
 import ProjectFilterPanel from "./ProjectFilterPanel"
 import Project from "../../components/project"
 import ErrorBoundary from "../../components/ErrorBoundary"
-import useFetchListFromDB from "../../hooks/useFetchListFromDB"
+import useProjects from "../../hooks/useProjects"
 
 export default function Projects() {
-  const { isFetching: isIdsFetching, list: projectIds } =
-    useFetchListFromDB<string>(`project-ids`)
+  const { isFetching, hasError, projects } = useProjects()
 
-  if (isIdsFetching) return <Loader center={true} />
+  if (isFetching || hasError) return <Loader center={true} />
 
   return (
     <main className={styles.Projects}>
       <ProjectFilterPanel className={styles.filterPanel} />
 
       <section className={styles.projectList}>
-        {projectIds.map((projectId) => (
+        {projects.map((project) => (
           <ErrorBoundary
-            key={projectId}
-            errorMsg={`Failed to display project ${projectId}`}
+            key={project.id}
+            errorMsg={`Failed to display project ${project.id}`}
           >
-            <Project id={projectId} />
+            <Project project={project} />
           </ErrorBoundary>
         ))}
       </section>

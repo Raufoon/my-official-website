@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
-import { readAsList } from '../database'
-import { APIResponseWithList } from '../global-types'
-import { getLStorageItemAsJSON, getSStorageItemAsJSON } from '../utils'
+import { useEffect, useMemo, useState } from "react"
+import { readAsList } from "../database"
+import { APIResponseWithList } from "../global-types"
+import { getLStorageItemAsJSON, getSStorageItemAsJSON } from "../utils"
 
 export default function useFetchListFromDB<T>(
   path: string
@@ -27,9 +27,13 @@ export default function useFetchListFromDB<T>(
           hasError: false,
           list,
         }
+
         setResponse(response)
-        sessionStorage.setItem(path, JSON.stringify(response))
-        localStorage.setItem(path, JSON.stringify(response))
+
+        if (process.env.NODE_ENV === "production") {
+          sessionStorage.setItem(path, JSON.stringify(response))
+          localStorage.setItem(path, JSON.stringify(response))
+        }
       } catch (err) {
         setResponse({
           isFetching: false,

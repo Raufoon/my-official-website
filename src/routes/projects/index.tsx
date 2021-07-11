@@ -13,11 +13,7 @@ export default function Projects() {
 
   return (
     <main className={styles.Projects}>
-      <ProjectFilterPanel
-        className={styles.filterPanel}
-        projects={[]}
-        setVisibleProjects={() => null}
-      />
+      <ProjectFilterPanel className={styles.filterPanel} />
 
       <section className={styles.projectList}>
         {projectIds.map((projectId) => (
